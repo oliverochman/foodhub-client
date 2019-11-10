@@ -1,1 +1,2 @@
-# foodhub-client
+## FoodHub
+### Final Project with CraftAcademy
