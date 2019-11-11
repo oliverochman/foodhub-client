@@ -49,7 +49,6 @@ class CreateRecipe extends Component {
     if (responseMessage) {
       messages = (
         <>
-          <br />
           <Message style={{ color: error ? 'red' : 'green' }}>
           <p id="create-response">{message}</p>
           </Message>
