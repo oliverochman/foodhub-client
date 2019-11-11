@@ -2,7 +2,7 @@ describe('Creates a recipe', () => {
 
   it('Successfully', () => {
     cy.route({
-      method: 'GET',
+      method: 'POST',
       url: 'http://localhost:3000/v1/recipes',
       response: 'fixture:create_recipe.json',
       status: 200
@@ -19,7 +19,7 @@ describe('Creates a recipe', () => {
 
   it('Fails to', () => {
     cy.route({
-      method: 'GET',
+      method: 'POST',
       url: 'http://localhost:3000/v1/recipes',
       response: '{ message: "Unable to create recipe." }',
       status: 400
