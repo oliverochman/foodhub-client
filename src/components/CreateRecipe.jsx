@@ -11,7 +11,7 @@ class CreateRecipe extends Component {
 
   inputHandler = (e) => {
     this.setState({
-      [e.target.value]: e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
@@ -19,7 +19,7 @@ class CreateRecipe extends Component {
     let createRecipeForm, message
     let { responseMessage } = this.state
 
-    if (renderErrorMessage) {
+    if (responseMessage) {
       message = (
         <p id="create-response">{responseMessage}</p>
       )

@@ -1,18 +1,17 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
 
-import React from 'react'
-
-const CreateRecipeForm = () => {
+const CreateRecipeForm = (props) => {
   return (
     <>
       <Form id="create-recipe-form">
         <Form.Group widths='equal'>
           <Form.Input
             fluid
+            id="create-title"
             label='Title'
             placeholder='Add title'
-            value="title"
+            name="title"
             onChange={props.inputHandler}
           />
         </Form.Group>
@@ -20,14 +19,14 @@ const CreateRecipeForm = () => {
           label='Ingredients'
           id="create-ingredients"
           placeholder='Add ingredients'
-          value="ingredients"
+          name="ingredients"
           onChange={props.inputHandler}
         />
         <Form.TextArea
           label='Description'
           id="create-description"
           placeholder='Add description'
-          value="description"
+          name="description"
           onChange={props.inputHandler}
         />
         <Form.Button
