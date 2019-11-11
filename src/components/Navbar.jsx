@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu, Header } from 'semantic-ui-react'
+import { Menu, Header, Icon } from 'semantic-ui-react'
 import '../css/navbar.css'
 
 class Navbar extends Component {
@@ -15,6 +15,7 @@ class Navbar extends Component {
         >
           Food Hub
         </Header>
+        <Icon name='food' size='huge' />
         <Menu.Menu position='right'>
           <Menu.Item>
           <Header

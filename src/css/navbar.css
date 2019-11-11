@@ -1,7 +1,14 @@
 #navbar-header {
-  margin: 0.5rem !important;
+  margin: 0.5rem 0 0.5rem 0.5rem !important;
 }
 
 .ui.menu .item {
   border: 1px solid #fff !important;
+}
+
+i.huge.icon {
+  margin-top: 0.8rem !important;
+  background: -webkit-linear-gradient(#eee, #0f402b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
