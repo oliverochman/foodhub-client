@@ -4,7 +4,7 @@ describe('Creates a recipe', () => {
     cy.route({
       method: 'POST',
       url: 'http://localhost:3000/v1/recipes',
-      response: 'fixture:create_recipe.json',
+      response: '{ "message": "The recipe was successfully created." }',
       status: 200
     })
   
@@ -13,7 +13,8 @@ describe('Creates a recipe', () => {
         .get('#create-ingredients').type('Apples, syrup')
         .get('#create-description').type('Add syrup to apples. Heat in microwave.')
         .get('#submit-create-form').click()
-        .get('#create-response').should('contain', 'The recipe was successfully created.')
+        .get('#create-response')
+        .should('contain', 'The recipe was successfully created.')
     })
   })
 
@@ -21,7 +22,7 @@ describe('Creates a recipe', () => {
     cy.route({
       method: 'POST',
       url: 'http://localhost:3000/v1/recipes',
-      response: '{ message: "Unable to create recipe." }',
+      response: '{ "error_message": "Unable to create recipe." }',
       status: 400
     })
   
@@ -30,7 +31,8 @@ describe('Creates a recipe', () => {
         .get('#create-ingredients').type('Apples, syrup')
         .get('#create-description').type('Add syrup to apples. Heat in microwave.')
         .get('#submit-create-form').click()
-        .get('#create-response').should('contain', 'Unable to create recipe.')
+        .get('#create-response')
+        .should('contain', 'Unable to create recipe.')
     })
   })
 })

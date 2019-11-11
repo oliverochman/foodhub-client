@@ -10,7 +10,7 @@ const CreateRecipeForm = (props) => {
             fluid
             id="create-title"
             label='Title'
-            placeholder='Add title'
+            placeholder='Add title (maximum 255 characters)'
             name="title"
             onChange={props.inputHandler}
           />
@@ -18,14 +18,14 @@ const CreateRecipeForm = (props) => {
         <Form.TextArea
           label='Ingredients'
           id="create-ingredients"
-          placeholder='Add ingredients'
+          placeholder='Add ingredients (maximum 500 characters)'
           name="ingredients"
           onChange={props.inputHandler}
         />
         <Form.TextArea
           label='Description'
           id="create-description"
-          placeholder='Add description'
+          placeholder='Add description (maximum 5000 characters)'
           name="description"
           onChange={props.inputHandler}
         />
