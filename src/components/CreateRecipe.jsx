@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Message } from 'semantic-ui-react'
+import { Message, Header } from 'semantic-ui-react'
 import CreateRecipeForm from './CreateRecipeForm'
 import axios from 'axios'
+import '../css/create-article.css'
 
 class CreateRecipe extends Component {
   state = {
@@ -48,11 +49,9 @@ class CreateRecipe extends Component {
 
     if (responseMessage) {
       messages = (
-        <>
-          <Message style={{ color: error ? 'red' : 'green' }}>
+          <Message className="create-message" style={{ color: error ? 'red' : 'green' }}>
           <p id="create-response">{message}</p>
           </Message>
-        </>
       )
     }
 
@@ -64,7 +63,8 @@ class CreateRecipe extends Component {
     )
 
     return (
-      <div>
+      <div className="create-wrapper">
+       <Header as='h1' className="create-recipe">Create Your Own Recipe</Header>
         {createRecipeForm}
         {messages}
       </div>
