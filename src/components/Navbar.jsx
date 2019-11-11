@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Menu, Header, Modal, Button } from 'semantic-ui-react'
-import '../css/navbar'
-import { connect } from 'react-redux'
+import { Menu, Header } from 'semantic-ui-react'
+import '../css/navbar.css'
 
 class Navbar extends Component {
 
@@ -11,7 +10,7 @@ class Navbar extends Component {
       <Menu id='navbar'>
         <Header 
           position='left' 
-          id='header' 
+          id='navbar-header' 
           style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Anton' }}
         >
           Food Hub
@@ -29,12 +28,4 @@ class Navbar extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state.reduxTokenAuth.currentUser
-  }
-}
-
-export default connect(
-  mapStateToProps
-)(Navbar)
+export default Navbar
