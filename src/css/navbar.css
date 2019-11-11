@@ -1,3 +1,7 @@
 #navbar-header {
   margin: 0.5rem !important;
 }
+
+.ui.menu .item {
+  border: 1px solid #fff !important;
+}

@@ -8,20 +8,21 @@ class Navbar extends Component {
 
     return (
       <Menu id='navbar'>
-        <Header 
-          position='left' 
-          id='navbar-header' 
+        <Header
+          position='left'
+          id='navbar-header'
           style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Anton' }}
         >
           Food Hub
         </Header>
         <Menu.Menu position='right'>
-        <Header 
-          position='right' 
-          id='header' 
+          <Menu.Item>
+          <Header
+            position='right'
           >
-          Create Recipe
+            Create Recipe
         </Header>
+        </Menu.Item>
         </Menu.Menu>
       </Menu>
     )
