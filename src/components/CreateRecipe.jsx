@@ -6,24 +6,36 @@ class CreateRecipe extends Component {
     title: '',
     ingredients: '',
     description: '',
-    renderCreateForm: false
+    responseMessage: false
+  }
+
+  inputHandler = (e) => {
+    this.setState({
+      [e.target.value]: e.target.value
+    })
   }
 
   render() {
-    let createRecipeForm
+    let createRecipeForm, message
+    let { responseMessage } = this.state
 
-    if (renderCreateForm) {
-
-    } else {
-      createRecipeForm = (
-        <CreateRecipeForm
-        />
+    if (renderErrorMessage) {
+      message = (
+        <p id="create-response">{responseMessage}</p>
       )
     }
+
+    createRecipeForm = (
+      <CreateRecipeForm
+        inputHandler={this.inputHandler}
+        submitRecipeHandler={this.submitRecipeHandler}
+      />
+    )
 
     return (
       <div>
         {createRecipeForm}
+        {message}
       </div>
     )
   }
