@@ -8,7 +8,7 @@ describe('Creates a recipe', () => {
       status: 200
     })
   
-    cy.get('#create-article-form').within(() => {
+    cy.get('#create-recipe-form').within(() => {
       cy.get('#create-title').type('Warm Apples')
         .get('#create-ingredients').type('Apples, syrup')
         .get('#create-description').type('Add syrup to apples. Heat in microwave.')
@@ -25,7 +25,7 @@ describe('Creates a recipe', () => {
       status: 400
     })
   
-    cy.get('#create-article-form').within(() => {
+    cy.get('#create-recipe-form').within(() => {
       cy.get('#create-title').type('Warm Apples')
         .get('#create-ingredients').type('Apples, syrup')
         .get('#create-description').type('Add syrup to apples. Heat in microwave.')

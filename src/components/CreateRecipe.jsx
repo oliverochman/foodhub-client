@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CreateArticleForm from './CreateArticleForm'
+import CreateRecipeForm from './CreateRecipeForm'
 
 class CreateRecipe extends Component {
   state = {
@@ -16,7 +16,7 @@ class CreateRecipe extends Component {
 
     } else {
       createRecipeForm = (
-        <CreateArticleForm
+        <CreateRecipeForm
         />
       )
     }
