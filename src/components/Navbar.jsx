@@ -18,12 +18,15 @@ class Navbar extends Component {
         <Icon name='food' size='huge' />
         <Menu.Menu position='right'>
           <Menu.Item>
-          <Header
-            position='right'
-          >
-            Create Recipe
-        </Header>
-        </Menu.Item>
+            <Header position='right'>
+              Create Recipe
+            </Header>
+          </Menu.Item>
+          <Menu.Item>
+            <Header position='right'>
+              Login
+            </Header>
+          </Menu.Item>
         </Menu.Menu>
       </Menu>
     )
