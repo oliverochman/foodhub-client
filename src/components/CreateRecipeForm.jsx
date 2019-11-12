@@ -1,32 +1,13 @@
 import React from 'react'
-import { Form, Input } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 import { submitRecipe } from '../modules/requestRecipes'
 
 
 const CreateRecipeForm = (props) => {
-  const submitRecipeHandler = async (e) => {
-    e.preventDefault();
-    // let {title, directions} = event.target
-    debugger;
-    const title = e.target.form.title.value
-    const ingredients = e.target.form.ingredients.value
-    const directions = e.target.form.directions.value
-    let response = await submitRecipe(title, ingredients, directions)
-
-    // if (response.status === 201) {
-    //   this.setState({
-    //     message: response.message
-    //   })
-    // } else {
-    //   this.setState({
-    //     message: response.message,
-    //     error: true
-    //   })
-    // }
-  }
+  
   return (
     <>
-      <Form id="create-recipe-form" onSumbit={(event) => submitRecipeHandler(event)}>
+      <Form id="create-recipe-form" onSubmit={(event) => props.submitRecipeHandler(event)}>
         <Form.Group widths='equal'>
           <Form.Input
             fluid
@@ -48,12 +29,12 @@ const CreateRecipeForm = (props) => {
           placeholder='Add directions (maximum 5000 characters)'
           name="directions"
         />
-        <Input
+        <Button
           id="submit-create-form"
           type="submit"
         >
           Submit
-          </Input>
+          </Button>
       </Form>
     </>
   )

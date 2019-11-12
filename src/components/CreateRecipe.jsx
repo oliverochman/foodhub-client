@@ -12,7 +12,23 @@ class CreateRecipe extends Component {
     message: null,
     error: false
   }
+  
+  submitRecipeHandler = async (event) => {
+    event.preventDefault();
+    let {title, directions, ingredients} = event.target    
+    let response = await submitRecipe(title.value, ingredients.value, directions.value)
 
+    if (response.message) {
+      this.setState({
+        message: response.message
+      })
+    } else {
+      this.setState({
+        message: response.error,
+        error: true
+      })
+    }
+  }
   
 
   render() {
@@ -33,6 +49,7 @@ class CreateRecipe extends Component {
         <Header sub>All input fields are mandatory in order to submit a recipe.</Header>
 
         <CreateRecipeForm
+          submitRecipeHandler={this.submitRecipeHandler}
         />
         {messages}
       </div>
