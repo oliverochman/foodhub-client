@@ -7,4 +7,25 @@ const fetchRecipes = async () => {
   return response.data.recipes
 }
 
-export { fetchRecipes };
+const submitRecipe = async (title, ingredients, directions) => {
+  try {
+    let response = await axios.post(apiUrl + 'recipes',
+      { recipe:
+        {
+          title: title,
+          ingredients: ingredients,
+          directions: directions
+        }
+      }
+    )
+    return {
+      message: response.data.message,
+    }
+  } catch(error) {
+    return {
+      error: error.response.data.error_message
+    }
+  }
+}
+
+export { fetchRecipes, submitRecipe }
