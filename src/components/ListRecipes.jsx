@@ -25,15 +25,9 @@ class ListRecipes extends Component {
   render() {
     let renderListRecipes
     const recipeData = this.state.recipes
-    let error_message
-
-    if (recipeData.length < 0) {
-      debugger
-      error_message = <p id="error-message">This is an error</p>
-    }
-
+    let message
+    
     if (recipeData.length > 0) {
-      debugger
       renderListRecipes = recipeData.map(recipe => {
         return (
           <div key={recipe.id}>
@@ -43,12 +37,14 @@ class ListRecipes extends Component {
           </div>
         )
       })
-    } 
+    } else {
+      message = <p id="message">There are no recipes</p>
+    }
 
     return (
       <>
         {renderListRecipes}
-        {error_message}
+        {message}
       </>
     )
   }
