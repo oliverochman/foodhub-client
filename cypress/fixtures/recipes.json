@@ -1,23 +1,14 @@
-{
-  "status": 200, 
-  "headers": {}, 
-  "recipes":
-  [
-    {
-      "data": {
-        "title": "Quiche", 
-        "ingredients": "Eggs", 
-        "instructions": "Stir the mixture"
-      },
-      "id": 1
-    },
-    {
-      "data": {
-        "title": "Chocolate Croissant", 
-        "ingredients": "Creme", 
-        "instructions": "Bake in the oven"
-      }, 
-      "id": 2
-    }
-  ]
-}
+[
+  {
+    "id": 1,  
+    "title": "Quiche", 
+    "ingredients": "Eggs", 
+    "instructions": "Stir the mixture"
+  },
+  {
+    "id": 2,
+    "title": "Chocolate Croissant", 
+    "ingredients": "Creme", 
+    "instructions": "Bake in the oven"
+  } 
+]

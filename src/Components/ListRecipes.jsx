@@ -2,41 +2,51 @@ import React from 'react';
 import { getData } from './Modules/RequestRecipes';
 
 class ListRecipes extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      recipes: []
+  state = {
+    recipes: [],
+    error_message:null
     }
-  }
+    componentDidMount() {
+      this.getRecipes()
+    }
 
   async getRecipes() {
     let result = await getData()
     this.setState({
-      recipes: result.data.entries
+      recipes: result
     })
   }
 
   render() {
+    let renderListRecipes
     const recipeData = this.state.recipes
-    this.getRecipes()
 
     if (recipeData !== []) {
-      recipeData.forEach(recipe => {
-        return (
-          <div key={recipe.id}>
-            {recipe.data.title}
-            {recipe.data.ingredients}
-            {recipe.data.instructions}
+      renderListRecipes = (
+        <div>
+          {recipeData.map(recipes => {
+            return <div key={recipe.id}>
+            {recipe.title}
+            {recipe.ingredients}
+            {recipe.instructions}
+          </div>
+          })}
           </div>
         )
-      })
+      } else {
+        return(
+          renderListRecipes = (
+          <div>
+            No recipes available.
+          </div>
+        )
+      )
     }
     return(
-      <div>
-        No recipes available.
-      </div>
+      <> 
+        {renderListRecipes}
+      </>
     )
   }
 }
-
 export default ListRecipes;
