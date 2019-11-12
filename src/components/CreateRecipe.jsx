@@ -49,9 +49,9 @@ class CreateRecipe extends Component {
 
     if (responseMessage) {
       messages = (
-          <Message style={{ color: error ? 'red' : 'green' }}>
+        <Message style={{ color: error ? 'red' : 'green' }}>
           <p id="response-message">{message}</p>
-          </Message>
+        </Message>
       )
     }
 
@@ -64,7 +64,7 @@ class CreateRecipe extends Component {
 
     return (
       <div className="create-wrapper">
-       <Header as='h1' className="create-recipe">Create Your Own Recipe</Header>
+        <Header as='h1' className="create-recipe">Create Your Own Recipe</Header>
         {createRecipeForm}
         {messages}
       </div>
