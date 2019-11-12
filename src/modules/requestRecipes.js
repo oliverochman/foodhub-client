@@ -1,5 +1,11 @@
-import axios from 'axios'
+import axios from 'axios';
+
 const apiUrl = 'http://localhost:3000/v1/'
+
+const fetchRecipes = async () => {
+  let response = await axios.get(apiUrl + 'recipes')
+  return response.data.recipes
+}
 
 const submitRecipe = async (title, ingredients, directions) => {
   try {
@@ -22,4 +28,4 @@ const submitRecipe = async (title, ingredients, directions) => {
   }
 }
 
-export { submitRecipe }
+export { fetchRecipes, submitRecipe }
