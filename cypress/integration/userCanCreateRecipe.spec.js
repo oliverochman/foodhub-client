@@ -5,7 +5,7 @@ describe('Creates a recipe', () => {
       method: 'POST',
       url: 'http://localhost:3000/v1/recipes',
       response: '{ "message": "The recipe was successfully created." }',
-      status: 200
+      status: 201
     })
   
     cy.get('#create-recipe-form').within(() => {
@@ -23,7 +23,7 @@ describe('Creates a recipe', () => {
       method: 'POST',
       url: 'http://localhost:3000/v1/recipes',
       response: '{ "error_message": "Unable to create recipe." }',
-      status: 400
+      status: 422
     })
   
     cy.get('#create-recipe-form').within(() => {
