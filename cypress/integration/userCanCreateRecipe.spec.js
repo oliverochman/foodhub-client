@@ -11,11 +11,11 @@ describe('Creates a recipe', () => {
     cy.get('#create-recipe-form').within(() => {
       cy.get('#create-title').type('Warm Apples')
         .get('#create-ingredients').type('Apples, syrup')
-        .get('#create-description').type('Add syrup to apples. Heat in microwave.')
+        .get('#create-directions').type('Add syrup to apples. Heat in microwave.')
         .get('#submit-create-form').click()
-        .get('#create-response')
-        .should('contain', 'The recipe was successfully created.')
     })
+    cy.get('#response-message')
+      .should('contain', 'The recipe was successfully created.')
   })
 
   it('Fails to', () => {
@@ -29,10 +29,10 @@ describe('Creates a recipe', () => {
     cy.get('#create-recipe-form').within(() => {
       cy.get('#create-title').type('Warm Apples')
         .get('#create-ingredients').type('Apples, syrup')
-        .get('#create-description').type('Add syrup to apples. Heat in microwave.')
+        .get('#create-directions').type('Add syrup to apples. Heat in microwave.')
         .get('#submit-create-form').click()
-        .get('#create-response')
-        .should('contain', 'Unable to create recipe.')
     })
+    cy.get('#response-message')
+      .should('contain', 'Unable to create recipe')
   })
 })

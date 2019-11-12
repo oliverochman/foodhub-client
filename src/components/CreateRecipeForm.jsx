@@ -23,10 +23,10 @@ const CreateRecipeForm = (props) => {
           onChange={props.inputHandler}
         />
         <Form.TextArea
-          label='Description'
-          id="create-description"
-          placeholder='Add description (maximum 5000 characters)'
-          name="description"
+          label='Directions'
+          id="create-directions"
+          placeholder='Add directions (maximum 5000 characters)'
+          name="directions"
           onChange={props.inputHandler}
         />
         <Form.Button

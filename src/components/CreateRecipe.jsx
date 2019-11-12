@@ -8,7 +8,7 @@ class CreateRecipe extends Component {
   state = {
     title: '',
     ingredients: '',
-    description: '',
+    directions: '',
     responseMessage: false,
     message: '',
     error: false
@@ -17,8 +17,8 @@ class CreateRecipe extends Component {
   submitRecipeHandler = (e) => {
     e.preventDefault();
     const path = 'http://localhost:3000/v1/recipes'
-    const { title, ingredients, description } = this.state
-    axios.post(path, { title, ingredients, description })
+    const { title, ingredients, directions } = this.state
+    axios.post(path, { title, ingredients, directions })
       .then(response => {
         console.log(response)
         this.setState({
@@ -49,8 +49,8 @@ class CreateRecipe extends Component {
 
     if (responseMessage) {
       messages = (
-          <Message className="create-message" style={{ color: error ? 'red' : 'green' }}>
-          <p id="create-response">{message}</p>
+          <Message style={{ color: error ? 'red' : 'green' }}>
+          <p id="response-message">{message}</p>
           </Message>
       )
     }
