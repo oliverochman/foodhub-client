@@ -12,7 +12,7 @@ class CreateRecipe extends Component {
 
   submitRecipeHandler = async (event) => {
     event.preventDefault();
-    let {title, directions, ingredients} = event.target    
+    let { title, directions, ingredients } = event.target
     let response = await submitRecipe(title.value, ingredients.value, directions.value)
 
     if (response.message) {
@@ -33,8 +33,13 @@ class CreateRecipe extends Component {
 
     if (message) {
       messages = (
-        <Message style={{ color: error ? 'red' : 'green' }}>
-          <p id="response-message">{message}</p>
+        <Message className="create-message" size="small" style={{ color: error ? 'red' : 'green' }}>
+          <Header
+            as='p'
+            id="response-message"
+            style={{ color: error ? 'red' : 'green' }}>
+            {message}
+          </Header>
         </Message>
       )
     }

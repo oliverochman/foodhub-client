@@ -1,5 +1,10 @@
 describe('Creates a recipe', () => {
 
+  beforeEach(() => {
+    cy.server()
+    cy.visit('http://localhost:3001')
+  })
+  
   it('Successfully', () => {
     cy.route({
       method: 'POST',
