@@ -4,14 +4,14 @@ import { getData } from '../modules/requestRecipes';
 class ListRecipes extends Component {
   state = {
     recipes: [],
-    error_message:null
-    }
-    componentDidMount() {
-      this.getRecipes()
-    }
+    error_message: null
+  }
+
+  componentDidMount() {
+    this.getRecipes()
+  }
 
   async getRecipes() {
-    debugger
     let result = await getData()
     this.setState({
       recipes: result
@@ -23,28 +23,26 @@ class ListRecipes extends Component {
     const recipeData = this.state.recipes
 
     if (recipeData !== []) {
-      renderListRecipes = (
-        <div>
-          {recipeData.map(recipe => {
-            return <div key={recipe.id}>
+      renderListRecipes = recipeData.map(recipe => {
+        return (
+          <div key={recipe.id}>
             {recipe.title}
             {recipe.ingredients}
             {recipe.instructions}
           </div>
-          })}
-          </div>
         )
-      } else {
-        return(
-          renderListRecipes = (
+      })
+    } else {
+      return (
+        renderListRecipes = (
           <div>
             No recipes available.
           </div>
         )
       )
     }
-    return(
-      <> 
+    return (
+      <>
         <p>Test</p>
         {renderListRecipes}
       </>

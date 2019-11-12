@@ -1,1 +1,7 @@
-{}
+{
+  "video": false,
+  "viewportWidth": 900,
+  "viewportHeight": 700,
+  "autoOpenDevtoolsForTabs": true,
+  "chromeWebSecurity": false
+}
