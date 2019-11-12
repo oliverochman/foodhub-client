@@ -20,13 +20,7 @@ class Navbar extends Component {
         <Menu.Menu position='right'>
           <Menu.Item>
             <Header position='right'>
-              Create Recipe
-            </Header>
-          </Menu.Item>
-
-          <Menu.Item>
-            <Header position='right'>
-              Login
+              Placeholder
             </Header>
           </Menu.Item>
           
