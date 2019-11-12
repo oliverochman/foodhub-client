@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { getData } from '../modules/requestRecipes';
+import { fetchRecipes } from '../modules/requestRecipes';
+import { Message, Header } from 'semantic-ui-react'
 
 class ListRecipes extends Component {
   state = {
@@ -8,25 +9,19 @@ class ListRecipes extends Component {
   }
 
   componentDidMount() {
-    this.getRecipes()
-  }
-
-  async getRecipes() {
-    let result = await getData()
-
-    if (result) {
-      debugger
-      this.setState({
-        recipes: result
+    fetchRecipes()
+      .then(result => {
+        this.setState({
+          recipes: result
+        })
       })
-    }
   }
 
   render() {
     let renderListRecipes
     const recipeData = this.state.recipes
     let message
-    
+
     if (recipeData.length > 0) {
       renderListRecipes = recipeData.map(recipe => {
         return (
@@ -38,12 +33,24 @@ class ListRecipes extends Component {
         )
       })
     } else {
-      message = <p id="message">There are no recipes</p>
+      message = (
+        <Message style={{ color: 'red' }}>
+          <Header
+            as='p'
+            id="message"
+            style={{ color: 'green' }}>
+            There are no recipes
+        </Header>
+        </Message>
+      )
     }
-
     return (
       <>
-        {renderListRecipes}
+        {renderListRecipes &&
+          <div id="list">
+            {renderListRecipes}
+          </div>
+        }
         {message}
       </>
     )
