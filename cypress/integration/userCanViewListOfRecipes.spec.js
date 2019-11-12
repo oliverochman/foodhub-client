@@ -1,5 +1,4 @@
 describe('FoodHub user can view a list of recipes', () => {
-
   beforeEach(() => {
     cy.server()
   });
