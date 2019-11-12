@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getData } from '../modules/requestRecipes';
+import { Container } from 'semantic-ui-react'
 
 class ListRecipes extends Component {
   state = {
@@ -25,11 +26,13 @@ class ListRecipes extends Component {
     if (recipeData !== []) {
       renderListRecipes = recipeData.map(recipe => {
         return (
+          <Container>
           <div key={recipe.id}>
-            {recipe.title}
-            {recipe.ingredients}
-            {recipe.instructions}
+            <h1>{recipe.title}</h1>
+            <p>{recipe.ingredients}</p>
+            <p>{recipe.instructions}</p>
           </div>
+          </Container>
         )
       })
     } else {
@@ -43,7 +46,6 @@ class ListRecipes extends Component {
     }
     return (
       <>
-        <p>Test</p>
         {renderListRecipes}
       </>
     )
