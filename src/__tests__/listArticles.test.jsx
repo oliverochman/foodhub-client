@@ -4,7 +4,7 @@ import ListRecipes from '../Components/ListRecipes';
 
 describe('<ListRecipes />', () => {
   it('display list of recipes', () => {
-    const describedComponent = shallow(<ListRecipes title="Quiche" ingredients="eggs" instructions="Stir the mixture." />);
+    const describedComponent = shallow(<ListRecipes title="Quiche" ingredients="Eggs" instructions="Stir the mixture" />);
     const response = <p>Quiche</p>
     expect(describedComponent.contains(response)).toEqual(true)
   })

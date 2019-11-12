@@ -1,11 +1,15 @@
 describe('FoodHub user can view a list of recipes', () => {
-  BeforeUnloadEvent(function() {
+  it('successfully', () => {
     cy.visit('http://localhost:3001');
     cy.server()
     cy.route({
       method: 'GET',
-      url: 'http://localhost:3000/v1/recipes_',
-      response: 'fixture:recipe_index.json'
+      url: 'http://localhost:3000/v1/recipes',
+      response: 'fixture:recipes.json'
     })
+  })
+  it("contains a title and ingredients", () => {
+    cy.contains("Quiche")
+    cy.contains("Eggs")
   })
 })
