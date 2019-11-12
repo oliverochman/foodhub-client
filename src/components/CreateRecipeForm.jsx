@@ -1,10 +1,8 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
-import { submitRecipe } from '../modules/requestRecipes'
 
 
 const CreateRecipeForm = (props) => {
-  
   return (
     <>
       <Form id="create-recipe-form" onSubmit={(event) => props.submitRecipeHandler(event)}>

@@ -6,9 +6,6 @@ import '../css/create-article.css'
 
 class CreateRecipe extends Component {
   state = {
-    title: '',
-    ingredients: '',
-    directions: '',
     message: null,
     error: false
   }

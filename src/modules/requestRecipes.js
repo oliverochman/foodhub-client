@@ -17,7 +17,7 @@ const submitRecipe = async (title, ingredients, directions) => {
     }
   } catch(error) {
     return {
-      error: error.response.data.error_message,
+      error: error.response.data.error_message
     }
   }
 }
