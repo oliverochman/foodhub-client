@@ -20,6 +20,7 @@ class CreateRecipe extends Component {
     const { title, ingredients, directions } = this.state
     axios.post(path, { title, ingredients, directions })
       .then(response => {
+        debugger;
         console.log(response)
         this.setState({
           message: response.data.message,
@@ -28,13 +29,14 @@ class CreateRecipe extends Component {
         })
       })
       .catch(error => {
+        debugger;
         this.setState({
           message: error.response.data.error_message,
           responseMessage: true,
           error: true
         })
       })
-  }
+    }
 
 
   inputHandler = (e) => {
