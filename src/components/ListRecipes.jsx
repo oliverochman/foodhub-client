@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getData } from '../modules/requestRecipes';
-import { Container } from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react';
 
 class ListRecipes extends Component {
   state = {
@@ -27,11 +27,11 @@ class ListRecipes extends Component {
       renderListRecipes = recipeData.map(recipe => {
         return (
           <Container>
-          <div key={recipe.id}>
-            <h1>{recipe.title}</h1>
-            <p>{recipe.ingredients}</p>
-            <p>{recipe.instructions}</p>
-          </div>
+            <div key={recipe.id}>
+              <h1>{recipe.title}</h1>
+              <p>{recipe.ingredients}</p>
+              <p>{recipe.instructions}</p>
+            </div>
           </Container>
         )
       })
