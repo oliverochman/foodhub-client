@@ -7,9 +7,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Switch>
-          
-        </Switch>
         <Navbar />
       </div>
     );
