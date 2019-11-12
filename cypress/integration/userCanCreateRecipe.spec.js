@@ -1,12 +1,12 @@
 describe('Creates a recipe', () => {
 
   it('Successfully', () => {
-    cy.route({
-      method: 'POST',
-      url: 'http://localhost:3000/v1/recipes',
-      response: '{ "message": "The recipe was successfully created." }',
-      status: 201
-    })
+    // cy.route({
+    //   method: 'POST',
+    //   url: 'http://localhost:3000/v1/recipes',
+    //   response: '{ "message": "The recipe was successfully created." }',
+    //   status: 201
+    // })
   
     cy.get('#create-recipe-form').within(() => {
       cy.get('#create-title').type('Warm Apples')
@@ -19,12 +19,12 @@ describe('Creates a recipe', () => {
   })
 
   it('Fails to', () => {
-    cy.route({
-      method: 'POST',
-      url: 'http://localhost:3000/v1/recipes',
-      response: '{ "error_message": "Unable to create recipe." }',
-      status: 422
-    })
+    // cy.route({
+    //   method: 'POST',
+    //   url: 'http://localhost:3000/v1/recipes',
+    //   response: '{ "error_message": "Unable to create recipe." }',
+    //   status: 422
+    // })
   
     cy.get('#create-recipe-form').within(() => {
       cy.get('#create-title')

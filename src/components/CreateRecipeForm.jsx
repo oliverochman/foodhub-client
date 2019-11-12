@@ -1,10 +1,10 @@
 import React from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 
 const CreateRecipeForm = (props) => {
   return (
     <>
-      <Form id="create-recipe-form">
+      <Form id="create-recipe-form" onSubmit={(event) => props.submitRecipeHandler(event)}>
         <Form.Group widths='equal'>
           <Form.Input
             fluid
@@ -12,7 +12,6 @@ const CreateRecipeForm = (props) => {
             label='Title'
             placeholder='Add title (maximum 255 characters)'
             name="title"
-            onChange={props.inputHandler}
           />
         </Form.Group>
         <Form.TextArea
@@ -20,24 +19,21 @@ const CreateRecipeForm = (props) => {
           id="create-ingredients"
           placeholder='Add ingredients (maximum 500 characters)'
           name="ingredients"
-          onChange={props.inputHandler}
         />
         <Form.TextArea
           label='Directions'
           id="create-directions"
           placeholder='Add directions (maximum 5000 characters)'
           name="directions"
-          onChange={props.inputHandler}
         />
-        <Form.Button
+        <Button
           id="submit-create-form"
-          onClick={props.submitRecipeHandler}
+          type="submit"
         >
           Submit
-          </Form.Button>
+          </Button>
       </Form>
     </>
   )
 }
-
 export default CreateRecipeForm
