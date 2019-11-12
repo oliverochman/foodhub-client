@@ -4,8 +4,7 @@ import { Message, Header } from 'semantic-ui-react'
 
 class ListRecipes extends Component {
   state = {
-    recipes: [],
-    error_message: null
+    recipes: []
   }
 
   componentDidMount() {

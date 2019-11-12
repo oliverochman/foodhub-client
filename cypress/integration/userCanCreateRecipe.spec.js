@@ -2,6 +2,11 @@ describe('Creates a recipe', () => {
 
   beforeEach(() => {
     cy.server()
+    cy.route({
+      method: 'GET',
+      url: 'http://localhost:3000/v1/recipes',
+      response: 'fixture:recipes.json'
+    })
     cy.visit('http://localhost:3001')
   })
   
