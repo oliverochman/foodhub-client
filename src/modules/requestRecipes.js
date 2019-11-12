@@ -5,19 +5,19 @@ const submitRecipe = async (title, ingredients, directions) => {
   try {
     debugger
     let response = await axios.post(apiUrl + 'recipes',
-    { recipe:
-      {
-        title: title,
-        ingredients: ingredients,
-        directions: directions
+      { recipe:
+        {
+          title: title,
+          ingredients: ingredients,
+          directions: directions
+        }
       }
-    }
     )
-    return response
+    return response.data.message
 
   } catch(error) {
     debugger;
-    return error.message
+    return error.data.error_message
   }
 }
 

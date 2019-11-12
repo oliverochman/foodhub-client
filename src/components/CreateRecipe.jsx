@@ -23,14 +23,14 @@ class CreateRecipe extends Component {
     if (response.status === 201) {
       debugger;
       this.setState({
-        message: response.data.message,
+        message: response,
         responseMessage: true,
         error: false
       })
     } else {
       debugger;
       this.setState({
-        message: response.data.error_message,
+        message: response,
         responseMessage: true,
         error: true
       })
