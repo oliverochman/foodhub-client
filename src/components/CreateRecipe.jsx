@@ -65,6 +65,7 @@ class CreateRecipe extends Component {
     return (
       <div className="create-wrapper">
         <Header as='h1' className="create-recipe">Create Your Own Recipe</Header>
+        <Header sub>All input fields are mandatory in order to submit a recipe.</Header>
         {createRecipeForm}
         {messages}
       </div>

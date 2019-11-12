@@ -9,3 +9,8 @@
 .create-message {
   margin: 2rem 5rem 2rem 5rem !important;
 }
+
+.create-wrapper > .ui.sub.header {
+  text-align: center;
+  font-style: italic;
+}

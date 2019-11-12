@@ -27,9 +27,7 @@ describe('Creates a recipe', () => {
     })
   
     cy.get('#create-recipe-form').within(() => {
-      cy.get('#create-title').type('Warm Apples')
-        .get('#create-ingredients').type('Apples, syrup')
-        .get('#create-directions').type('Add syrup to apples. Heat in microwave.')
+      cy.get('#create-title')
         .get('#submit-create-form').click()
     })
     cy.get('#response-message')
