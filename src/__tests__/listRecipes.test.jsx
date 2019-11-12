@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ListRecipes from '../Components/ListRecipes';
+import ListRecipes from '../components/ListRecipes';
 
 describe('<ListRecipes />', () => {
   it('display list of recipes', () => {

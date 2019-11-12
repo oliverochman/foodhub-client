@@ -1,5 +1,5 @@
-import React from 'react';
-import { getData } from './Modules/RequestRecipes';
+import React, { Component } from 'react';
+import { getData } from '../modules/requestRecipes';
 
 class ListRecipes extends Component {
   state = {
@@ -24,7 +24,7 @@ class ListRecipes extends Component {
     if (recipeData !== []) {
       renderListRecipes = (
         <div>
-          {recipeData.map(recipes => {
+          {recipeData.map(recipe => {
             return <div key={recipe.id}>
             {recipe.title}
             {recipe.ingredients}
@@ -44,6 +44,7 @@ class ListRecipes extends Component {
     }
     return(
       <> 
+        <p>Test</p>
         {renderListRecipes}
       </>
     )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ListRecipes from './Components/ListRecipes';
+import ListRecipes from './components/ListRecipes';
 
 class App extends Component {
   render() {
