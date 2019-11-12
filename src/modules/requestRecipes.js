@@ -12,12 +12,10 @@ const submitRecipe = async (title, ingredients, directions) => {
         }
       }
     )
-    debugger;
     return {
       message: response.data.message,
     }
   } catch(error) {
-    debugger;
     return {
       error: error.response.data.error_message
     }
