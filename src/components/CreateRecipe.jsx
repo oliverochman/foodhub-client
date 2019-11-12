@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Message, Header } from 'semantic-ui-react'
+import { submitRecipe } from '../modules/requestRecipes'
 import CreateRecipeForm from './CreateRecipeForm'
-import axios from 'axios'
 import '../css/create-article.css'
 
 class CreateRecipe extends Component {
@@ -14,30 +14,28 @@ class CreateRecipe extends Component {
     error: false
   }
 
-  submitRecipeHandler = (e) => {
+  submitRecipeHandler = async (e) => {
     e.preventDefault();
-    const path = 'http://localhost:3000/v1/recipes'
     const { title, ingredients, directions } = this.state
-    axios.post(path, { title, ingredients, directions })
-      .then(response => {
-        debugger;
-        console.log(response)
-        this.setState({
-          message: response.data.message,
-          responseMessage: true,
-          error: false
-        })
+    debugger;
+    let response = await submitRecipe(title, ingredients, directions)
+
+    if (response.status === 201) {
+      debugger;
+      this.setState({
+        message: response.data.message,
+        responseMessage: true,
+        error: false
       })
-      .catch(error => {
-        debugger;
-        this.setState({
-          message: error.response.data.error_message,
-          responseMessage: true,
-          error: true
-        })
+    } else {
+      debugger;
+      this.setState({
+        message: response.data.error_message,
+        responseMessage: true,
+        error: true
       })
     }
-
+  }
 
   inputHandler = (e) => {
     this.setState({
