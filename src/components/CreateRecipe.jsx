@@ -9,45 +9,17 @@ class CreateRecipe extends Component {
     title: '',
     ingredients: '',
     directions: '',
-    responseMessage: false,
-    message: '',
+    message: null,
     error: false
   }
 
-  submitRecipeHandler = async (e) => {
-    e.preventDefault();
-    const { title, ingredients, directions } = this.state
-    debugger;
-    let response = await submitRecipe(title, ingredients, directions)
-
-    if (response.status === 201) {
-      debugger;
-      this.setState({
-        message: response,
-        responseMessage: true,
-        error: false
-      })
-    } else {
-      debugger;
-      this.setState({
-        message: response,
-        responseMessage: true,
-        error: true
-      })
-    }
-  }
-
-  inputHandler = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
+  
 
   render() {
-    let createRecipeForm, messages
-    let { message, responseMessage, error } = this.state
+    let messages
+    let { message, error } = this.state
 
-    if (responseMessage) {
+    if (message) {
       messages = (
         <Message style={{ color: error ? 'red' : 'green' }}>
           <p id="response-message">{message}</p>
@@ -55,18 +27,13 @@ class CreateRecipe extends Component {
       )
     }
 
-    createRecipeForm = (
-      <CreateRecipeForm
-        inputHandler={this.inputHandler}
-        submitRecipeHandler={this.submitRecipeHandler}
-      />
-    )
-
     return (
       <div className="create-wrapper">
         <Header as='h1' className="create-recipe">Create Your Own Recipe</Header>
         <Header sub>All input fields are mandatory in order to submit a recipe.</Header>
-        {createRecipeForm}
+
+        <CreateRecipeForm
+        />
         {messages}
       </div>
     )
