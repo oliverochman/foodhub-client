@@ -15,7 +15,6 @@ class ListRecipes extends Component {
     let result = await getData()
 
     if (result) {
-      debugger
       this.setState({
         recipes: result
       })
