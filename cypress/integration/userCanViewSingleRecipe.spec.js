@@ -9,10 +9,10 @@ describe('View single recipe', () => {
     })
     cy.get('#recipe-1')
       .click({force:true})
-    cy.get('#single-recipe').within(() => {
+    cy.get('[name="single-recipe"]').within(() => {
       cy.get('.header').should('contain', 'Quiche')
-        .get('#recipe-ingredients').should('contain', 'Eggs')
-        .get('#recipe-directions').should('contain', 'Stir the mixture')
+        .get('[name="recipe-ingredients"]').should('contain', 'Eggs')
+        .get('[name="recipe-directions"]').should('contain', 'Stir the mixture')
     })
   })
 

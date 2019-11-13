@@ -26,24 +26,10 @@ class ListRecipes extends Component {
       renderListRecipes = recipeData.map(recipe => {
         return (
           <RecipeCard 
+            key={recipe.id}
             recipe={recipe}
             linked
           />
-          // <Card key={recipe.id}>
-          //   <Image src={recipe.image} alt='' />
-          //     <Card.Content>
-          //       <Link id={`recipe_${recipe.id}`}  to={`/recipe/${recipe.id}`}>
-          //         <Card.Header as='h1'>{recipe.title}</Card.Header>
-          //         <Divider />
-          //         <Card.Description>
-          //         <p style={{ fontWeight: 'bold'}}>Ingredients:</p>
-          //         <p>{recipe.ingredients}</p>
-          //         <p style={{ fontWeight: 'bold'}}>Directions:</p>
-          //         <p>{recipe.directions}</p>
-          //         </Card.Description>
-          //       </Link>
-          //     </Card.Content>
-          //   </Card>
         )
       })
     } else {

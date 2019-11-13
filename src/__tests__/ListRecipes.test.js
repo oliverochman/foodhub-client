@@ -13,7 +13,7 @@ describe('<ListRecipes />', () => {
     );
     describedComponent.find(ListRecipes).instance().setState({recipes: [{id: 1, title: "Quiche", ingredients: "Eggs", directions: "Stir the mixture"}]})
     describedComponent.update()
-    const response = <h1 className="header">Quiche</h1>
+    const response = <h3 name="recipe-title" className="header">Quiche</h3>
     expect(describedComponent.contains(response)).toEqual(true)
   })
 })
