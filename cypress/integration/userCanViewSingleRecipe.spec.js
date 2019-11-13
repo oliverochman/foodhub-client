@@ -7,12 +7,12 @@ describe('View single recipe', () => {
       response: 'fixture:single_recipe.json',
       status: 200
     })
-    cy.get('#recipe_1')
+    cy.get('#recipe-1')
       .click({force:true})
-    cy.get(':nth-child(1) > .content').within(() => {
-      cy.get('#recipe_1 > .header').should('contain', 'Quiche')
-        .get('#recipe_1 > .description > :nth-child(2)').should('contain', 'Eggs')
-        .get('#recipe_1 > .description > :nth-child(4)').should('contain', 'Stir the mixture')
+    cy.get('#single-recipe').within(() => {
+      cy.get('.header').should('contain', 'Quiche')
+        .get('#recipe-ingredients').should('contain', 'Eggs')
+        .get('#recipe-directions').should('contain', 'Stir the mixture')
     })
   })
 
@@ -24,7 +24,7 @@ describe('View single recipe', () => {
       status: 404
     })
 
-    cy.get('#recipe_1')
+    cy.get('#recipe-1')
       .click({force:true})
     cy.get('#response-message')
       .should('contain', 'The recipe could not be found')

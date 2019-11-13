@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { fetchRecipes } from '../modules/requestRecipes';
 import { Message, Header, Card, Divider, Image } from 'semantic-ui-react';
-import { NavLink } from 'react-router-dom';
+import RecipeCard from './RecipeCard';
 
 class ListRecipes extends Component {
   state = {
@@ -25,21 +25,25 @@ class ListRecipes extends Component {
     if (recipeData.length > 0) {
       renderListRecipes = recipeData.map(recipe => {
         return (
-          <Card>
-            <Image src={recipe.image} alt='' />
-              <Card.Content>
-                <NavLink id={`recipe_${recipe.id}`} key={recipe.id} to={`/recipe/${recipe.id}`}>
-                  <Card.Header as='h1'>{recipe.title}</Card.Header>
-                  <Divider />
-                  <Card.Description>
-                  <p style={{ fontWeight: 'bold'}}>Ingredients:</p>
-                  <p>{recipe.ingredients}</p>
-                  <p style={{ fontWeight: 'bold'}}>Directions:</p>
-                  <p>{recipe.directions}</p>
-                  </Card.Description>
-                </NavLink>
-              </Card.Content>
-            </Card>
+          <RecipeCard 
+            recipe={recipe}
+            linked
+          />
+          // <Card key={recipe.id}>
+          //   <Image src={recipe.image} alt='' />
+          //     <Card.Content>
+          //       <Link id={`recipe_${recipe.id}`}  to={`/recipe/${recipe.id}`}>
+          //         <Card.Header as='h1'>{recipe.title}</Card.Header>
+          //         <Divider />
+          //         <Card.Description>
+          //         <p style={{ fontWeight: 'bold'}}>Ingredients:</p>
+          //         <p>{recipe.ingredients}</p>
+          //         <p style={{ fontWeight: 'bold'}}>Directions:</p>
+          //         <p>{recipe.directions}</p>
+          //         </Card.Description>
+          //       </Link>
+          //     </Card.Content>
+          //   </Card>
         )
       })
     } else {
@@ -50,7 +54,7 @@ class ListRecipes extends Component {
             id="message"
             style={{ color: 'green' }}>
             There are no recipes
-        </Header>
+          </Header> 
         </Message>
       )
     }
