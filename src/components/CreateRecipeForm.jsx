@@ -6,7 +6,7 @@ const CreateRecipeForm = (props) => {
     <>
       <Form id="create-recipe-form" 
       onSubmit={(event) => props.submitRecipeHandler(event)}
-      enctype="multipart/form-data">
+      >
         <Form.Group widths='equal'>
           <Form.Input
             fluid
