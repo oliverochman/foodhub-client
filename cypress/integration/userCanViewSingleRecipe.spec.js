@@ -13,11 +13,11 @@ describe('View single recipe', () => {
   it('Successfully', () => {
     cy.route({
       method: 'GET',
-      url: 'http://localhost:3000/v1/recipes',
+      url: 'http://localhost:3000/v1/recipes/1',
       response: 'fixture:single_recipe.json',
       status: 200
     })
-    cy.get('#recipe_1').click()
+    cy.get('#recipes_1').click()
     cy.get('#single-recipe').within(() => {
       cy.get('#recipe-title').should('contain', 'Quiche')
       cy.get('#recipe-ingredients').should('contain', 'Eggs')
@@ -33,7 +33,8 @@ describe('View single recipe', () => {
       status: 404
     })
 
-    cy.get('#recipe_1').click()
+    cy.get('#recipes_1')
+      .click()
     cy.get('#response-message')
     cy.should('contain', 'The recipe could not be found')
   })

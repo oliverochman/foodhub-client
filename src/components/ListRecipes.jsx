@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fetchRecipes } from '../modules/requestRecipes';
-import { Message, Header } from 'semantic-ui-react'
+import { Message, Header } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 class ListRecipes extends Component {
   state = {
@@ -24,11 +25,11 @@ class ListRecipes extends Component {
     if (recipeData.length > 0) {
       renderListRecipes = recipeData.map(recipe => {
         return (
-          <div key={recipe.id}>
+          <NavLink id={`recipes_${recipe.id}`} key={recipe.id} to={`/recipe/${recipe.id}`}>
             <h1>{recipe.title}</h1>
             <p>{recipe.ingredients}</p>
             <p>{recipe.instructions}</p>
-          </div>
+          </NavLink>
         )
       })
     } else {

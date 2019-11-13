@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Message, Container, Divider, Grid, Image } from 'semantic-ui-react'
+import { Container, Header, Divider, Grid, Image } from 'semantic-ui-react'
 
 class SingleRecipe extends Component {
 
@@ -10,6 +10,7 @@ class SingleRecipe extends Component {
 
   render() {
     let { recipe } = this.state
+    let showSingleRecipe
 
     if (recipe !== null) {
       showSingleRecipe = (
