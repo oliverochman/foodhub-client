@@ -10,6 +10,7 @@ const toBase64 = file => new Promise((resolve, reject) => {
 });
 
 const fetchRecipes = async () => {
+
   let response = await axios.get(apiUrl + 'recipes')
   return response.data.recipes
 }

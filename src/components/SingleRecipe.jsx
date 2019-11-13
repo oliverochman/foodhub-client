@@ -45,8 +45,7 @@ class SingleRecipe extends Component {
     }
 
     if (recipe !== null) {
-      showSingleRecipe = recipeData.map(recipe => {
-        return(
+      showSingleRecipe = (
         <>
           <Container textAlign='justified' id="single-recipe">
             <Grid columns={1}>
@@ -70,7 +69,7 @@ class SingleRecipe extends Component {
             </Grid>
           </Container>
         </>
-      )})
+      )
     }
 
     return (
