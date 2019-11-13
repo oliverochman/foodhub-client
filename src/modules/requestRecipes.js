@@ -37,7 +37,7 @@ const submitRecipe = async (title, ingredients, directions, image) => {
     return {
       message: response.data.message,
     }
-  } catch (error) {
+  } catch(error) {
     return {
       error: error.response.data.error_message || error.message 
     }
@@ -46,12 +46,11 @@ const submitRecipe = async (title, ingredients, directions, image) => {
 
 const getSingleRecipe = async (recipeId) => {
   try {
-    let response = await axios.get(apiUrl + `recipes/${recipeId}`,
-    )
+    let response = await axios.get(apiUrl + `recipes/${recipeId}`)
     return {
-      recipe: response.data.recipes
+      recipe: response.data.recipe
     }
-  } catch (error) {
+  } catch(error) {
     return {
       error: error.response.data.error_message
     }

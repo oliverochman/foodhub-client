@@ -28,7 +28,6 @@ class SingleRecipe extends Component {
 
   render() {
     let { recipe, message, error } = this.state
-    const recipeData = this.state.recipe
     let showSingleRecipe, messages
 
     if (message) {
@@ -44,7 +43,7 @@ class SingleRecipe extends Component {
       )
     }
 
-    if (recipe !== null) {
+    if (recipe) {
       showSingleRecipe = (
         <>
           <Container textAlign='justified' id="single-recipe">
