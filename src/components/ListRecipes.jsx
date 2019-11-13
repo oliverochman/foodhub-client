@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fetchRecipes } from '../modules/requestRecipes';
-import { Message, Header } from 'semantic-ui-react';
+import { Message, Header, Card, Divider, Image } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
 class ListRecipes extends Component {
@@ -25,11 +25,21 @@ class ListRecipes extends Component {
     if (recipeData.length > 0) {
       renderListRecipes = recipeData.map(recipe => {
         return (
-          <NavLink id={`recipes_${recipe.id}`} key={recipe.id} to={`/recipe/${recipe.id}`}>
-            <h1>{recipe.title}</h1>
-            <p>{recipe.ingredients}</p>
-            <p>{recipe.instructions}</p>
-          </NavLink>
+          <Card>
+            <Image src={recipe.image} alt='' />
+              <Card.Content>
+                <NavLink id={`recipes_${recipe.id}`} key={recipe.id} to={`/recipe/${recipe.id}`}>
+                  <Card.Header as='h1'>{recipe.title}</Card.Header>
+                  <Divider />
+                  <Card.Description>
+                  <p style={{ fontWeight: 'bold'}}>Ingredients:</p>
+                  <p>{recipe.ingredients}</p>
+                  <p style={{ fontWeight: 'bold'}}>Directions:</p>
+                  <p>{recipe.directions}</p>
+                  </Card.Description>
+                </NavLink>
+              </Card.Content>
+            </Card>
         )
       })
     } else {

@@ -52,15 +52,13 @@ class SingleRecipe extends Component {
         return(
         <>
           <Container textAlign='justified' id="single-recipe">
-            <Grid columns={2}>
+            <Grid columns={1}>
               <Grid.Row>
-                <Grid.Column width={5}>
-                </Grid.Column>
                 <Grid.Column>
                   <Card>
                   <Image src={recipe.image} alt='' />
                   <Card.Content>
-                <Card.Header as='h3' id="recipe-title">{recipe.title}</Card.Header>
+                  <Card.Header as='h3' id="recipe-title">{recipe.title}</Card.Header>
                   <Divider />
                   <Card.Description>
                   <p style={{ fontWeight: 'bold'}}>Ingredients: </p>
