@@ -10,7 +10,6 @@ const CreateRecipeForm = (props) => {
         <Form.Group widths='equal'>
           <Form.Input
             fluid
-            id="create-title"
             label='Title'
             placeholder='Add title (maximum 255 characters)'
             name="title"
@@ -18,20 +17,18 @@ const CreateRecipeForm = (props) => {
         </Form.Group>
         <Form.TextArea
           label='Ingredients'
-          id="create-ingredients"
           placeholder='Add ingredients (maximum 500 characters)'
           name="ingredients"
         />
         <Form.TextArea
           label='Directions'
-          id="create-directions"
           placeholder='Add directions (maximum 5000 characters)'
           name="directions"
         />
         <input type="file" name='image'/>
         <Button
-          id="submit-create-form"
           type="submit"
+          name="submit"
         >
           Submit
           </Button>
