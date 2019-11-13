@@ -24,7 +24,6 @@ const submitRecipe = async (title, ingredients, directions, image) => {
     }
 
     if (image) {
-      // If there is an image, we add it to the params we will be sending off
       encodedImage = await toBase64(image)
       recipeParams.image = encodedImage
     }
