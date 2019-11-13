@@ -7,7 +7,7 @@ describe('View single recipe', () => {
       response: 'fixture:single_recipe.json',
       status: 200
     })
-    cy.get('#recipes_1')
+    cy.get('#recipe_1')
       .click({force:true})
     cy.get('#single-recipe').within(() => {
       cy.get('#recipe-title').should('contain', 'Quiche')
@@ -24,7 +24,7 @@ describe('View single recipe', () => {
       status: 404
     })
 
-    cy.get('#recipes_1')
+    cy.get('#recipe_1')
       .click({force:true})
     cy.get('#response-message')
       .should('contain', 'The recipe could not be found')

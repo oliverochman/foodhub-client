@@ -28,7 +28,7 @@ class ListRecipes extends Component {
           <Card>
             <Image src={recipe.image} alt='' />
               <Card.Content>
-                <NavLink id={`recipes_${recipe.id}`} key={recipe.id} to={`/recipe/${recipe.id}`}>
+                <NavLink id={`recipe_${recipe.id}`} key={recipe.id} to={`/recipe/${recipe.id}`}>
                   <Card.Header as='h1'>{recipe.title}</Card.Header>
                   <Divider />
                   <Card.Description>
