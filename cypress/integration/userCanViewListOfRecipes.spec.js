@@ -1,21 +1,11 @@
-import { getYear } from "date-fns";
-
 describe('FoodHub user can view a list of recipes', () => {
-  beforeEach(() => {
-    cy.server()
-    cy.route({
-      method: 'GET',
-      url: 'http://localhost:3000/v1/recipes',
-      response: 'fixture:recipes.json'
-    })
-    cy.visit('http://localhost:3001');
-  });
 
   it("contains recipe content", () => {
-    cy.get('#list h1')
-      .first().should('have.text', 'Quiche')
-      .next().should('have.text', 'Eggs')
-      .next().should('have.text', 'Stir the mixture')     
+    cy.get('[name="recipe-1"]').within(() => {
+      cy.get('[name="recipe-title"]').should('contain', 'Quiche')
+        .get('[name="recipe-ingredients"]').should('have.text', 'Eggs')
+        .get('[name="recipe-directions"]').should('contain', 'Stir the mixture')
+    })
   })
 
   it('sees message for no recipes', () => {
@@ -24,6 +14,7 @@ describe('FoodHub user can view a list of recipes', () => {
       url: 'http://localhost:3000/v1/recipes',
       response: '{"recipes":[]}'
     })
+
     cy.visit('http://localhost:3001')
     cy.get("#message").should('contain', 'There are no recipes')
   })

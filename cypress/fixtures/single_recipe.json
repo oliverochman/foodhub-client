@@ -1,0 +1,9 @@
+{ 
+  "recipe":
+    {
+      "id": 1,  
+      "title": "Quiche", 
+      "ingredients": "Eggs", 
+      "directions": "Stir the mixture"
+    }
+}

@@ -10,6 +10,7 @@ const toBase64 = file => new Promise((resolve, reject) => {
 });
 
 const fetchRecipes = async () => {
+
   let response = await axios.get(apiUrl + 'recipes')
   return response.data.recipes
 }
@@ -36,11 +37,24 @@ const submitRecipe = async (title, ingredients, directions, image) => {
     return {
       message: response.data.message,
     }
-  } catch (error) {
+  } catch(error) {
     return {
       error: error.response.data.error_message || error.message 
     }
   }
 }
 
-export { fetchRecipes, submitRecipe }
+const getSingleRecipe = async (recipeId) => {
+  try {
+    let response = await axios.get(apiUrl + `recipes/${recipeId}`)
+    return {
+      recipe: response.data.recipe
+    }
+  } catch(error) {
+    return {
+      error: error.response.data.error_message
+    }
+  }
+}
+
+export { fetchRecipes, submitRecipe, getSingleRecipe }
