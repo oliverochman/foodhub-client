@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Menu, Header, Icon } from 'semantic-ui-react'
 import '../css/navbar.css'
+import { NavLink } from 'react-router-dom'
 
 class Navbar extends Component {
 
@@ -19,11 +20,20 @@ class Navbar extends Component {
 
         <Menu.Menu position='right'>
           <Menu.Item>
-            <Header position='right'>
-              Placeholder
+            <NavLink id='nav-create' to='/create'>
+              <Header position='right'>
+                Create Recipe
             </Header>
+            </NavLink>
           </Menu.Item>
-          
+          <Menu.Item>
+            <NavLink id='nav-home' to='/'>
+              <Header position='right'>
+                View Recipes
+            </Header>
+            </NavLink>
+          </Menu.Item>
+
         </Menu.Menu>
       </Menu>
     )
