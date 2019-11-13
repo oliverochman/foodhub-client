@@ -12,8 +12,9 @@ class CreateRecipe extends Component {
 
   submitRecipeHandler = async (event) => {
     event.preventDefault();
-    let { title, directions, ingredients } = event.target
-    let response = await submitRecipe(title.value, ingredients.value, directions.value)
+    debugger
+    let { title, directions, ingredients, image } = event.target
+    let response = await submitRecipe(title.value, ingredients.value, directions.value, image.files[0])
 
     if (response.message) {
       this.setState({

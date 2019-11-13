@@ -9,7 +9,7 @@ describe('Creates a recipe', () => {
     })
     cy.visit('http://localhost:3001')
   })
-  
+
   it('Successfully', () => {
     cy.route({
       method: 'POST',
@@ -17,12 +17,18 @@ describe('Creates a recipe', () => {
       response: '{ "message": "The recipe was successfully created." }',
       status: 201
     })
-  
+    const fileName = 'pizza.jpeg';
+
     cy.get('#create-recipe-form').within(() => {
       cy.get('#create-title').type('Warm Apples')
         .get('#create-ingredients').type('Apples, syrup')
         .get('#create-directions').type('Add syrup to apples. Heat in microwave.')
-        .get('#submit-create-form').click()
+      cy.fixture(fileName).then(fileContent => {
+        cy.get('[name="image"]')
+          .upload({ fileContent, fileName, mimeType: 'application/json' });
+      });
+
+      cy.get('#submit-create-form').click()
     })
     cy.get('#response-message')
       .should('contain', 'The recipe was successfully created.')
@@ -35,7 +41,7 @@ describe('Creates a recipe', () => {
       response: '{ "error_message": "Unable to create recipe." }',
       status: 422
     })
-  
+
     cy.get('#create-recipe-form').within(() => {
       cy.get('#create-title')
         .get('#submit-create-form').click()
