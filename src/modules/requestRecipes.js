@@ -10,7 +10,8 @@ const fetchRecipes = async () => {
 const submitRecipe = async (title, ingredients, directions) => {
   try {
     let response = await axios.post(apiUrl + 'recipes',
-      { recipe:
+      {
+        recipe:
         {
           title: title,
           ingredients: ingredients,
@@ -21,11 +22,26 @@ const submitRecipe = async (title, ingredients, directions) => {
     return {
       message: response.data.message,
     }
-  } catch(error) {
+  } catch (error) {
     return {
       error: error.response.data.error_message
     }
   }
 }
 
-export { fetchRecipes, submitRecipe }
+const getSingleRecipe = async (recipeId) => {
+  try {
+    let response = await axios.get(apiUrl + `recipes/${recipeId}`,
+    )
+    debugger;
+    return {
+      recipe: response.data.recipes
+    }
+  } catch (error) {
+    return {
+      error: error.response.data.error_message
+    }
+  }
+}
+
+export { fetchRecipes, submitRecipe, getSingleRecipe }

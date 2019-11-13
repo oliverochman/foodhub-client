@@ -17,11 +17,12 @@ describe('View single recipe', () => {
       response: 'fixture:single_recipe.json',
       status: 200
     })
-    cy.get('#recipes_1').click()
+    cy.get('#recipes_1')
+      .click({force:true})
     cy.get('#single-recipe').within(() => {
       cy.get('#recipe-title').should('contain', 'Quiche')
-      cy.get('#recipe-ingredients').should('contain', 'Eggs')
-      cy.get('#recipe-directions').should('contain', 'Stir the mixture')
+        .get('#recipe-ingredients').should('contain', 'Eggs')
+        .get('#recipe-directions').should('contain', 'Stir the mixture')
     })
   })
 
@@ -34,8 +35,8 @@ describe('View single recipe', () => {
     })
 
     cy.get('#recipes_1')
-      .click()
+      .click({force:true})
     cy.get('#response-message')
-    cy.should('contain', 'The recipe could not be found')
+      .should('contain', 'The recipe could not be found')
   })
 })

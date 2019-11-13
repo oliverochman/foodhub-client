@@ -1,16 +1,48 @@
 import React, { Component } from 'react'
-import { Container, Header, Divider, Grid, Image } from 'semantic-ui-react'
+import { Container, Header, Divider, Grid, Image, Message } from 'semantic-ui-react'
+import { getSingleRecipe } from '../modules/requestRecipes'
 
 class SingleRecipe extends Component {
 
   state = {
-    recipe: [],
-    message: null
+    recipe: null,
+    message: null,
+    error: false
+  }
+
+  async componentDidMount() {
+    debugger;
+    let response = await getSingleRecipe(this.props.match.params.id)
+
+    if (response.recipe) {
+      debugger;
+      this.setState({
+        recipe: response.recipe
+      })
+    } else {
+      this.setState({
+        message: response.error,
+        error: true
+      })
+    }
   }
 
   render() {
-    let { recipe } = this.state
-    let showSingleRecipe
+    let { recipe, message, error } = this.state
+    let showSingleRecipe, messages
+
+    if (message) {
+      messages = (
+        <Message className="create-message" size="small" style={{ color: error ? 'red' : 'green' }}>
+          <Header
+            as='p'
+            id="response-message"
+            style={{ color: error ? 'red' : 'green' }}>
+            {message}
+          </Header>
+        </Message>
+      )
+    }
 
     if (recipe !== null) {
       showSingleRecipe = (
@@ -36,6 +68,7 @@ class SingleRecipe extends Component {
 
     return (
       <div>
+        {messages}
         {showSingleRecipe}
       </div>
     )
