@@ -2,13 +2,33 @@
   margin: 0.5rem 0 0.5rem 0.5rem !important;
 }
 
-.ui.menu .item {
-  border: none;
+.ui.menu > .ui.item {
+  border: none !important;
 }
 
+/* .ui.menu .item > .ui.header {
+  font-size: 4rem;
+  text-align: center;
+  font-family: 'Anton';
+} */
+
 i.huge.icon {
-  margin-top: 0.8rem !important;
+  margin-bottom: 0.5rem !important;
   background: -webkit-linear-gradient(#eee, #0f402b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.navbar-links {
+  font-size: '4rem';
+  text-align: 'center';
+  font-family: 'Anton';
+  height: "2.5rem";
+  line-height: "2.5rem";
+  font-weight: 'bold';
+}
+
+a:hover {
+  cursor: pointer;
+}
+

@@ -1,41 +1,38 @@
 import React, { Component } from 'react'
-import { Menu, Header, Icon } from 'semantic-ui-react'
+import { Menu, Header, Icon, Responsive } from 'semantic-ui-react'
 import '../css/navbar.css'
 import { NavLink } from 'react-router-dom'
 
 class Navbar extends Component {
 
   render() {
+    const notMobile = { minWidth: Responsive.onlyMobile.maxWidth + 1 }
 
     return (
-      <Menu id='navbar'>
-        <Header
-          position='left'
-          id='navbar-header'
-          style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Anton' }}
-        >
-          Food Hub
-        </Header>
-        <Icon name='food' size='huge' />
 
-        <Menu.Menu position='right'>
+      <Responsive {...Responsive.onlyComputer}>
+        <Menu id='navbar' borderless={true}>
           <Menu.Item>
-            <NavLink id='nav-create' to='/create'>
-              <Header position='right'>
-                Create Recipe
+            <Header
+              position='left'
+              id='navbar-header'
+              style={{  fontSize: '4rem', textAlign: 'center', fontFamily: 'Anton'}}>
+              Food Hub
             </Header>
-            </NavLink>
+            <Icon name='food' size='huge' />
           </Menu.Item>
-          <Menu.Item>
-            <NavLink id='nav-home' to='/'>
-              <Header position='right'>
-                View Recipes
+          <Menu.Item id='nav-create' as={NavLink} to='/create'>
+            <Header position='right'>
+              Create Recipe
             </Header>
-            </NavLink>
           </Menu.Item>
-
-        </Menu.Menu>
-      </Menu>
+          <Menu.Item id='nav-home' as={NavLink} to='/'>
+            <Header position='right'>
+              View Recipes
+            </Header>
+          </Menu.Item>
+        </Menu>
+      </Responsive >
     )
   }
 }
