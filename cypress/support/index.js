@@ -15,6 +15,18 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import 'cypress-file-upload';
 import '@cypress/code-coverage/support'
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+beforeEach(() => {
+  cy.server()
+  cy.route({
+    method: 'GET',
+    url: 'http://localhost:3000/v1/recipes',
+    response: 'fixture:recipes.json'
+  })
+  cy.visit('http://localhost:3001')
+})

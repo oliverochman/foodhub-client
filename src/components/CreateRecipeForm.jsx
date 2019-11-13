@@ -4,8 +4,8 @@ import { Form, Button } from 'semantic-ui-react'
 const CreateRecipeForm = (props) => {
   return (
     <>
-      <Form id="create-recipe-form" 
-      onSubmit={(event) => props.submitRecipeHandler(event)}
+      <Form id="create-recipe-form"
+        onSubmit={(event) => props.submitRecipeHandler(event)}
       >
         <Form.Group widths='equal'>
           <Form.Input
@@ -25,7 +25,7 @@ const CreateRecipeForm = (props) => {
           placeholder='Add directions (maximum 5000 characters)'
           name="directions"
         />
-        <input type="file" name='image'/>
+        <input type="file" name='image' />
         <Button
           type="submit"
           name="submit"

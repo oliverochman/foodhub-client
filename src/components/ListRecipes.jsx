@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fetchRecipes } from '../modules/requestRecipes';
-import { Message, Header } from 'semantic-ui-react'
+import { Message, Header } from 'semantic-ui-react';
+import RecipeCard from './RecipeCard';
 
 class ListRecipes extends Component {
   state = {
@@ -24,11 +25,11 @@ class ListRecipes extends Component {
     if (recipeData.length > 0) {
       renderListRecipes = recipeData.map(recipe => {
         return (
-          <div key={recipe.id}>
-            <h1>{recipe.title}</h1>
-            <p>{recipe.ingredients}</p>
-            <p>{recipe.instructions}</p>
-          </div>
+          <RecipeCard 
+            key={recipe.id}
+            recipe={recipe}
+            linked
+          />
         )
       })
     } else {
@@ -39,7 +40,7 @@ class ListRecipes extends Component {
             id="message"
             style={{ color: 'green' }}>
             There are no recipes
-        </Header>
+          </Header> 
         </Message>
       )
     }
