@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Header, Divider, Grid, Image, Message, Card } from 'semantic-ui-react'
+import { Header, Message } from 'semantic-ui-react'
 import { getSingleRecipe } from '../modules/requestRecipes'
 import '../css/single-recipe.css'
 import RecipeCard from './RecipeCard';
@@ -47,7 +47,7 @@ class SingleRecipe extends Component {
 
     if (recipe) {
       showSingleRecipe = (
-        <RecipeCard 
+        <RecipeCard
           recipe={recipe}
           linked={false}
         />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Header, Divider, Grid, Image, Message, Card } from 'semantic-ui-react'
+import { Container, Divider, Grid, Image, Card } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 

@@ -1,5 +1,5 @@
 describe('Creates a recipe', () => {
-  
+
   it('Successfully', () => {
     cy.route({
       method: 'POST',

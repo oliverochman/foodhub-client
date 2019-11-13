@@ -8,7 +8,7 @@ describe('View single recipe', () => {
       status: 200
     })
     cy.get('#recipe-1')
-      .click({force:true})
+      .click({ force: true })
     cy.get('[name="single-recipe"]').within(() => {
       cy.get('.header').should('contain', 'Quiche')
         .get('[name="recipe-ingredients"]').should('contain', 'Eggs')
@@ -25,7 +25,7 @@ describe('View single recipe', () => {
     })
 
     cy.get('#recipe-1')
-      .click({force:true})
+      .click({ force: true })
     cy.get('#response-message')
       .should('contain', 'The recipe could not be found')
   })
