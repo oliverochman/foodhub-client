@@ -12,11 +12,9 @@ class SingleRecipe extends Component {
   }
 
   async componentDidMount() {
-    debugger;
     let response = await getSingleRecipe(this.props.match.params.id)
 
     if (response.recipe) {
-      debugger;
       this.setState({
         recipe: response.recipe
       })
@@ -48,7 +46,6 @@ class SingleRecipe extends Component {
 
     if (recipe !== null) {
       showSingleRecipe = recipeData.map(recipe => {
-        debugger
         return(
         <>
           <Container textAlign='justified' id="single-recipe">
