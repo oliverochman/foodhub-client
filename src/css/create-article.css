@@ -1,0 +1,16 @@
+.create-recipe {
+  text-align: center;
+}
+
+.create-wrapper {
+  margin: 5rem !important;
+}
+
+.create-message {
+  margin: 1rem 5rem 1rem 5rem !important;
+}
+
+.create-wrapper > .ui.sub.header {
+  text-align: center;
+  font-style: italic;
+}

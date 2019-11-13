@@ -1,0 +1,17 @@
+{ 
+  "recipes":
+  [
+    {
+      "id": 1,  
+      "title": "Quiche", 
+      "ingredients": "Eggs", 
+      "instructions": "Stir the mixture"
+    },
+    {
+      "id": 2,
+      "title": "Chocolate Croissant", 
+      "ingredients": "Creme", 
+      "instructions": "Bake in the oven"
+    } 
+  ]
+}
