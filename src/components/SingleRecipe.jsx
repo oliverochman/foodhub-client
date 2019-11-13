@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Container, Header, Divider, Grid, Image, Message } from 'semantic-ui-react'
+import { Container, Header, Divider, Grid, Image, Message, Card } from 'semantic-ui-react'
 import { getSingleRecipe } from '../modules/requestRecipes'
+import '../css/single-recipe.css'
 
 class SingleRecipe extends Component {
 
@@ -54,13 +55,21 @@ class SingleRecipe extends Component {
             <Grid columns={2}>
               <Grid.Row>
                 <Grid.Column width={5}>
-                  <Image src={recipe.image} alt='' />
                 </Grid.Column>
-                <Grid.Column >
-                <Header as='h3' id="recipe-title">{recipe.title}</Header>
+                <Grid.Column>
+                  <Card>
+                  <Image src={recipe.image} alt='' />
+                  <Card.Content>
+                <Card.Header as='h3' id="recipe-title">{recipe.title}</Card.Header>
                   <Divider />
+                  <Card.Description>
+                  <p style={{ fontWeight: 'bold'}}>Ingredients: </p>
                   <p id="recipe-ingredients">{recipe.ingredients}</p>
+                  <p style={{ fontWeight: 'bold'}}>Directions: </p>
                   <p id="recipe-directions">{recipe.directions}</p>
+                  </Card.Description>
+                  </Card.Content>
+                  </Card>
                 </Grid.Column>
               </Grid.Row>
             </Grid>

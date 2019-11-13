@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Message, Header } from 'semantic-ui-react'
 import { submitRecipe } from '../modules/requestRecipes'
 import CreateRecipeForm from './CreateRecipeForm'
-import '../css/create-article.css'
+import '../css/create-recipe.css'
 
 class CreateRecipe extends Component {
   state = {
