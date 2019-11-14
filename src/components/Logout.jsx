@@ -9,9 +9,9 @@ class Logout extends Component {
   }
 
   signOut = () => {
+    debugger
     const { signOutUser } = this.props
     signOutUser()
-    debugger;
       .then(
         console.log('Signed out!')
       )
