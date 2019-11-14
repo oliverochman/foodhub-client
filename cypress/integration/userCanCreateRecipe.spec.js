@@ -8,6 +8,11 @@ describe('Creates a recipe', () => {
       status: 201
     })
     const fileName = 'pizza.jpeg';
+
+    cy.get('#navbar').within(() => {
+      cy.get('#nav-create')
+        .click()
+    })
     cy.get('#create-recipe-form').within(() => {
       cy.get('[name="title"]').type('Warm Apples')
         .get('[name="ingredients"]').type('Apples, syrup')
@@ -28,6 +33,10 @@ describe('Creates a recipe', () => {
       url: 'http://localhost:3000/v1/recipes',
       response: '{ "error_message": "Unable to create recipe." }',
       status: 422
+    })
+    cy.get('#navbar').within(() => {
+      cy.get('#nav-create')
+        .click()
     })
     cy.get('#create-recipe-form').within(() => {
       cy.get('[name="title"]')
