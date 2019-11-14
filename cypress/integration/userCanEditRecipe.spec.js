@@ -10,7 +10,7 @@ describe('User can edit recipe', () => {
     cy.route({
       method: 'PUT',
       url: 'http://localhost:3000/v1/recipes/1',
-      status: 201,
+      status: 200,
       response: 'fixture:successful_edit_from_user.json',
       headers: {
         "uid": "user@mail.com"
