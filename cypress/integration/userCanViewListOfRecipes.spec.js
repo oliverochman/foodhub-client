@@ -2,7 +2,7 @@ describe('FoodHub user can view a list of recipes', () => {
 
   it("contains recipe content", () => {
     cy.get('#navbar').within(() => {
-      cy.get('#nav-home')
+      cy.get('#nav-listrecipes')
         .click()
     })
     cy.get('[name="recipe-1"]').within(() => {
@@ -19,10 +19,9 @@ describe('FoodHub user can view a list of recipes', () => {
       response: '{"recipes":[]}'
     })
     cy.get('#navbar').within(() => {
-      cy.get('#nav-home')
+      cy.get('#nav-listrecipes')
         .click()
     })
-    cy.visit('http://localhost:3001')
     cy.get("#message").should('contain', 'There are no recipes')
   })
 })
