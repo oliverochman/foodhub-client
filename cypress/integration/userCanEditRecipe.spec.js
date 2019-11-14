@@ -29,4 +29,19 @@ describe('User can edit recipe', () => {
     cy.get('#response-message')
       .should('contain', 'The recipe has been updated')
   })
+  it('Fails to', () => {
+    cy.route({
+      method: 'PUT',
+      url: 'http://localhost:3000/v1/recipes/1',
+      status: 422,
+      response: `{ “error_message”: “Unable to edit recipe.” }`,
+      headers: {
+        "uid": "user@mail.com"
+      }
+    })
+    cy.get('#response-message')
+      .should('contain', 'Unable to create recipe')
+  })
 })
+
+
