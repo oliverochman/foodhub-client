@@ -1,10 +1,12 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
 
-const CreateRecipeForm = (props) => {
+const RecipeForm = (props) => {
+  let edit = props.edit
+  let buttonText = edit ? "Save Updates" : "Submit"
   return (
     <>
-      <Form id="create-recipe-form"
+      <Form id={edit ? "edit-recipe-form" : "create-recipe-form"}
         onSubmit={(event) => props.submitRecipeHandler(event)}
       >
         <Form.Group widths='equal'>
@@ -30,10 +32,10 @@ const CreateRecipeForm = (props) => {
           type="submit"
           name="submit"
         >
-          Submit
+          {buttonText}
           </Button>
       </Form>
     </>
   )
 }
-export default CreateRecipeForm
+export default RecipeForm

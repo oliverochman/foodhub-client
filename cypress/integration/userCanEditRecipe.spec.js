@@ -9,7 +9,7 @@ describe('User can edit recipe', () => {
     })
   })
 
-  xit('Successfully', () => {
+  it('Successfully', () => {
     cy.route({
       method: 'PUT',
       url: 'http://localhost:3000/v1/recipes/1',
@@ -33,7 +33,7 @@ describe('User can edit recipe', () => {
           .upload({ fileContent, fileName, mimeType: 'application/json' });
       });
 
-      cy.get('[name="save-updates"]').click()
+      cy.get('[name="submit"]').click()
     })
     cy.get('#response-message')
       .should('contain', 'Your recipe has been updated.')
@@ -52,7 +52,7 @@ describe('User can edit recipe', () => {
     cy.get('[name="edit-recipe"]').click()
 
     cy.get('#edit-recipe-form').within(() => {
-      cy.get('[name="save-updates"]').click()
+      cy.get('[name="submit"]').click()
     })
 
     cy.get('#response-message')

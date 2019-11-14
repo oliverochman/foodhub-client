@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { Message, Header } from 'semantic-ui-react'
-import { submitRecipe } from '../modules/requestRecipes'
-import CreateRecipeForm from './CreateRecipeForm'
+import { submitRecipe, editRecipe } from '../modules/requestRecipes'
+import RecipeForm from './RecipeForm'
 import '../css/create-recipe.css'
 
-class CreateRecipe extends Component {
+class RecipeCU extends Component {
+  // RecipeFormContainer
   state = {
     message: null,
     error: false
@@ -12,8 +13,14 @@ class CreateRecipe extends Component {
 
   submitRecipeHandler = async (event) => {
     event.preventDefault();
-    let { title, directions, ingredients, image } = event.target
-    let response = await submitRecipe(title.value, ingredients.value, directions.value, image.files[0])
+    let { title, directions, ingredients, image } = event.target 
+    let response
+
+    if (this.props.edit) {
+      response = await editRecipe(title.value, ingredients.value, directions.value, image.files[0], this.props.recipeId)
+    } else {
+      response = await submitRecipe(title.value, ingredients.value, directions.value, image.files[0])
+    }
 
     if (response.message) {
       this.setState({
@@ -28,6 +35,9 @@ class CreateRecipe extends Component {
   }
 
   render() {
+    let edit = this.props.edit
+    let header = edit ? 'Make some changes to your recipe!' : 'Create Your Own Recipe'
+    let subHeader = edit ? "All input fields are mandatory in order to update your recipe." : "All input fields are mandatory in order to submit a recipe."
     let messages
     let { message, error } = this.state
 
@@ -46,15 +56,16 @@ class CreateRecipe extends Component {
 
     return (
       <div className="create-wrapper">
-        <Header as='h1' className="create-recipe">Create Your Own Recipe</Header>
-        <Header sub>All input fields are mandatory in order to submit a recipe.</Header>
+        <Header as='h1' className={ edit ? "edit-recipe" : "create-recipe"}>{header}</Header>
+        <Header sub>{subHeader}.</Header>
         {messages}
-        <CreateRecipeForm
+        <RecipeForm
           submitRecipeHandler={this.submitRecipeHandler}
+          edit={edit ? true : false}
         />
       </div>
     )
   }
 }
 
-export default CreateRecipe
+export default RecipeCU

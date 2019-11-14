@@ -3,7 +3,7 @@ import { Header, Message, Button } from 'semantic-ui-react'
 import { getSingleRecipe } from '../modules/requestRecipes'
 import '../css/single-recipe.css'
 import RecipeCard from './RecipeCard'
-import EditRecipe from './EditRecipe'
+import RecipeCU from './RecipeCU'
 
 
 class SingleRecipe extends Component {
@@ -54,7 +54,7 @@ class SingleRecipe extends Component {
     }
 
     if (this.state.renderEditForm) {
-      edit = <EditRecipe recipeId={recipe.id} />
+      edit = <RecipeCU edit recipeId={recipe.id} />
     } else {
       edit = <Button name="edit-recipe" onClick={this.renderEditForm}>Edit Recipe</Button>
     }
