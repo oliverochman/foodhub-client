@@ -13,12 +13,15 @@ class EditRecipe extends Component {
     edit_recipe: true,
     error: false
   }
-  async componentDidMount() {
-    let response = await getSingleRecipe(this.props.match.params.id)
 
-    if (response.recipe) {
+  submitRecipeHandler = async (event) => {
+    event.preventDefault();
+    let { title, directions, ingredients, image } = event.target
+    let response = await submitRecipe(title.value, ingredients.value, directions.value, image.files[0])
+
+    if (response.message) {
       this.setState({
-        recipe: response.recipe
+        message: response.message
       })
     } else {
       this.setState({

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Header, Message } from 'semantic-ui-react'
+import { Header, Message, Button } from 'semantic-ui-react'
 import { getSingleRecipe } from '../modules/requestRecipes'
 import '../css/single-recipe.css'
-import RecipeCard from './RecipeCard';
+import RecipeCard from './RecipeCard'
+import EditRecipe from './EditRecipe'
 
 
 class SingleRecipe extends Component {
@@ -10,7 +11,8 @@ class SingleRecipe extends Component {
   state = {
     recipe: null,
     message: null,
-    error: false
+    error: false, 
+    renderEditForm: false
   }
 
   async componentDidMount() {
@@ -27,10 +29,16 @@ class SingleRecipe extends Component {
       })
     }
   }
+  renderEditForm = () => {
+    this.setState({
+      renderEditForm: true
+    })
+  }
 
   render() {
     let { recipe, message, error } = this.state
     let showSingleRecipe, messages
+    let edit
 
     if (message) {
       messages = (
@@ -43,6 +51,12 @@ class SingleRecipe extends Component {
           </Header>
         </Message>
       )
+    }
+
+    if (this.state.renderEditForm) {
+      edit = <EditRecipe />
+    } else {
+      edit = <Button name="edit-recipe" onClick={ this.renderEditForm }>Edit Recipe</Button>
     }
 
     if (recipe) {

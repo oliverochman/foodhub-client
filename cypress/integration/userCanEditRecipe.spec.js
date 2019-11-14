@@ -4,7 +4,7 @@ describe('User can edit recipe', () => {
     cy.route({
       method: 'GET',
       url: 'http://localhost:3000/v1/recipes/1',
-      response: 'fixture:single_recipe.json',
+      response: 'message: Your recipe has been updated.',
       status: 200
     })
     cy.route({
@@ -12,10 +12,14 @@ describe('User can edit recipe', () => {
       url: 'http://localhost:3000/v1/recipes/1',
       status: 201,
       response: 'fixture:successful_edit_from_user.json',
-      headers: {
-        "uid": "user@mail.com"
-      }
     })
+    cy.get('#recipe-1')
+      .click({ force: true })
+    cy.get('[name="single-recipe"]').within(() => {
+      cy.get('[name="edit-recipe"]')
+        .click()
+    })
+
     cy.get('#edit-recipe-form').within(() => {
       cy.get('[name="title"]').type('Apple Pie')
         .get('[name="ingredients"]').type('Apples, dough')
@@ -27,17 +31,14 @@ describe('User can edit recipe', () => {
       cy.get('[name="save-updates"]').click()
     })
     cy.get('#response-message')
-      .should('contain', 'The recipe has been updated')
+      .should('contain', 'Your recipe has been updated.')
   })
-  it('Fails to', () => {
+  xit('Fails to', () => {
     cy.route({
       method: 'PUT',
       url: 'http://localhost:3000/v1/recipes/1',
       status: 422,
       response: `{ “error_message”: “Unable to edit recipe.” }`,
-      headers: {
-        "uid": "user@mail.com"
-      }
     })
     cy.get('#response-message')
       .should('contain', 'Unable to edit recipe.')
