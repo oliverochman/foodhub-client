@@ -5,7 +5,6 @@ import RecipeForm from './RecipeForm'
 import '../css/create-recipe.css'
 
 class RecipeCU extends Component {
-  // RecipeFormContainer
   state = {
     message: null,
     error: false
@@ -61,7 +60,7 @@ class RecipeCU extends Component {
         {messages}
         <RecipeForm
           submitRecipeHandler={this.submitRecipeHandler}
-          edit={edit ? true : false}
+          edit={edit}
         />
       </div>
     )

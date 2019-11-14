@@ -14,7 +14,7 @@ describe('User can edit recipe', () => {
       method: 'PUT',
       url: 'http://localhost:3000/v1/recipes/1',
       status: 201,
-      response: 'fixture:successful_edit_from_user.json',
+      response: '{ "message": "Your recipe has been updated." }'
     })
 
     cy.get('#recipe-1').click({ force: true })
