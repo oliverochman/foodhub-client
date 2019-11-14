@@ -1,30 +1,44 @@
 @import url(http://fonts.googleapis.com/css?family=Condiment);
 
-body  {background-image: URL(https://images.unsplash.com/photo-1514516870926-20598973e480?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=986&q=80);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+#welcome #welcome-id {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-h1{
+#welcome h1{
   text-align: center;
   font-size :70px;
   font-family: "SimHei";
   font-style: italic;
   font-weight: bold;
-  line-height:5;
-  color:black;
+  line-height:1.6;
+  color:whitesmoke;
   font-family: Condiment, cursive;
-  font-size: 60px;
+  font-size: 70px;
   text-align: center;
-  
+  padding-bottom: 5rem;
 }
-h2{text-align: center;
-  font-size :100px;
+
+#welcome h2{
+  text-align: center;
+  font-size :170px;
   font-family: "Abril Fatface";
   font-style: Regular;
   font-weight: bold;
   line-height:0;
-  color:black;
+  color:whitesmoke;
 }
+
                                
+#welcome {
+    height: 100vh;
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ), URL(https://images.pexels.com/photos/277253/pexels-photo-277253.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
