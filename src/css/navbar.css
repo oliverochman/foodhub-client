@@ -2,10 +2,6 @@
   margin: 0.5rem 0 0.5rem 0.5rem !important;
 }
 
-.ui.menu > .ui.item {
-  border: none !important;
-}
-
 /* .ui.menu .item > .ui.header {
   font-size: 4rem;
   text-align: center;
@@ -30,5 +26,9 @@ i.huge.icon {
 
 a:hover {
   cursor: pointer;
+}
+
+a:visited {
+  background: #fff !important;
 }
 

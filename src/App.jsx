@@ -16,7 +16,6 @@ class App extends Component {
             <Route exact path='/recipe/:id' component={SingleRecipe} />
             <Route exact path="/create" component={CreateRecipe} />
           </Switch>
-          <CreateRecipe />
         </BrowserRouter>    
       </>
     );
