@@ -21,7 +21,7 @@ class Navbar extends Component {
                 position='left'
                 id='navbar-header'
                 style={{ fontSize: '2rem', textAlign: 'center', fontFamily: 'Anton' }}>
-                Food Hub
+                foodhub
             </Header>
               <Icon name='food' size='large' />
             </Menu.Item>
@@ -48,7 +48,7 @@ class Navbar extends Component {
                 position='left'
                 id='navbar-header'
                 style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Anton', color: 'white' }}>
-                Food Hub
+                foodhub
             </Header>
               <Icon name='food' size='huge' />
             </Menu.Item>
@@ -58,16 +58,16 @@ class Navbar extends Component {
                 as={NavLink}
                 to='/create'
                 style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', padding: '2rem' }}>
-                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white' }}>
+                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white', fontFamily: 'Condiment' }}>
                   Create Recipe
             </Header>
               </Menu.Item>
               <Menu.Item
-                id='nav-home'
+                id='nav-listrecipes'
                 as={NavLink}
-                to='/'
+                to='/listrecipes'
                 style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', padding: '2rem' }}>
-                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white' }}>
+                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white', fontFamily: 'Condiment' }}>
                   View Recipes
             </Header>
               </Menu.Item>
@@ -82,17 +82,17 @@ class Navbar extends Component {
                 position='left'
                 id='navbar-header'
                 style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Anton' }}>
-                Food Hub
+                foodhub
             </Header>
               <Icon name='food' size='huge' />
             </Menu.Item>
             <Menu.Item id='nav-create' as={NavLink} to='/create'>
-              <Header position='right'>
+              <Header position='right' style={{ fontFamily: 'Condiment' }}>
                 Create Recipe
             </Header>
             </Menu.Item>
-            <Menu.Item id='nav-home' as={NavLink} to='/'>
-              <Header position='right'>
+            <Menu.Item id='nav-listrecipes' as={NavLink} to='/listrecipes'>
+              <Header position='right' style={{ fontFamily: 'Condiment' }}>
                 View Recipes
             </Header>
             </Menu.Item>
