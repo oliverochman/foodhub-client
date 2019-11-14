@@ -1,6 +1,6 @@
 {
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/modules/requestRecipes.js": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/modules/requestRecipes.js",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/modules/requestRecipes.js": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/modules/requestRecipes.js",
     "statementMap": {
       "0": {
         "start": {
@@ -770,10 +770,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "1bafa95395d693fc21f9d9e9adee0b4bd93274b9"
+    "hash": "d078710761413212946af9b63ba116343177addd"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/components/RecipeCard.jsx": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/components/RecipeCard.jsx",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/RecipeCard.jsx": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/RecipeCard.jsx",
     "statementMap": {
       "0": {
         "start": {
@@ -936,10 +936,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "2a6f1b7bf9c21bd30333e2c49c7f37f06078851b"
+    "hash": "ad8c118adb7cfd54647e47b0bc7d1da3bcd7bc38"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/components/ListRecipes.jsx": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/components/ListRecipes.jsx",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/ListRecipes.jsx": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/ListRecipes.jsx",
     "statementMap": {
       "0": {
         "start": {
@@ -1232,10 +1232,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "3e8ffd246cb93d85658aa13bab42b60b0b32de8d"
+    "hash": "3d34fbefa5d46595414e43b197fc2c46ec1861e5"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/components/RecipeForm.jsx": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/components/RecipeForm.jsx",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/RecipeForm.jsx": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/RecipeForm.jsx",
     "statementMap": {
       "0": {
         "start": {
@@ -1434,10 +1434,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "e5334fa7a8f2b462ba0059f7888e11be58f9201c"
+    "hash": "ae1228cebdec6db336baf6a1833079e020a0878e"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/components/RecipeCU.jsx": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/components/RecipeCU.jsx",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/RecipeCU.jsx": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/RecipeCU.jsx",
     "statementMap": {
       "0": {
         "start": {
@@ -2008,10 +2008,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "cc434f6f0d82943e841f353c8e18d26bc2f813f6"
+    "hash": "7d794f89781921b2183ed29e141d503ed102970c"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/components/SingleRecipe.jsx": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/components/SingleRecipe.jsx",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/SingleRecipe.jsx": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/SingleRecipe.jsx",
     "statementMap": {
       "0": {
         "start": {
@@ -2516,10 +2516,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "3fe50dafc311369b6b050de7ec8c527aa52dd298"
+    "hash": "fab79db022d35af6ec0cffaa3b9a1c78657162ce"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/components/VerifyCredentialsForm.jsx": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/components/VerifyCredentialsForm.jsx",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/VerifyCredentialsForm.jsx": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/VerifyCredentialsForm.jsx",
     "statementMap": {
       "0": {
         "start": {
@@ -2614,10 +2614,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "dd25061b8d7c6277aa4cd7bcac26c1236d30c820"
+    "hash": "d7de2753b5b57a581b3ecaa2d8202689a87f7f86"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/state/actions/reduxTokenAuthConfig.js": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/state/actions/reduxTokenAuthConfig.js",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/state/actions/reduxTokenAuthConfig.js": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/state/actions/reduxTokenAuthConfig.js",
     "statementMap": {
       "0": {
         "start": {
@@ -2649,10 +2649,10 @@
     "f": {},
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "fd1cc4795d128d328b4d3c3a6564cfdb240fba1a"
+    "hash": "271d273d09537dbb6361c1505695afff365f1e58"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/components/Login.jsx": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/components/Login.jsx",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/Login.jsx": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/Login.jsx",
     "statementMap": {
       "0": {
         "start": {
@@ -3113,10 +3113,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "7db6be151074d6b66bad2cb5eb4da21fa8efcda4"
+    "hash": "35ccac813c51ec71364be23fe45ccdb4c29a65e2"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/components/WelcomePage.jsx": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/components/WelcomePage.jsx",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/WelcomePage.jsx": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/WelcomePage.jsx",
     "statementMap": {
       "0": {
         "start": {
@@ -3164,10 +3164,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "7b1985bd6511726c75b23774028b6955c9e8840c"
+    "hash": "6eaee15bb52fc2a4e1c98540b683a41520c8f6cb"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/components/Navbar.jsx": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/components/Navbar.jsx",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/Navbar.jsx": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/Navbar.jsx",
     "statementMap": {
       "0": {
         "start": {
@@ -3331,10 +3331,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "f47e1c698183e407f27b3673e8213620670481bb"
+    "hash": "02457778d4062b16cc30ff42f82875fde474dfa5"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/components/Logout.jsx": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/components/Logout.jsx",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/Logout.jsx": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/components/Logout.jsx",
     "statementMap": {
       "0": {
         "start": {
@@ -3352,127 +3352,137 @@
           "column": 12
         },
         "end": {
-          "line": 22,
+          "line": 20,
           "column": 3
         }
       },
       "2": {
         "start": {
           "line": 12,
-          "column": 4
+          "column": 28
         },
         "end": {
           "line": 12,
-          "column": 12
+          "column": 38
         }
       },
       "3": {
         "start": {
           "line": 13,
-          "column": 28
+          "column": 4
         },
         "end": {
-          "line": 13,
-          "column": 38
+          "line": 19,
+          "column": 8
         }
       },
       "4": {
         "start": {
-          "line": 14,
-          "column": 4
+          "line": 18,
+          "column": 8
         },
         "end": {
-          "line": 21,
-          "column": 8
+          "line": 18,
+          "column": 64
         }
       },
       "5": {
         "start": {
-          "line": 19,
-          "column": 8
+          "line": 24,
+          "column": 22
         },
         "end": {
-          "line": 19,
-          "column": 17
+          "line": 24,
+          "column": 32
         }
       },
       "6": {
         "start": {
-          "line": 20,
-          "column": 8
+          "line": 25,
+          "column": 24
         },
         "end": {
-          "line": 20,
-          "column": 38
+          "line": 25,
+          "column": 28
         }
       },
       "7": {
         "start": {
-          "line": 26,
-          "column": 24
+          "line": 27,
+          "column": 4
         },
         "end": {
-          "line": 26,
-          "column": 28
+          "line": 33,
+          "column": 5
         }
       },
       "8": {
         "start": {
           "line": 28,
-          "column": 4
+          "column": 6
         },
         "end": {
-          "line": 34,
-          "column": 5
+          "line": 32,
+          "column": 7
         }
       },
       "9": {
         "start": {
-          "line": 29,
-          "column": 6
+          "line": 35,
+          "column": 4
         },
         "end": {
-          "line": 33,
-          "column": 7
+          "line": 46,
+          "column": 5
         }
       },
       "10": {
         "start": {
           "line": 36,
-          "column": 4
+          "column": 6
         },
         "end": {
-          "line": 40,
-          "column": 5
+          "line": 45,
+          "column": 7
         }
       },
       "11": {
         "start": {
-          "line": 44,
-          "column": 24
+          "line": 48,
+          "column": 4
         },
         "end": {
-          "line": 49,
-          "column": 1
+          "line": 53,
+          "column": 5
         }
       },
       "12": {
         "start": {
-          "line": 45,
-          "column": 2
+          "line": 57,
+          "column": 24
         },
         "end": {
-          "line": 48,
-          "column": 3
+          "line": 62,
+          "column": 1
         }
       },
       "13": {
         "start": {
-          "line": 51,
+          "line": 58,
+          "column": 2
+        },
+        "end": {
+          "line": 61,
+          "column": 3
+        }
+      },
+      "14": {
+        "start": {
+          "line": 64,
           "column": 27
         },
         "end": {
-          "line": 53,
+          "line": 66,
           "column": 1
         }
       }
@@ -3496,7 +3506,7 @@
             "column": 18
           },
           "end": {
-            "line": 22,
+            "line": 20,
             "column": 3
           }
         },
@@ -3506,84 +3516,84 @@
         "name": "(anonymous_1)",
         "decl": {
           "start": {
-            "line": 18,
+            "line": 17,
             "column": 13
           },
           "end": {
-            "line": 18,
+            "line": 17,
             "column": 14
           }
         },
         "loc": {
           "start": {
-            "line": 18,
+            "line": 17,
             "column": 22
           },
           "end": {
-            "line": 21,
+            "line": 19,
             "column": 7
           }
         },
-        "line": 18
+        "line": 17
       },
       "2": {
         "name": "(anonymous_2)",
         "decl": {
           "start": {
-            "line": 24,
+            "line": 22,
             "column": 2
           },
           "end": {
-            "line": 24,
+            "line": 22,
             "column": 3
           }
         },
         "loc": {
           "start": {
-            "line": 24,
+            "line": 22,
             "column": 11
           },
           "end": {
-            "line": 41,
+            "line": 54,
             "column": 3
           }
         },
-        "line": 24
+        "line": 22
       },
       "3": {
         "name": "(anonymous_3)",
         "decl": {
           "start": {
-            "line": 44,
+            "line": 57,
             "column": 24
           },
           "end": {
-            "line": 44,
+            "line": 57,
             "column": 25
           }
         },
         "loc": {
           "start": {
-            "line": 44,
+            "line": 57,
             "column": 33
           },
           "end": {
-            "line": 49,
+            "line": 62,
             "column": 1
           }
         },
-        "line": 44
+        "line": 57
       }
     },
     "branchMap": {
       "0": {
         "loc": {
           "start": {
-            "line": 28,
+            "line": 27,
             "column": 4
           },
           "end": {
-            "line": 34,
+            "line": 33,
             "column": 5
           }
         },
@@ -3591,26 +3601,62 @@
         "locations": [
           {
             "start": {
-              "line": 28,
+              "line": 27,
               "column": 4
             },
             "end": {
-              "line": 34,
+              "line": 33,
               "column": 5
             }
           },
           {
             "start": {
-              "line": 28,
+              "line": 27,
               "column": 4
             },
             "end": {
-              "line": 34,
+              "line": 33,
               "column": 5
             }
           }
         ],
-        "line": 28
+        "line": 27
+      },
+      "1": {
+        "loc": {
+          "start": {
+            "line": 35,
+            "column": 4
+          },
+          "end": {
+            "line": 46,
+            "column": 5
+          }
+        },
+        "type": "if",
+        "locations": [
+          {
+            "start": {
+              "line": 35,
+              "column": 4
+            },
+            "end": {
+              "line": 46,
+              "column": 5
+            }
+          },
+          {
+            "start": {
+              "line": 35,
+              "column": 4
+            },
+            "end": {
+              "line": 46,
+              "column": 5
+            }
+          }
+        ],
+        "line": 35
       }
     },
     "s": {
@@ -3618,16 +3664,17 @@
       "1": 2,
       "2": 1,
       "3": 1,
-      "4": 1,
-      "5": 0,
-      "6": 0,
+      "4": 0,
+      "5": 8,
+      "6": 8,
       "7": 8,
-      "8": 8,
-      "9": 3,
-      "10": 8,
-      "11": 2,
-      "12": 8,
-      "13": 2
+      "8": 3,
+      "9": 8,
+      "10": 0,
+      "11": 8,
+      "12": 2,
+      "13": 8,
+      "14": 2
     },
     "f": {
       "0": 1,
@@ -3639,13 +3686,17 @@
       "0": [
         3,
         5
+      ],
+      "1": [
+        0,
+        8
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "3ee2537de7569f1ea0b73ea93d2072faa48057f5"
+    "hash": "f4c32bd02cb7c42c376fa48373bec213501a2e5f"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/App.jsx": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/App.jsx",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/App.jsx": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/App.jsx",
     "statementMap": {
       "0": {
         "start": {
@@ -3693,10 +3744,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "e1f21e3447801f4a6dc529b54b6032bf43436ea0"
+    "hash": "94e77d771b3e3a280e8441a04cc4e90be4ddf1a5"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/serviceWorker.js": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/serviceWorker.js",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/serviceWorker.js": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/serviceWorker.js",
     "statementMap": {
       "0": {
         "start": {
@@ -5125,10 +5176,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "fefa46aa3b5fc5e002a6a8e05c67250b2254f59f"
+    "hash": "65274ee24aad14ac3167a44ebd20352b8d783af8"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/state/reducers/rootReducer.js": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/state/reducers/rootReducer.js",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/state/reducers/rootReducer.js": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/state/reducers/rootReducer.js",
     "statementMap": {
       "0": {
         "start": {
@@ -5149,10 +5200,10 @@
     "f": {},
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "46e030d6d03a50ee6532fb60d9e3793f33367e39"
+    "hash": "b1bef33049c0ea4c4de4471905ef17264c29fde1"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/state/store/configureStore.js": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/state/store/configureStore.js",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/state/store/configureStore.js": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/state/store/configureStore.js",
     "statementMap": {
       "0": {
         "start": {
@@ -5211,10 +5262,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "80dac830fc88cc1d02e98dfd0275be2957ba99f1"
+    "hash": "7089b5446f67cb9a7af2961544a47e490db05ce7"
   },
-  "/Users/yasmineezequiel/final_project/foodhub-client/src/index.js": {
-    "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/index.js",
+  "/Users/clalil/boot_camp/food_hub/foodhub_client/src/index.js": {
+    "path": "/Users/clalil/boot_camp/food_hub/foodhub_client/src/index.js",
     "statementMap": {
       "0": {
         "start": {
@@ -5268,6 +5319,6 @@
     "f": {},
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "e6ce4df62c57500a4ebe4be626496a1a0bcead62"
+    "hash": "839a9155891edeb31a240967b3d0b317354a9b49"
   }
 }

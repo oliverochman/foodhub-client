@@ -1,40 +1,53 @@
 import React, { Component } from 'react'
 import { signOutUser } from '../state/actions/reduxTokenAuthConfig'
 import { connect } from 'react-redux'
-import { Button, Container } from 'semantic-ui-react'
+import { Button, Container, Header, Message } from 'semantic-ui-react'
 
 class Logout extends Component {
   state = {
-    error: false
+    message: null
   }
 
   signOut = () => {
-    debugger
     const { signOutUser } = this.props
     signOutUser()
       .then(
         console.log('Signed out!')
       )
       .catch(error => {
-        debugger;
-        this.setState({ error: true })
+        this.setState({ message: error.response.data.errors })
       })
   }
 
   render() {
-    let logoutButton
+    let logoutButton, messages
+    let { message } = this.state
     const { signOut } = this
 
     if (this.props.currentUser.isSignedIn) {
       logoutButton = (
-        <div>
+        <>
           <Button id='logout-button' onClick={signOut}>Logout</Button>
-        </div>
+        </>
+      )
+    }
+
+    if (message) {
+      messages = (
+        <Message size="small">
+          <Header
+            as='p'
+            id="response-message"
+            style={{ color: 'red' }}>
+            {message}
+          </Header>
+        </Message>
       )
     }
 
     return (
       <Container>
+        {messages}
         {logoutButton}
       </Container>
     )

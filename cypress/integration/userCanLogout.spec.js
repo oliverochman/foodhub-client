@@ -17,6 +17,6 @@ describe('User can log out from application', () => {
 
   it('Needs to be logged in to see the logout button', () => {
     cy.loginUser('user@mail.com', 'password')
-    cy.get('#logout-button').should('not.exist')
+    cy.get('#logout-button').should('exist')
   })
 })
