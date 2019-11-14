@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
 
-const verifyCredentialsForm = (props) => {
+const VerifyCredentialsForm = (props) => {
   return (
     <>
       <Form id="create-recipe-form"
@@ -36,4 +36,4 @@ const verifyCredentialsForm = (props) => {
   )
 }
 
-export default verifyCredentialsForm
+export default VerifyCredentialsForm
