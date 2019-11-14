@@ -54,6 +54,15 @@ class Navbar extends Component {
             </Menu.Item>
             <Menu.Menu style={{ marginTop: '10rem' }}>
               <Menu.Item
+                id='nav-login'
+                as={NavLink}
+                to='/login'
+                style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', padding: '2rem' }}>
+                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white' }}>
+                  Login
+            </Header>
+              </Menu.Item>
+              <Menu.Item
                 id='nav-create'
                 as={NavLink}
                 to='/create'
@@ -94,6 +103,11 @@ class Navbar extends Component {
             <Menu.Item id='nav-home' as={NavLink} to='/'>
               <Header position='right'>
                 View Recipes
+            </Header>
+            </Menu.Item>
+            <Menu.Item id='nav-login' as={NavLink} to='/login'>
+              <Header position='right'>
+                Login
             </Header>
             </Menu.Item>
           </Menu>

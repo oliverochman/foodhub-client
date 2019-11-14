@@ -16,9 +16,9 @@ class App extends Component {
             <Route exact path='/' component={ListRecipes} />
             <Route exact path='/recipe/:id' component={SingleRecipe} />
             <Route exact path="/create" component={CreateRecipe} />
+            <Route exact path="/login" component={Login} />
           </Switch>
         </BrowserRouter>
-        <Login />
       </>
     );
   }
