@@ -11,17 +11,17 @@ describe('Navigating the site on a desktop', () => {
 })
 
 describe('Navigating the site on a mobile', () => {
-  beforeEach(() => { 
+  beforeEach(() => {
     cy.viewport('iphone-6')
   })
 
   it('successfully', () => {
     cy.get('#navbar')
-      cy.get('#sidebar-menu')
-        .click()
-      cy.get('#mobile-menu')
+    cy.get('#sidebar-menu')
+      .click()
+    cy.get('#mobile-menu')
       .should('be.visible')
     cy.get('#desktop-navbar')
       .should('not.be.visible')
-    })
+  })
 })
