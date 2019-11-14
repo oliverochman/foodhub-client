@@ -17,7 +17,6 @@ class SingleRecipe extends Component {
 
   async componentDidMount() {
     let response = await getSingleRecipe(this.props.match.params.id)
-
     if (response.recipe) {
       this.setState({
         recipe: response.recipe
@@ -29,6 +28,7 @@ class SingleRecipe extends Component {
       })
     }
   }
+
   renderEditForm = () => {
     this.setState({
       renderEditForm: true
@@ -54,17 +54,20 @@ class SingleRecipe extends Component {
     }
 
     if (this.state.renderEditForm) {
-      edit = <EditRecipe />
+      edit = <EditRecipe recipeId={recipe.id} />
     } else {
-      edit = <Button name="edit-recipe" onClick={ this.renderEditForm }>Edit Recipe</Button>
+      edit = <Button name="edit-recipe" onClick={this.renderEditForm}>Edit Recipe</Button>
     }
 
     if (recipe) {
       showSingleRecipe = (
-        <RecipeCard
-          recipe={recipe}
-          linked={false}
-        />
+        <>
+          <RecipeCard
+            recipe={recipe}
+            linked={false}
+          />
+          {edit}
+        </>
       )
     }
 

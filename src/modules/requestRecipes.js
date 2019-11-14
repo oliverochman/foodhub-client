@@ -34,10 +34,42 @@ const submitRecipe = async (title, ingredients, directions, image) => {
         recipe: recipeParams
       }
     )
+
     return {
       message: response.data.message,
     }
   } catch(error) {
+    return {
+      error: error.response.data.error_message || error.message 
+    }
+  }
+}
+
+const editRecipe = async (title, ingredients, directions, image, recipeId) => {
+  try {
+    let encodedImage, recipeParams
+    recipeParams = {
+      title: title,
+      ingredients: ingredients,
+      directions: directions
+    }
+
+    if (image) {
+      encodedImage = await toBase64(image)
+      recipeParams.image = encodedImage
+    }
+
+    let response = await axios.put(apiUrl + `recipes/${recipeId}`,
+      {
+        recipe: recipeParams
+      }
+    )
+
+    return {
+      message: response.data.message,
+    }
+  } catch(error) {
+    debugger
     return {
       error: error.response.data.error_message || error.message 
     }
@@ -57,4 +89,4 @@ const getSingleRecipe = async (recipeId) => {
   }
 }
 
-export { fetchRecipes, submitRecipe, getSingleRecipe }
+export { fetchRecipes, submitRecipe, getSingleRecipe, editRecipe }

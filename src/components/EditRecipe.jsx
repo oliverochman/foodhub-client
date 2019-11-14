@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Header } from 'semantic-ui-react'
-import { getSingleRecipe } from '../modules/requestRecipes'
+import { Header, Message } from 'semantic-ui-react'
+import { editRecipe } from '../modules/requestRecipes'
 import RecipeCard from './RecipeCard'
-import EditRecipeForm from './components/EditRecipeForm'
+import EditRecipeForm from './EditRecipeForm'
 
 
 class EditRecipe extends Component {
@@ -17,8 +17,8 @@ class EditRecipe extends Component {
   submitRecipeHandler = async (event) => {
     event.preventDefault();
     let { title, directions, ingredients, image } = event.target
-    let response = await submitRecipe(title.value, ingredients.value, directions.value, image.files[0])
-
+    let response = await editRecipe(title.value, ingredients.value, directions.value, image.files[0], this.props.recipeId)
+    debugger;
     if (response.message) {
       this.setState({
         message: response.message
@@ -32,14 +32,30 @@ class EditRecipe extends Component {
   }
 
   render() {
+    let { message, error } = this.state
+    let messages
+    
+    if (message) {
+      messages = (
+        <Message className="create-message" size="small" style={{ color: error ? 'red' : 'green' }}>
+          <Header
+            as='p'
+            id="response-message"
+            style={{ color: error ? 'red' : 'green' }}>
+            {this.state.message}
+          </Header>
+        </Message>
+      )
+    }
+
     return (
       <div className="edit-wrapper">
         <Header as='h1' className="edit-recipe">Make some changes to your recipe!</Header>
         <Header sub>All input fields are mandatory in order to update your recipe.</Header>
-        {messages}
         <EditRecipeForm
           submitRecipeHandler={this.submitRecipeHandler}
         />
+        {messages}
       </div>
     )
   }
