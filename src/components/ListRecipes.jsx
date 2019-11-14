@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { fetchRecipes } from '../modules/requestRecipes';
-import { Message, Header } from 'semantic-ui-react';
-import RecipeCard from './RecipeCard';
+import React, { Component } from "react"
+import { fetchRecipes } from "../modules/requestRecipes"
+import { Message, Header } from "semantic-ui-react"
+import RecipeCard from "./RecipeCard"
 
 class ListRecipes extends Component {
   state = {
@@ -9,14 +9,12 @@ class ListRecipes extends Component {
   }
 
   componentDidMount() {
-    fetchRecipes()
-      .then(result => {
-        this.setState({
-          recipes: result
-        })
+    fetchRecipes().then(result => {
+      this.setState({
+        recipes: result
       })
+    })
   }
-
   render() {
     let renderListRecipes
     const recipeData = this.state.recipes
@@ -24,36 +22,24 @@ class ListRecipes extends Component {
 
     if (recipeData.length > 0) {
       renderListRecipes = recipeData.map(recipe => {
-        return (
-          <RecipeCard 
-            key={recipe.id}
-            recipe={recipe}
-            linked
-          />
-        )
+        return <RecipeCard key={recipe.id} recipe={recipe} linked />
       })
     } else {
       message = (
-        <Message style={{ color: 'red' }}>
-          <Header
-            as='p'
-            id="message"
-            style={{ color: 'green' }}>
+        <Message style={{ color: "red" }}>
+          <Header as="p" id="message" style={{ color: "green" }}>
             There are no recipes
-          </Header> 
+          </Header>
         </Message>
       )
     }
     return (
       <>
-        {renderListRecipes &&
-          <div id="list">
-            {renderListRecipes}
-          </div>
-        }
+        {renderListRecipes && <div id="list">{renderListRecipes}</div>}
         {message}
       </>
     )
   }
 }
-export default ListRecipes;
+
+export default ListRecipes

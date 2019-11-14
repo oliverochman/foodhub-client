@@ -26,7 +26,7 @@ describe('Creates a recipe', () => {
     cy.get('#response-message')
       .should('contain', 'The recipe was successfully created.')
   })
-
+  
   it('Fails to', () => {
     cy.route({
       method: 'POST',
@@ -34,7 +34,6 @@ describe('Creates a recipe', () => {
       response: '{ "error_message": "Unable to create recipe." }',
       status: 422
     })
-    
     cy.get('#navbar').within(() => {
       cy.get('#nav-create')
         .click()
