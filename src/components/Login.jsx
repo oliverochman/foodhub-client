@@ -14,11 +14,13 @@ class Login extends Component {
     event.preventDefault();
     const { signInUser } = this.props
     const { email, password } = event.target
-    signInUser({ email, password })
+    debugger;
+    signInUser(email.value, password.value)
       .then(
         console.log('Successful!')
       )
       .catch(error => {
+        debugger;
         this.setState({
           message: error.response.data.errors,
           error: true
