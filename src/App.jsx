@@ -19,10 +19,10 @@ class App extends Component {
             <Route exact path='/listrecipes' component={ListRecipes} />
             <Route exact path='/recipe/:id' component={SingleRecipe} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/logout" component={Logout} />
             <Route exact path="/create" component={RecipeCU} />
           </Switch>
         </BrowserRouter>   
-        <Logout /> 
       </>
     )
   }

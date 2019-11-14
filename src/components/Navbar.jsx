@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Menu, Header, Icon, Responsive, Sidebar } from 'semantic-ui-react'
 import '../css/navbar.css'
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class Navbar extends Component {
   state = { visibleSidebar: false }
@@ -11,6 +12,27 @@ class Navbar extends Component {
 
   render() {
     const notMobile = { minWidth: Responsive.onlyMobile.maxWidth + 1 }
+    let logOut, logIn
+
+    if (this.props.currentUser.isSignedIn) {
+      logOut = (
+        <Menu.Item id='nav-logout' as={NavLink} to='/logout'>
+          <Header position='right' style={{ fontFamily: 'Condiment' }}>
+            Log out
+            </Header>
+        </Menu.Item>
+      )
+    }
+
+    if (this.props.currentUser.isSignedIn === false) {
+      logIn = (
+        <Menu.Item id='nav-login' as={NavLink} to='/login'>
+          <Header position='right' style={{ fontFamily: 'Condiment' }}>
+            Login
+          </Header>
+        </Menu.Item>
+      )
+    }
 
     return (
       <>
@@ -54,15 +76,6 @@ class Navbar extends Component {
             </Menu.Item>
             <Menu.Menu style={{ marginTop: '10rem' }}>
               <Menu.Item
-                id='nav-login'
-                as={NavLink}
-                to='/login'
-                style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', padding: '2rem' }}>
-                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white', fontFamily: 'Condiment' }}>
-                  Login
-            </Header>
-              </Menu.Item>
-              <Menu.Item
                 id='nav-create'
                 as={NavLink}
                 to='/create'
@@ -80,6 +93,8 @@ class Navbar extends Component {
                   View Recipes
             </Header>
               </Menu.Item>
+              {logIn}
+              {logOut}
             </Menu.Menu>
           </Sidebar>
         </Responsive>
@@ -105,11 +120,8 @@ class Navbar extends Component {
                 View Recipes
             </Header>
             </Menu.Item>
-            <Menu.Item id='nav-login' as={NavLink} to='/login'>
-              <Header position='right' style={{ fontFamily: 'Condiment' }}>
-                Login
-            </Header>
-            </Menu.Item>
+            {logIn}
+            {logOut}
           </Menu>
         </Responsive >
       </>
@@ -117,4 +129,13 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar
+const mapStateToProps = state => {
+  return {
+    state: state,
+    currentUser: state.reduxTokenAuth.currentUser
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(Navbar);

@@ -6,17 +6,28 @@ describe('User can log out from application', () => {
       response: '{ "success": true }',
       status: 204
     })
-  
+
     cy.loginUser('user@mail.com', 'password')
     cy.get('#welcome-message')
       .should('contain', 'Hello BettySpaghetti')
-      cy.get('#logout-button').click()
-      cy.get('#welcome-message')
-        .should('not.exist')
+
+    cy.get('#navbar')
+      .within(() => {
+        cy.get('#nav-logout').click()
+      })
+    cy.get('#logout-button')
+      .click()
+    cy.get('#welcome-message')
+      .should('not.exist')
   })
 
   it('Needs to be logged in to see the logout button', () => {
     cy.loginUser('user@mail.com', 'password')
-    cy.get('#logout-button').should('exist')
+    cy.get('#navbar')
+    .within(() => {
+      cy.get('#nav-logout').click()
+    })
+    cy.get('#logout-button')
+      .should('exist')
   })
 })
