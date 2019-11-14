@@ -12,9 +12,9 @@ class Navbar extends Component {
     const notMobile = { minWidth: Responsive.onlyMobile.maxWidth + 1 }
 
     return (
-
+<>
       <Responsive {...Responsive.onlyMobile}>
-        <Menu id='navbar' style={{ marginTop: "1em" }}>>
+        <Menu id='navbar' style={{ marginTop: "1em" }}>
           <Menu.Item>
             <Header
               position='left'
@@ -53,6 +53,7 @@ class Navbar extends Component {
           </Menu.Item>
         </Menu>
       </Responsive >
+      </>
     )
   }
 }
