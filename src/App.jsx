@@ -6,6 +6,7 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import WelcomePage from './components/WelcomePage'
 import RecipeCU from './components/RecipeCU'
 import Navbar from './components/Navbar'
+import Logout from './components/Logout'
 
 class App extends Component {
   render() {
@@ -20,7 +21,8 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/create" component={RecipeCU} />
           </Switch>
-        </BrowserRouter>    
+        </BrowserRouter>   
+        <Logout /> 
       </>
     )
   }
