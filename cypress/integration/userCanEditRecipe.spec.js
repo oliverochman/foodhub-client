@@ -15,6 +15,18 @@ describe('User can edit recipe', () => {
       headers: {
         "uid": "user@mail.com"
       }
+    })
+    cy.get('#edit-recipe-form').within(() => {
+      cy.get('[name="title"]').type('Apple Pie')
+        .get('[name="ingredients"]').type('Apples, dough')
+        .get('[name="directions"]').type('Bake pie at 200')
+      cy.fixture(fileName).then(fileContent => {
+        cy.get('[name="image"]')
+          .upload({ fileContent, fileName, mimeType: 'application/json' });
+      });
+      cy.get('[name="save updates"]').click()
+    })
+    cy.get('#response-message')
+      .should('contain', 'The recipe has been updated')
   })
-})
 })
