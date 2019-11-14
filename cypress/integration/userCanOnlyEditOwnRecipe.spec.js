@@ -1,4 +1,10 @@
-describe('User can edit recipe', () => {
+describe('Only user can edit own recipe', () => {
+  
+  it('successfully logs in ', () => {
+    cy.loginUser('user@mail.com', 'password')
+    cy.get('#welcome-message')
+      .should('contain', 'Hello BettySpaghetti')
+  })
 
   beforeEach(() => {
     cy.route({
