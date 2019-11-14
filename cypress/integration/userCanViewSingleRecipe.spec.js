@@ -23,7 +23,6 @@ describe('View single recipe', () => {
       response: '{ "error_message": "The recipe could not be found" }',
       status: 404
     })
-
     cy.get('#recipe-1')
       .click({ force: true })
     cy.get('#response-message')

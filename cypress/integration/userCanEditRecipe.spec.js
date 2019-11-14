@@ -8,7 +8,7 @@ describe('User can edit recipe', () => {
       status: 200
     })
   })
-
+  
   it('Successfully', () => {
     cy.route({
       method: 'PUT',
@@ -16,23 +16,17 @@ describe('User can edit recipe', () => {
       status: 201,
       response: '{ "message": "Your recipe has been updated." }'
     })
-
     cy.get('#recipe-1').click({ force: true })
-
     cy.get('[name="edit-recipe"]').click()
-
     cy.get('#edit-recipe-form').within(() => {
       cy.get('[name="title"]').type('Apple Pie')
         .get('[name="ingredients"]').type('Apples, dough')
         .get('[name="directions"]').type('Bake pie at 200')
-
       const fileName = 'pizza.jpeg';
-
       cy.fixture(fileName).then(fileContent => {
         cy.get('[name="image"]')
           .upload({ fileContent, fileName, mimeType: 'application/json' });
       });
-
       cy.get('[name="submit"]').click()
     })
     cy.get('#response-message')
@@ -46,15 +40,11 @@ describe('User can edit recipe', () => {
       status: 422,
       response: '{ "error_message": "Unable to edit recipe." }'
     })
-
     cy.get('#recipe-1').click({ force: true })
-
     cy.get('[name="edit-recipe"]').click()
-
     cy.get('#edit-recipe-form').within(() => {
       cy.get('[name="submit"]').click()
     })
-
     cy.get('#response-message')
       .should('contain', 'Unable to edit recipe.')
   })

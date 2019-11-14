@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import ListRecipes from './components/ListRecipes';
-import RecipeCU from './components/RecipeCU';
-import SingleRecipe from './components/SingleRecipe';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import React, { Component } from 'react'
+import ListRecipes from './components/ListRecipes'
+import RecipeCU from './components/RecipeCU'
+import SingleRecipe from './components/SingleRecipe'
+import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
 class App extends Component {
   render() {
@@ -16,8 +16,8 @@ class App extends Component {
           <RecipeCU />
         </BrowserRouter>    
       </>
-    );
+    )
   }
 }
 
-export default App;
+export default App

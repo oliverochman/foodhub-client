@@ -14,7 +14,6 @@ describe('FoodHub user can view a list of recipes', () => {
       url: 'http://localhost:3000/v1/recipes',
       response: '{"recipes":[]}'
     })
-
     cy.visit('http://localhost:3001')
     cy.get("#message").should('contain', 'There are no recipes')
   })
