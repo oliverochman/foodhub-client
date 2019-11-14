@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Message, Header } from 'semantic-ui-react'
 import VerifyCredentialsForm from './VerifyCredentialsForm'
+import { signInUser } from '../state/actions/reduxTokenAuthConfig'
+import { connect } from 'react-redux'
 
 class Login extends Component {
   state = {
@@ -25,7 +27,7 @@ class Login extends Component {
   }
 
   render() {
-    let messages
+    let messages, loginForm, welcomeMessage
     let { message, error } = this.state
 
     if (message) {
@@ -41,16 +43,40 @@ class Login extends Component {
       )
     }
 
+    if (this.props.currentUser.isSignedIn) {
+      welcomeMessage = <p id="welcome-message">Hello {this.props.currentUser.attributes.name}</p>
+    } else {
+      loginForm = (
+        <div>
+          <VerifyCredentialsForm
+            submitCredentials={this.submitCredentials}
+          />
+        </div>
+      )
+    }
+
     return (
       <div className="create-wrapper">
         <Header as='h1'>Welcome to the login page</Header>
+        {welcomeMessage}
         {messages}
-        <VerifyCredentialsForm
-          submitCredentials={this.submitCredentials}
-        />
+        {loginForm}
       </div>
     )
   }
 }
 
-export default Login
+const mapStateToProps = state => {
+  return {
+    currentUser: state.reduxTokenAuth.currentUser
+  }
+}
+
+const mapDispatchToProps = {
+  signInUser
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login)

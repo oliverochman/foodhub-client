@@ -5,14 +5,14 @@ Cypress.Commands.add('loginUser', (email, password) => {
     response: 'fixture:successful_user_login.json',
     status: 200
   })
-  
+
   cy.get('#navbar')
     .within(() => {
       cy.get('#nav-login').click()
     })
-  cy.get('#login-form').within(() => {
-    cy.get('#email-input').type('user@mail.com')
-    cy.get('#password-input').type('password')
-  })
-  cy.get('#submit-login-form').click()
+  cy.get('#credentials-form').within(() => {
+    cy.get('[name="email"]').type('user@mail.com')
+      .get('[name="password"]').type('password')
+  });
+  cy.get('[name="submit"]').click()
 })

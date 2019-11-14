@@ -4,7 +4,7 @@ import { Form, Button } from 'semantic-ui-react'
 const VerifyCredentialsForm = (props) => {
   return (
     <>
-      <Form id="create-recipe-form"
+      <Form id="credentials-form"
         onSubmit={(event) => props.submitCredentials(event)}
       >
         <Form.Group widths='equal'>
@@ -15,15 +15,10 @@ const VerifyCredentialsForm = (props) => {
             name="email"
           />
         </Form.Group>
-        <Form.TextArea
-          label='Ingredients'
+        <Form.Input
+          label='Password'
           placeholder='Please enter a valid password'
           name="password"
-        />
-        <Form.TextArea
-          label='Directions'
-          placeholder='Please repeat your password'
-          name="password-confirmation"
         />
         <Button
           type="submit"
