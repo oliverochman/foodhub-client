@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import ListRecipes from './components/ListRecipes';
-import CreateRecipe from './components/CreateRecipe';
-import SingleRecipe from './components/SingleRecipe';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import React, { Component } from 'react'
+import ListRecipes from './components/ListRecipes'
+import CreateRecipe from './components/CreateRecipe'
+import SingleRecipe from './components/SingleRecipe'
+import Login from './components/Login'
+import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import Navbar from './components/Navbar'
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route exact path="/create" component={CreateRecipe} />
           </Switch>
         </BrowserRouter>
+        <Login />
       </>
     );
   }

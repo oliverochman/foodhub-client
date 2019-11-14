@@ -1,7 +1,7 @@
 import { generateAuthActions } from "redux-token-auth"
 
 const config = {
-  authUrl: 'https://classy-news-backend.herokuapp.com/auth',
+  authUrl: 'http://localhost:3000/auth',
   userAttributes: {
     uid: "uid",
     name: "name",
