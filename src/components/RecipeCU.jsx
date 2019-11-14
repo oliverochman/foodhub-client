@@ -75,7 +75,7 @@ class RecipeCU extends Component {
 
     return (
       <div className="create-wrapper">
-        <Header as="h1" className={edit ? "edit-recipe" : "create-recipe"}>
+        <Header as="h1" className={edit ? "edit-recipe" : "create-recipe"} style={{ textAlign: 'center' }}>
           {header}
         </Header>
         <Header sub>{subHeader}.</Header>

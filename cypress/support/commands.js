@@ -1,25 +1,37 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+Cypress.Commands.add('loginUser', (email, password) => {
+  cy.route({
+    method: 'POST',
+    url: 'http://localhost:3000/auth/sign_in',
+    response: 'fixture:successful_login.json',
+    status: 200
+  })
+
+  cy.get('#navbar')
+    .within(() => {
+      cy.get('#nav-login').click()
+    })
+  cy.get('#credentials-form').within(() => {
+    cy.get('[name="email"]').type('email')
+      .get('[name="password"]').type('password')
+  });
+  cy.get('[name="submit"]').click()
+})
+
+Cypress.Commands.add('failToLoginUser', (email, password) => {
+  cy.route({
+    method: 'POST',
+    url: 'http://localhost:3000/auth/sign_in',
+    response: '{"errors":"Invalid login credentials. Please try again"}',
+    status: 401
+  })
+
+  cy.get('#navbar')
+    .within(() => {
+      cy.get('#nav-login').click()
+    })
+  cy.get('#credentials-form').within(() => {
+    cy.get('[name="email"]').type('email')
+      .get('[name="password"]').type('passwordd')
+  });
+  cy.get('[name="submit"]').click()
+})
