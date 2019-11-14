@@ -58,7 +58,7 @@ class Navbar extends Component {
                 as={NavLink}
                 to='/login'
                 style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', padding: '2rem' }}>
-                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white' }}>
+                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white', fontFamily: 'Condiment' }}>
                   Login
             </Header>
               </Menu.Item>
@@ -106,7 +106,7 @@ class Navbar extends Component {
             </Header>
             </Menu.Item>
             <Menu.Item id='nav-login' as={NavLink} to='/login'>
-              <Header position='right'>
+              <Header position='right' style={{ fontFamily: 'Condiment' }}>
                 Login
             </Header>
             </Menu.Item>

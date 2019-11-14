@@ -21,7 +21,7 @@ Cypress.Commands.add('failToLoginUser', (email, password) => {
   cy.route({
     method: 'POST',
     url: 'http://localhost:3000/auth/sign_in',
-    response: '{"errors":["You need to sign in or sign up before continuing."]}',
+    response: '{"errors":"Invalid login credentials. Please try again"}',
     status: 401
   })
 

@@ -16,6 +16,10 @@ describe('User can edit recipe', () => {
       status: 201,
       response: '{ "message": "Your recipe has been updated." }'
     })
+    cy.get('#navbar').within(() => {
+      cy.get('#nav-listrecipes')
+        .click()
+    })
     cy.get('#recipe-1').click({ force: true })
     cy.get('[name="edit-recipe"]').click()
     cy.get('#edit-recipe-form').within(() => {
@@ -39,6 +43,10 @@ describe('User can edit recipe', () => {
       url: 'http://localhost:3000/v1/recipes/1',
       status: 422,
       response: '{ "error_message": "Unable to edit recipe." }'
+    })
+    cy.get('#navbar').within(() => {
+      cy.get('#nav-listrecipes')
+        .click()
     })
     cy.get('#recipe-1').click({ force: true })
     cy.get('[name="edit-recipe"]').click()

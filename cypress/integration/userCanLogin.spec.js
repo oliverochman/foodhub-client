@@ -9,6 +9,6 @@ describe('User can log in to application', () => {
   it('unsuccessfully logs in ', () => {
     cy.failToLoginUser('user@mail.com', 'passwordd')
     cy.get('#response-message')
-      .should('contain', 'You need to sign in or sign up before continuing.')
+      .should('contain', 'Invalid login credentials. Please try again')
   })
 })
