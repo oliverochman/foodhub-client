@@ -10,7 +10,7 @@ describe('User can edit recipe', () => {
     cy.route({
       method: 'PUT',
       url: 'http://localhost:3000/v1/recipes/1',
-      status: 200,
+      status: 201,
       response: 'fixture:successful_edit_from_user.json',
       headers: {
         "uid": "user@mail.com"
@@ -24,7 +24,7 @@ describe('User can edit recipe', () => {
         cy.get('[name="image"]')
           .upload({ fileContent, fileName, mimeType: 'application/json' });
       });
-      cy.get('[name="save updates"]').click()
+      cy.get('[name="save-updates"]').click()
     })
     cy.get('#response-message')
       .should('contain', 'The recipe has been updated')
@@ -40,8 +40,6 @@ describe('User can edit recipe', () => {
       }
     })
     cy.get('#response-message')
-      .should('contain', 'Unable to create recipe')
+      .should('contain', 'Unable to edit recipe.')
   })
 })
-
-

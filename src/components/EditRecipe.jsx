@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Header } from 'semantic-ui-react'
 import { getSingleRecipe } from '../modules/requestRecipes'
 import RecipeCard from './RecipeCard'
+import EditRecipeForm from './components/EditRecipeForm'
 
 
 class EditRecipe extends Component {
@@ -29,7 +30,13 @@ class EditRecipe extends Component {
 
   render() {
     return (
-      <div>
+      <div className="edit-wrapper">
+        <Header as='h1' className="edit-recipe">Make some changes to your recipe!</Header>
+        <Header sub>All input fields are mandatory in order to update your recipe.</Header>
+        {messages}
+        <EditRecipeForm
+          submitRecipeHandler={this.submitRecipeHandler}
+        />
       </div>
     )
   }
