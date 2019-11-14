@@ -63,9 +63,9 @@ class Navbar extends Component {
             </Header>
               </Menu.Item>
               <Menu.Item
-                id='nav-home'
+                id='nav-listrecipes'
                 as={NavLink}
-                to='/'
+                to='/listrecipes'
                 style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', padding: '2rem' }}>
                 <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white', fontFamily: 'Condiment' }}>
                   View Recipes
@@ -91,7 +91,7 @@ class Navbar extends Component {
                 Create Recipe
             </Header>
             </Menu.Item>
-            <Menu.Item id='nav-home' as={NavLink} to='/'>
+            <Menu.Item id='nav-listrecipes' as={NavLink} to='/listrecipes'>
               <Header position='right' style={{ fontFamily: 'Condiment' }}>
                 View Recipes
             </Header>
