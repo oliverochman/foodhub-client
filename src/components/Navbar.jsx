@@ -25,7 +25,7 @@ class Navbar extends Component {
             </Header>
               <Icon name='food' size='large' />
             </Menu.Item>
-            <Menu.Item onClick={this.handleShowClick} position='right'>
+            <Menu.Item onClick={this.handleShowClick} position='right' id="sidebar-menu">
               <Icon size="big" name="align justify" />
             </Menu.Item>
           </Menu>
@@ -40,9 +40,10 @@ class Navbar extends Component {
             visible={this.state.visibleSidebar}
             onClick={this.handleSidebarHide}
             style={{ minWidth: "100%" }}
-            >
+            id="mobile-menu"
+          >
             <Menu.Item
-            style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', marginTop: '3rem' }}>
+              style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', marginTop: '3rem' }}>
               <Header
                 position='left'
                 id='navbar-header'
@@ -52,24 +53,24 @@ class Navbar extends Component {
               <Icon name='food' size='huge' />
             </Menu.Item>
             <Menu.Menu style={{ marginTop: '10rem' }}>
-            <Menu.Item 
-            id='nav-create' 
-            as={NavLink} 
-            to='/create'
-            style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', padding: '2rem' }}>
-              <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white' }}>
-                Create Recipe
+              <Menu.Item
+                id='nav-create'
+                as={NavLink}
+                to='/create'
+                style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', padding: '2rem' }}>
+                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white' }}>
+                  Create Recipe
             </Header>
-            </Menu.Item>
-            <Menu.Item 
-            id='nav-home' 
-            as={NavLink} 
-            to='/'
-            style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', padding: '2rem' }}>
-              <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white' }}>
-                View Recipes
+              </Menu.Item>
+              <Menu.Item
+                id='nav-home'
+                as={NavLink}
+                to='/'
+                style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', padding: '2rem' }}>
+                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white' }}>
+                  View Recipes
             </Header>
-            </Menu.Item>
+              </Menu.Item>
             </Menu.Menu>
           </Sidebar>
         </Responsive>
