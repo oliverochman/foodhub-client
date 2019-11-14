@@ -16,12 +16,12 @@ describe('Navigating the site on a mobile', () => {
   })
 
   it('successfully', () => {
-    cy.get('#navbar').within(() => {
+    cy.get('#navbar')
       cy.get('#sidebar-menu')
         .click()
-      cy.get('#mobile-menu').should('be.visible')
-      cy.get('.nav-home')
-        .should('contain', 'Food Hub')
+      cy.get('#mobile-menu')
+      .should('be.visible')
+    cy.get('#desktop-navbar')
+      .should('not.be.visible')
     })
-  })
 })
