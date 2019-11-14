@@ -47,11 +47,11 @@ class Login extends Component {
       welcomeMessage = <p id="welcome-message">Hello {this.props.currentUser.attributes.name}</p>
     } else {
       loginForm = (
-        <div>
+        <>
           <VerifyCredentialsForm
             submitCredentials={this.submitCredentials}
           />
-        </div>
+        </>
       )
     }
 
