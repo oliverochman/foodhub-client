@@ -5,7 +5,7 @@ import { Menu, Header } from 'semantic-ui-react'
 
 class Logout extends Component {
 
-  signOut = (e) => {
+  signOut = () => {
     const { signOutUser } = this.props
     signOutUser()
   }
