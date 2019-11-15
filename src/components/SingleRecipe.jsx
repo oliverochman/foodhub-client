@@ -4,6 +4,8 @@ import { getSingleRecipe } from '../modules/requestRecipes'
 import '../css/single-recipe.css'
 import RecipeCard from './RecipeCard'
 import RecipeCU from './RecipeCU'
+import { connect } from 'react-redux'
+
 
 
 class SingleRecipe extends Component {
@@ -53,12 +55,14 @@ class SingleRecipe extends Component {
       )
     }
     
-    if (this.state.renderEditForm) {
-      edit = <RecipeCU edit recipeId={recipe.id} />
-    } else {
-      edit = <Button name="edit-recipe" onClick={this.renderEditForm}>Edit Recipe</Button>
+    if (recipe && this.props.currentUser.attributes.id === recipe.user_id) {
+      if (this.state.renderEditForm) {
+        edit = <RecipeCU edit recipeId={recipe.id} />
+      } else {
+        edit = <Button name="edit-recipe" onClick={this.renderEditForm}>Edit Recipe</Button>
+      }
     }
-
+    
     if (recipe) {
       showSingleRecipe = (
         <>
@@ -80,4 +84,12 @@ class SingleRecipe extends Component {
   }
 }
 
-export default SingleRecipe
+const mapStateToProps = state => {
+  return {
+    currentUser: state.reduxTokenAuth.currentUser
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(SingleRecipe);
