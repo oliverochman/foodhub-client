@@ -27,7 +27,6 @@ class Logout extends Component {
 
 const mapStateToProps = state => {
   return {
-    state: state,
     currentUser: state.reduxTokenAuth.currentUser
   }
 }

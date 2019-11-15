@@ -3225,7 +3225,7 @@
           "column": 24
         },
         "end": {
-          "line": 33,
+          "line": 32,
           "column": 1
         }
       },
@@ -3235,7 +3235,7 @@
           "column": 2
         },
         "end": {
-          "line": 32,
+          "line": 31,
           "column": 3
         }
       }
@@ -3307,7 +3307,7 @@
             "column": 33
           },
           "end": {
-            "line": 33,
+            "line": 32,
             "column": 1
           }
         },
@@ -3331,7 +3331,7 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "83d85cbcba19808a9b63cccabc226bbdb5dabbb9"
+    "hash": "ad5e0a3ce2d9ea9b295fbd21c2040b0e34b89340"
   },
   "/Users/yasmineezequiel/final_project/foodhub-client/src/components/Navbar.jsx": {
     "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/components/Navbar.jsx",
@@ -3402,7 +3402,7 @@
           "column": 4
         },
         "end": {
-          "line": 22,
+          "line": 30,
           "column": 5
         }
       },
@@ -3418,51 +3418,41 @@
       },
       "8": {
         "start": {
-          "line": 24,
-          "column": 4
+          "line": 23,
+          "column": 6
         },
         "end": {
-          "line": 32,
-          "column": 5
+          "line": 29,
+          "column": 7
         }
       },
       "9": {
         "start": {
-          "line": 25,
-          "column": 6
+          "line": 32,
+          "column": 4
         },
         "end": {
-          "line": 31,
-          "column": 7
+          "line": 123,
+          "column": 5
         }
       },
       "10": {
         "start": {
-          "line": 34,
-          "column": 4
+          "line": 127,
+          "column": 24
         },
         "end": {
-          "line": 125,
-          "column": 5
+          "line": 132,
+          "column": 1
         }
       },
       "11": {
         "start": {
-          "line": 129,
-          "column": 24
-        },
-        "end": {
-          "line": 134,
-          "column": 1
-        }
-      },
-      "12": {
-        "start": {
-          "line": 130,
+          "line": 128,
           "column": 2
         },
         "end": {
-          "line": 133,
+          "line": 131,
           "column": 3
         }
       }
@@ -3534,7 +3524,7 @@
             "column": 11
           },
           "end": {
-            "line": 126,
+            "line": 124,
             "column": 3
           }
         },
@@ -3544,25 +3534,25 @@
         "name": "(anonymous_3)",
         "decl": {
           "start": {
-            "line": 129,
+            "line": 127,
             "column": 24
           },
           "end": {
-            "line": 129,
+            "line": 127,
             "column": 25
           }
         },
         "loc": {
           "start": {
-            "line": 129,
+            "line": 127,
             "column": 33
           },
           "end": {
-            "line": 134,
+            "line": 132,
             "column": 1
           }
         },
-        "line": 129
+        "line": 127
       }
     },
     "branchMap": {
@@ -3573,7 +3563,7 @@
             "column": 4
           },
           "end": {
-            "line": 22,
+            "line": 30,
             "column": 5
           }
         },
@@ -3585,7 +3575,7 @@
               "column": 4
             },
             "end": {
-              "line": 22,
+              "line": 30,
               "column": 5
             }
           },
@@ -3595,48 +3585,12 @@
               "column": 4
             },
             "end": {
-              "line": 22,
+              "line": 30,
               "column": 5
             }
           }
         ],
         "line": 18
-      },
-      "1": {
-        "loc": {
-          "start": {
-            "line": 24,
-            "column": 4
-          },
-          "end": {
-            "line": 32,
-            "column": 5
-          }
-        },
-        "type": "if",
-        "locations": [
-          {
-            "start": {
-              "line": 24,
-              "column": 4
-            },
-            "end": {
-              "line": 32,
-              "column": 5
-            }
-          },
-          {
-            "start": {
-              "line": 24,
-              "column": 4
-            },
-            "end": {
-              "line": 32,
-              "column": 5
-            }
-          }
-        ],
-        "line": 24
       }
     },
     "s": {
@@ -3648,11 +3602,10 @@
       "5": 8,
       "6": 8,
       "7": 3,
-      "8": 8,
-      "9": 5,
-      "10": 8,
-      "11": 2,
-      "12": 8
+      "8": 5,
+      "9": 8,
+      "10": 2,
+      "11": 8
     },
     "f": {
       "0": 0,
@@ -3664,14 +3617,10 @@
       "0": [
         3,
         5
-      ],
-      "1": [
-        5,
-        3
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "53e4a67f6871a24b3c7c24ef3adba39f01f62f7a"
+    "hash": "207fab2215f16b6f8c73a332f46b594b9ea67a51"
   },
   "/Users/yasmineezequiel/final_project/foodhub-client/src/App.jsx": {
     "path": "/Users/yasmineezequiel/final_project/foodhub-client/src/App.jsx",

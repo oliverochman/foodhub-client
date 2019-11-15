@@ -19,9 +19,7 @@ class Navbar extends Component {
       logOut = (
         <Logout />
       )
-    }
-
-    if (this.props.currentUser.isSignedIn === false) {
+    } else {
       logIn = (
         <Menu.Item id='nav-login' as={NavLink} to='/login'>
           <Header position='right' style={{ fontFamily: 'Condiment' }}>
