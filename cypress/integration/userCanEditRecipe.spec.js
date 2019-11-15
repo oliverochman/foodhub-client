@@ -16,6 +16,8 @@ describe('User can edit recipe', () => {
       status: 201,
       response: '{ "message": "Your recipe has been updated." }'
     })
+    cy.loginUser('user@mail.com', 'password')
+
     cy.get('#navbar').within(() => {
       cy.get('#nav-listrecipes')
         .click()
@@ -56,4 +58,5 @@ describe('User can edit recipe', () => {
     cy.get('#response-message')
       .should('contain', 'Unable to edit recipe.')
   })
+  
 })

@@ -52,7 +52,7 @@ class SingleRecipe extends Component {
         </Message>
       )
     }
-
+    
     if (this.state.renderEditForm) {
       edit = <RecipeCU edit recipeId={recipe.id} />
     } else {
