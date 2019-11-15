@@ -3,6 +3,7 @@ import { Menu, Header, Icon, Responsive, Sidebar } from 'semantic-ui-react'
 import '../css/navbar.css'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
+import Logout from './Logout'
 
 class Navbar extends Component {
   state = { visibleSidebar: false }
@@ -16,11 +17,7 @@ class Navbar extends Component {
 
     if (this.props.currentUser.isSignedIn) {
       logOut = (
-        <Menu.Item id='nav-logout' as={NavLink} to='/logout'>
-          <Header position='right' style={{ fontFamily: 'Condiment' }}>
-            Log out
-            </Header>
-        </Menu.Item>
+        <Logout />
       )
     }
 
