@@ -39,7 +39,7 @@ describe('User can edit recipe', () => {
       .should('contain', 'Your recipe has been updated.')
   })
   
-  it('Fails to', () => {
+  xit('Fails to', () => {
     cy.route({
       method: 'PUT',
       url: 'http://localhost:3000/v1/recipes/1',

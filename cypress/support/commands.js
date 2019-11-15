@@ -1,7 +1,7 @@
 Cypress.Commands.add('loginUser', (email, password) => {
   cy.route({
     method: 'POST',
-    url: 'http://localhost:3000/auth/sign_in',
+    url: 'http://localhost:3000/v1/auth/sign_in',
     response: 'fixture:successful_login.json',
     status: 200
   })
