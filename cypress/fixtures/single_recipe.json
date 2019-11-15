@@ -4,6 +4,7 @@
       "id": 1,  
       "title": "Quiche", 
       "ingredients": "Eggs", 
-      "directions": "Stir the mixture"
+      "directions": "Stir the mixture",
+      "user_id": 1
     }
 }

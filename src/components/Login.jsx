@@ -13,8 +13,11 @@ class Login extends Component {
   submitCredentials = (event) => {
     event.preventDefault();
     const { signInUser } = this.props
-    const { email, password } = event.target
-    signInUser(email.value, password.value)
+    let { email, password } = event.target
+    password = password.value
+    email = email.value
+
+    signInUser({email, password})
       .then(
         console.log('Successful!')
       )

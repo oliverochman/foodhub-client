@@ -2,7 +2,7 @@ describe('User can log out from application', () => {
   it('successfully logs out ', () => {
     cy.route({
       method: 'DELETE',
-      url: 'http://localhost:3000/auth/sign_out',
+      url: 'http://localhost:3000/v1/auth/sign_out',
       response: '{ "success": true }',
       status: 204
     })
