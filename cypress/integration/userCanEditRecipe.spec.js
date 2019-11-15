@@ -64,7 +64,12 @@ describe('User edits recipe', () => {
   })
   
   it('unsuccessful, user cant edit if they did not create recipe', () => {
-    
+    cy.anotherLoginUser('user2@mail.com', 'password')
+    cy.get('#navbar').within(() => {
+      cy.get('#nav-listrecipes')
+        .click()
+    })
+    cy.get('#recipe-1').click({ force: true })
+    cy.get('[name="edit-recipe"]').should('not.exist')
   })
-
 })
