@@ -1,4 +1,6 @@
-describe('User can edit recipe', () => {
+import { it } from "mocha"
+
+describe('User edits recipe', () => {
 
   beforeEach(() => {
     cy.route({
@@ -39,7 +41,7 @@ describe('User can edit recipe', () => {
       .should('contain', 'Your recipe has been updated.')
   })
   
-  it('Fails to', () => {
+  it('unnsuccessfully if not filling out form correctly', () => {
     cy.route({
       method: 'PUT',
       url: 'http://localhost:3000/v1/recipes/1',
@@ -61,4 +63,8 @@ describe('User can edit recipe', () => {
       .should('contain', 'Unable to edit recipe.')
   })
   
+  it('unsuccessful, user cant edit if they did not create recipe', () => {
+    
+  })
+
 })
