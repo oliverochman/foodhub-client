@@ -39,7 +39,7 @@ Cypress.Commands.add('anotherLoginUser', (email, password) => {
 Cypress.Commands.add('failToLoginUser', (email, password) => {
   cy.route({
     method: 'POST',
-    url: 'http://localhost:3000/auth/sign_in',
+    url: 'http://localhost:3000/v1/auth/sign_in',
     response: '{"errors":"Invalid login credentials. Please try again"}',
     status: 401
   })

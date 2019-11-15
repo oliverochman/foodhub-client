@@ -55,15 +55,15 @@ class SingleRecipe extends Component {
       )
     }
     
-    if (recipe && this.props.currentUser.attributes.id === recipe.user_id) {
-      if (this.state.renderEditForm) {
-        edit = <RecipeCU edit recipeId={recipe.id} />
-      } else {
-        edit = <Button name="edit-recipe" onClick={this.renderEditForm}>Edit Recipe</Button>
-      }
-    }
     
     if (recipe) {
+      if (this.props.currentUser.attributes.id === recipe.user_id) {
+        edit = this.state.renderEditForm ?
+          <RecipeCU edit recipeId={recipe.id} />
+          :
+          <Button name="edit-recipe" onClick={this.renderEditForm}>Edit Recipe</Button>
+      }
+      
       showSingleRecipe = (
         <>
           <RecipeCard
