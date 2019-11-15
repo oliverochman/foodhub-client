@@ -39,13 +39,15 @@ describe('User can edit recipe', () => {
       .should('contain', 'Your recipe has been updated.')
   })
   
-  xit('Fails to', () => {
+  it('Fails to', () => {
     cy.route({
       method: 'PUT',
       url: 'http://localhost:3000/v1/recipes/1',
       status: 422,
       response: '{ "error_message": "Unable to edit recipe." }'
     })
+    cy.loginUser('user@mail.com', 'password')
+
     cy.get('#navbar').within(() => {
       cy.get('#nav-listrecipes')
         .click()
