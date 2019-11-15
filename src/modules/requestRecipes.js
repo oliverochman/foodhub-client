@@ -69,7 +69,6 @@ const editRecipe = async (title, ingredients, directions, image, recipeId) => {
       message: response.data.message,
     }
   } catch(error) {
-    debugger
     return {
       error: error.response.data.error_message || error.message 
     }

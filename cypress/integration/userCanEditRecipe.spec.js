@@ -1,5 +1,3 @@
-import { it } from "mocha"
-
 describe('User edits recipe', () => {
 
   beforeEach(() => {
@@ -72,4 +70,13 @@ describe('User edits recipe', () => {
     cy.get('#recipe-1').click({ force: true })
     cy.get('[name="edit-recipe"]').should('not.exist')
   })
+
+  it('unsuccessful, visitor cant see the edit button', () => {
+    cy.get('#navbar').within(() => {
+      cy.get('#nav-listrecipes')
+        .click()
+    })
+    cy.get('#recipe-1').click({ force: true })
+    cy.get('[name="edit-recipe"]').should('not.exist')
+  });
 })
