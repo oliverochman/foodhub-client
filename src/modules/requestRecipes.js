@@ -66,6 +66,9 @@ const editRecipe = async (title, ingredients, directions, image, recipeId) => {
     let response = await axios.put(apiUrl + `recipes/${recipeId}`,
       {
         recipe: recipeParams
+      },
+      {
+        headers: getCurrentCredentials()
       }
     )
 
