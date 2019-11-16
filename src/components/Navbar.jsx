@@ -64,7 +64,7 @@ class Navbar extends Component {
               <Header
                 position='left'
                 id='navbar-header'
-                style={{ fontSize: '2rem', textAlign: 'center', fontFamily: 'Anton' }}>
+                style={{ fontSize: '2rem', textAlign: 'center', fontFamily: 'Abril Fatface' }}>
                 foodhub
             </Header>
               <Icon name='food' size='large' />
@@ -91,7 +91,7 @@ class Navbar extends Component {
               <Header
                 position='left'
                 id='navbar-header'
-                style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Anton', color: 'white' }}>
+                style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Condiment', color: 'white' }}>
                 foodhub
             </Header>
             </Menu.Item>
@@ -128,7 +128,7 @@ class Navbar extends Component {
               <Header
                 position='left'
                 id='navbar-header'
-                style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Anton' }}>
+                style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Abril Fatface' }}>
                 foodhub
             </Header>
             </Menu.Item>

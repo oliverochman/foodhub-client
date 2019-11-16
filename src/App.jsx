@@ -10,7 +10,7 @@ import Logout from './components/Logout'
 import { generateRequireSignInWrapper } from 'redux-token-auth' 
 
 const requireSignIn = generateRequireSignInWrapper({
-  redirectPathIfNotSignedIn: '/login',
+  redirectPathIfNotSignedIn: '/',
 })
 
 class App extends Component {
