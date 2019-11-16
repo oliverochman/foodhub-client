@@ -1,4 +1,5 @@
 import axios from 'axios'
+import getCurrentCredentials from './getCredentials'
 
 const apiUrl = 'http://localhost:3000/v1/'
 
@@ -62,6 +63,42 @@ const editRecipe = async (title, ingredients, directions, image, recipeId) => {
     let response = await axios.put(apiUrl + `recipes/${recipeId}`,
       {
         recipe: recipeParams
+      },
+      {
+        headers: getCurrentCredentials()
+      }
+    )
+
+    return {
+      message: response.data.message,
+    }
+  } catch(error) {
+    return {
+      error: error.response.data.error_message || error.message 
+    }
+  }
+}
+
+const forkRecipe = async (title, ingredients, directions, image, recipeId) => {
+  try {
+    let encodedImage, recipeParams
+    recipeParams = {
+      title: title,
+      ingredients: ingredients,
+      directions: directions
+    }
+
+    if (image) {
+      encodedImage = await toBase64(image)
+      recipeParams.image = encodedImage
+    }
+
+    let response = await axios.post(apiUrl + `recipes/${recipeId}/fork`,
+      {
+        recipe: recipeParams
+      },
+      {
+        headers: getCurrentCredentials()
       }
     )
 
@@ -88,4 +125,4 @@ const getSingleRecipe = async (recipeId) => {
   }
 }
 
-export { fetchRecipes, submitRecipe, getSingleRecipe, editRecipe }
+export { fetchRecipes, submitRecipe, getSingleRecipe, editRecipe, forkRecipe }

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Message, Header } from "semantic-ui-react"
-import { submitRecipe, editRecipe } from "../modules/requestRecipes"
+import { submitRecipe, editRecipe, forkRecipe } from "../modules/requestRecipes"
 import RecipeForm from "./RecipeForm"
 import "../css/create-recipe.css"
 
@@ -14,9 +14,18 @@ class RecipeCU extends Component {
     event.preventDefault()
     let { title, directions, ingredients, image } = event.target
     let response
+    debugger
 
     if (this.props.edit) {
       response = await editRecipe(
+        title.value,
+        ingredients.value,
+        directions.value,
+        image.files[0],
+        this.props.recipeId
+      )
+    } else if (this.props.fork) {
+      response = await forkRecipe(
         title.value,
         ingredients.value,
         directions.value,
@@ -46,6 +55,7 @@ class RecipeCU extends Component {
 
   render() {
     let edit = this.props.edit
+    let fork = this.props.fork
     let header = edit
       ? "Make some changes to your recipe!"
       : "Create Your Own Recipe"
@@ -83,6 +93,7 @@ class RecipeCU extends Component {
         <RecipeForm
           submitRecipeHandler={this.submitRecipeHandler}
           edit={edit}
+          fork={fork}
         />
       </div>
     );

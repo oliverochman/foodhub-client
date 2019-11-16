@@ -2,7 +2,7 @@ import React from "react"
 import { Form, Button } from "semantic-ui-react"
 
 const RecipeForm = props => {
-  let edit = props.edit
+  let edit = props.edit 
   let buttonText = edit ? "Save Updates" : "Submit"
   return (
     <>
