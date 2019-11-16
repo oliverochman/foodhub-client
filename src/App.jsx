@@ -7,6 +7,11 @@ import WelcomePage from './components/WelcomePage'
 import RecipeCU from './components/RecipeCU'
 import Navbar from './components/Navbar'
 import Logout from './components/Logout'
+import { generateRequireSignInWrapper } from 'redux-token-auth' 
+
+const requireSignIn = generateRequireSignInWrapper({
+  redirectPathIfNotSignedIn: '/login',
+})
 
 class App extends Component {
   render() {
@@ -20,7 +25,7 @@ class App extends Component {
             <Route exact path='/recipe/:id' component={SingleRecipe} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout} />
-            <Route exact path="/create" component={RecipeCU} />
+            <Route exact path="/create" component={requireSignIn(RecipeCU)} />
           </Switch>
         </BrowserRouter>   
       </>
