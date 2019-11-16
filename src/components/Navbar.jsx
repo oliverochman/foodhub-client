@@ -67,12 +67,12 @@ class Navbar extends Component {
     return (
       <>
         <Responsive {...Responsive.onlyMobile}>
-          <Menu id='navbar' style={{ marginTop: "1em" }}>
+          <Menu id='navbar' style={{ marginTop: "1em" }} borderless={true}>
             <Menu.Item>
               <Header
                 position='left'
                 id='navbar-header'
-                style={{ fontSize: '2rem', textAlign: 'center', fontFamily: 'Condiment' }}>
+                style={{ fontSize: '2rem', textAlign: 'center', fontFamily: 'Abril Fatface' }}>
                 foodhub
             </Header>
               <Icon name='food' size='large' />
@@ -86,7 +86,6 @@ class Navbar extends Component {
             as={Menu}
             animation='overlay'
             icon='labeled'
-            inverted
             onHide={this.handleSidebarHide}
             vertical
             visible={this.state.visibleSidebar}
@@ -94,28 +93,26 @@ class Navbar extends Component {
             style={{ minWidth: "100%" }}
             id="mobile-menu"
           >
-            <Menu.Item
-              style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', marginTop: '3rem' }}>
+            <Menu.Menu style={{ color: 'white', fontSize: '2rem' }}>
+            <Menu.Item>
               <Header
                 position='left'
                 id='navbar-header'
-                style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Condiment', color: 'white' }}>
+                style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Abril Fatface' }}>
                 foodhub
             </Header>
+            <Icon name='food' size='large' />
             </Menu.Item>
             {welcomeMessage}
-            <Menu.Menu style={{ marginTop: '10rem' }}>
               {createRecipe}
               <Menu.Item
                 id='nav-listrecipes'
                 as={NavLink}
-                to='/listrecipes'
-                style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', padding: '2rem' }}>
-                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white', fontFamily: 'Condiment' }}>
+                to='/listrecipes'>
+                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', fontFamily: 'Condiment' }}>
                   View Recipes
-            </Header>
+                </Header>
               </Menu.Item>
-              {welcomeMessage}
               {logIn}
               {logOut}
             </Menu.Menu>
@@ -123,7 +120,7 @@ class Navbar extends Component {
         </Responsive>
 
         <Responsive {...notMobile}>
-          <Menu id='navbar' borderless={true}>
+          <Menu id='navbar' borderless={true} style={{ color: 'black', fontSize: '1.5rem' }}>
             <Menu.Item>
               <Header
                 position='left'

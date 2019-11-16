@@ -1,34 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Condiment);
 
-#navbar-header {
+ #navbar-header {
   margin: 0.5rem 0 0.5rem 0.5rem !important;
-}
-
-i.huge.icon {
-  margin-bottom: 0.5rem !important;
-  background: -webkit-linear-gradient(#eee, #0f402b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.navbar-links {
-  font-size: '4rem';
-  text-align: 'center';
-  font-family: 'Abril Fatface';
-  height: "2.5rem";
-  line-height: "2.5rem";
-  font-weight: 'bold';
-}
-
-a:hover {
-  cursor: pointer;
 }
 
 .fake-link-hover:hover {
   cursor: pointer;
 }
-
-a:visited {
-  background: #fff !important;
-}
-
