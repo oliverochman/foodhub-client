@@ -7,7 +7,15 @@ import Logout from './Logout'
 import Login from './Login'
 
 class Navbar extends Component {
-  state = { visibleSidebar: false }
+  state = { visibleSidebar: false, modalOpen: false }
+
+  handleModalOpen = () => {
+    this.setState((prevState) => {
+       return{
+          modalOpen: !prevState.modalOpen
+       }
+    })
+ }
 
   handleShowClick = () => this.setState({ visibleSidebar: true })
   handleSidebarHide = () => this.setState({ visibleSidebar: false })
@@ -22,9 +30,14 @@ class Navbar extends Component {
       )
     } else {
       logIn = (
-        <Menu.Item
-        id='login-button'>
-        <Login />
+        <Menu.Item id='nav-login'>
+          <Header position='right' style={{ fontFamily: 'Condiment' }} onClick={this.handleModalOpen}>
+            Log in
+          </Header>
+          <Login 
+          modalOpen={this.state.modalOpen}
+          handleModalOpen={this.handleModalOpen}
+          />
         </Menu.Item>
       )
     }

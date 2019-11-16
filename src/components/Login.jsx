@@ -56,12 +56,9 @@ class Login extends Component {
 
         <Modal id='modal'
           basic size='small'
-          trigger={
-              <Header position='right' style={{ fontFamily: 'Condiment' }}>
-                Log in
-              </Header>
-          }
-        >
+          open={this.props.modalOpen}
+          onHide={this.props.handleModalOpen}
+          >
           <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
             <Grid.Column style={{ maxWidth: 450 }}>
               <Header as='h1' color='teal' textAlign='center' fontSize='10rem'>
@@ -94,6 +91,9 @@ class Login extends Component {
                 >
                   Login
                 </Button>
+                <Button variant="danger" onClick={this.props.handleModalOpen}>
+                    Cancel
+                 </Button>
               </Form>
             </Grid.Column>
           </Grid>
