@@ -91,9 +91,16 @@ class Login extends Component {
                 >
                   Login
                 </Button>
-                <Button variant="danger" onClick={this.props.handleModalOpen}>
-                    Cancel
-                 </Button>
+                <Button
+                  style={{ marginTop: '0.8rem' }}
+                  color='red'
+                  type="submit"
+                  name="submit"
+                  fluid size='large'
+                  onClick={this.props.handleModalOpen}
+                >
+                  Cancel
+                </Button>
               </Form>
             </Grid.Column>
           </Grid>

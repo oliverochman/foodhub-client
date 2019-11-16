@@ -22,6 +22,10 @@ a:hover {
   cursor: pointer;
 }
 
+.fake-link-hover:hover {
+  cursor: pointer;
+}
+
 a:visited {
   background: #fff !important;
 }

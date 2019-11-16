@@ -10,8 +10,8 @@ class Navbar extends Component {
   state = { visibleSidebar: false, modalOpen: false }
 
   handleModalOpen = () => {
-    this.setState((prevState) => {
-       return{
+    this.setState(prevState => {
+       return {
           modalOpen: !prevState.modalOpen
        }
     })
@@ -30,8 +30,11 @@ class Navbar extends Component {
       )
     } else {
       logIn = (
-        <Menu.Item id='nav-login'>
-          <Header position='right' style={{ fontFamily: 'Condiment' }} onClick={this.handleModalOpen}>
+        <Menu.Item id='nav-login' className='fake-link-hover'>
+          <Header 
+          position='right' 
+          style={{ fontFamily: 'Condiment' }} 
+          onClick={this.handleModalOpen}>
             Log in
           </Header>
           <Login 
