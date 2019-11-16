@@ -2,7 +2,7 @@ describe('FoodHub user can view a list of recipes', () => {
 
   it("contains recipe content", () => {
     cy.get('#navbar').within(() => {
-      cy.get('#nav-listrecipes')
+      cy.get('#nav-list-recipes')
         .click()
     })
     cy.get('[name="recipe-1"]').within(() => {
