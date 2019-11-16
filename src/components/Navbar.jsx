@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Logout from './Logout'
 import Login from './Login'
-import { create } from 'domain'
 
 class Navbar extends Component {
   state = { visibleSidebar: false, modalOpen: false }
@@ -106,7 +105,7 @@ class Navbar extends Component {
             {welcomeMessage}
               {createRecipe}
               <Menu.Item
-                id='nav-listrecipes'
+                id='nav-list-recipes'
                 as={NavLink}
                 to='/listrecipes'>
                 <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', fontFamily: 'Condiment' }}>
@@ -131,7 +130,7 @@ class Navbar extends Component {
             </Menu.Item>
             {welcomeMessage}
             {createRecipe}
-            <Menu.Item id='nav-listrecipes' as={NavLink} to='/listrecipes'>
+            <Menu.Item id='nav-list-recipes' as={NavLink} to='/listrecipes'>
               <Header position='right' style={{ fontFamily: 'Condiment' }}>
                 View Recipes
             </Header>
