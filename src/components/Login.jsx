@@ -47,7 +47,6 @@ class Login extends Component {
         <Modal id='modal'
           basic size='small'
           open={this.props.modalOpen}
-          onHide={this.props.handleModalOpen}
           >
           <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
             <Grid.Column style={{ maxWidth: 450 }}>
