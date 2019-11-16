@@ -37,7 +37,9 @@ class Navbar extends Component {
         </Menu.Item>
       )
       logOut = (
-        <Logout />
+        <Logout 
+          handleModalOpen={this.handleModalOpen}
+        />
       )
       createRecipe = (
         <Menu.Item id='nav-create' as={NavLink} to='/create'>

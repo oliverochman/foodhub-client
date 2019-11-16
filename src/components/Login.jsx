@@ -63,14 +63,14 @@ class Login extends Component {
                   fluid
                   icon='user'
                   iconPosition='left'
-                  placeholder='Please enter a valid email'
+                  placeholder='Please enter your email'
                   name="email"
                 />
                 <Form.Input
                   fluid
                   icon='lock'
                   iconPosition='left'
-                  placeholder='Please enter a valid password'
+                  placeholder='Please enter your password'
                   name='password'
                   type='password'
                 />
