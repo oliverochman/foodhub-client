@@ -5,52 +5,60 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Logout from './Logout'
 import Login from './Login'
+import { create } from 'domain'
 
 class Navbar extends Component {
   state = { visibleSidebar: false, modalOpen: false }
 
   handleModalOpen = () => {
     this.setState(prevState => {
-       return {
-          modalOpen: !prevState.modalOpen
-       }
+      return {
+        modalOpen: !prevState.modalOpen
+      }
     })
- }
+  }
 
   handleShowClick = () => this.setState({ visibleSidebar: true })
   handleSidebarHide = () => this.setState({ visibleSidebar: false })
 
   render() {
     const notMobile = { minWidth: Responsive.onlyMobile.maxWidth + 1 }
-    let logOut, logIn, welcomeMessage
+    let logOut, logIn, welcomeMessage, createRecipe
 
     if (this.props.currentUser.isSignedIn) {
       welcomeMessage = (
         <Menu.Item>
-        <Header 
-        position='right' 
-        style={{ fontFamily: 'Condiment', color: 'green' }}
-        id="welcome-message"
-        >
-        Hello {this.props.currentUser.attributes.name}
-        </Header>
-      </Menu.Item>
+          <Header
+            position='right'
+            style={{ fontFamily: 'Condiment', color: 'green' }}
+            id="welcome-message"
+          >
+            Hello {this.props.currentUser.attributes.name}
+          </Header>
+        </Menu.Item>
       )
       logOut = (
         <Logout />
       )
+      createRecipe = (
+        <Menu.Item id='nav-create' as={NavLink} to='/create'>
+          <Header position='right' style={{ fontFamily: 'Condiment' }}>
+            Create Recipe
+          </Header>
+        </Menu.Item>
+      )
     } else {
       logIn = (
         <Menu.Item id='nav-login' className='fake-link-hover'>
-          <Header 
-          position='right' 
-          style={{ fontFamily: 'Condiment' }} 
-          onClick={this.handleModalOpen}>
+          <Header
+            position='right'
+            style={{ fontFamily: 'Condiment' }}
+            onClick={this.handleModalOpen}>
             Log in
           </Header>
-          <Login 
-          modalOpen={this.state.modalOpen}
-          handleModalOpen={this.handleModalOpen}
+          <Login
+            modalOpen={this.state.modalOpen}
+            handleModalOpen={this.handleModalOpen}
           />
         </Menu.Item>
       )
@@ -64,7 +72,7 @@ class Navbar extends Component {
               <Header
                 position='left'
                 id='navbar-header'
-                style={{ fontSize: '2rem', textAlign: 'center', fontFamily: 'Abril Fatface' }}>
+                style={{ fontSize: '2rem', textAlign: 'center', fontFamily: 'Condiment' }}>
                 foodhub
             </Header>
               <Icon name='food' size='large' />
@@ -97,15 +105,7 @@ class Navbar extends Component {
             </Menu.Item>
             {welcomeMessage}
             <Menu.Menu style={{ marginTop: '10rem' }}>
-              <Menu.Item
-                id='nav-create'
-                as={NavLink}
-                to='/create'
-                style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', padding: '2rem' }}>
-                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white', fontFamily: 'Condiment' }}>
-                  Create Recipe
-            </Header>
-              </Menu.Item>
+              {createRecipe}
               <Menu.Item
                 id='nav-listrecipes'
                 as={NavLink}
@@ -133,11 +133,7 @@ class Navbar extends Component {
             </Header>
             </Menu.Item>
             {welcomeMessage}
-            <Menu.Item id='nav-create' as={NavLink} to='/create'>
-              <Header position='right' style={{ fontFamily: 'Condiment' }}>
-                Create Recipe
-            </Header>
-            </Menu.Item>
+            {createRecipe}
             <Menu.Item id='nav-listrecipes' as={NavLink} to='/listrecipes'>
               <Header position='right' style={{ fontFamily: 'Condiment' }}>
                 View Recipes
