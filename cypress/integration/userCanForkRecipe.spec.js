@@ -16,13 +16,12 @@ describe('User forks a recipe', () => {
       response: '{ "message": "The recipe was successfully forked" }'
     })
 
-    cy.loginUser('user@mail.com', 'password')
+    cy.anotherLoginUser('user2@mail.com', 'password')
     cy.get('#navbar').within(() => {
       cy.get('#nav-listrecipes')
         .click()
     })
-    cy.get('#recipe-1')
-      .click({ force: true })
-    cy.get('[name="fork"]').click()
+    cy.get('#recipe-1').click({ force: true })
+    cy.get('[name="fork-recipe"]').should('exist')
   })
 })
