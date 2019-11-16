@@ -47,8 +47,6 @@ class Login extends Component {
 
     return (
       <>
-        {messages}
-
         <Modal id='modal'
           basic size='small'
           open={this.props.modalOpen}
@@ -56,6 +54,7 @@ class Login extends Component {
           >
           <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
             <Grid.Column style={{ maxWidth: 450 }}>
+            {messages}
               <Header as='h1' color='teal' textAlign='center' fontSize='10rem'>
                 <Icon name='universal access' size='large' /> Log in to your account
               </Header>
@@ -76,12 +75,13 @@ class Login extends Component {
                   icon='lock'
                   iconPosition='left'
                   placeholder='Please enter a valid password'
-                  name="password"
+                  name='password'
+                  type='password'
                 />
                 <Button
                   color='teal'
-                  type="submit"
-                  name="submit"
+                  type='submit'
+                  name='submit'
                   fluid size='large'
                 >
                   Login
@@ -89,8 +89,8 @@ class Login extends Component {
                 <Button
                   style={{ marginTop: '0.8rem' }}
                   color='red'
-                  type="submit"
-                  name="submit"
+                  type='submit'
+                  name='submit'
                   fluid size='large'
                   onClick={this.props.handleModalOpen}
                 >
