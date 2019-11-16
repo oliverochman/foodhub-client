@@ -19,7 +19,7 @@ describe('FoodHub user can view a list of recipes', () => {
       response: '{"recipes":[]}'
     })
     cy.get('#navbar').within(() => {
-      cy.get('#nav-listrecipes')
+      cy.get('#nav-list-recipes')
         .click()
     })
     cy.get("#message").should('contain', 'There are no recipes')

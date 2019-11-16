@@ -8,7 +8,7 @@ describe('View single recipe', () => {
       status: 200
     })
     cy.get('#navbar').within(() => {
-      cy.get('#nav-listrecipes')
+      cy.get('#nav-list-recipes')
         .click()
     })
     cy.get('#recipe-1')
@@ -28,7 +28,7 @@ describe('View single recipe', () => {
       status: 404
     })
     cy.get('#navbar').within(() => {
-      cy.get('#nav-listrecipes')
+      cy.get('#nav-list-recipes')
         .click()
     })
     cy.get('#recipe-1')

@@ -19,7 +19,7 @@ describe('User edits recipe', () => {
     cy.loginUser('user@mail.com', 'password')
 
     cy.get('#navbar').within(() => {
-      cy.get('#nav-listrecipes')
+      cy.get('#nav-list-recipes')
         .click()
     })
     cy.get('#recipe-1').click({ force: true })
@@ -49,7 +49,7 @@ describe('User edits recipe', () => {
     cy.loginUser('user@mail.com', 'password')
 
     cy.get('#navbar').within(() => {
-      cy.get('#nav-listrecipes')
+      cy.get('#nav-list-recipes')
         .click()
     })
     cy.get('#recipe-1').click({ force: true })
@@ -64,7 +64,7 @@ describe('User edits recipe', () => {
   it('unsuccessful, user cant edit if they did not create recipe', () => {
     cy.anotherLoginUser('user2@mail.com', 'password')
     cy.get('#navbar').within(() => {
-      cy.get('#nav-listrecipes')
+      cy.get('#nav-list-recipes')
         .click()
     })
     cy.get('#recipe-1').click({ force: true })
@@ -73,7 +73,7 @@ describe('User edits recipe', () => {
 
   it('unsuccessful, visitor cant see the edit button', () => {
     cy.get('#navbar').within(() => {
-      cy.get('#nav-listrecipes')
+      cy.get('#nav-list-recipes')
         .click()
     })
     cy.get('#recipe-1').click({ force: true })
