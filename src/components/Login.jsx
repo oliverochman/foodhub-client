@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Message, Header, Modal, Button, Grid, Form, Icon } from 'semantic-ui-react'
+import { Header, Modal, Button, Grid, Form, Icon } from 'semantic-ui-react'
 import { signInUser } from '../state/actions/reduxTokenAuthConfig'
 import { connect } from 'react-redux'
+import AlertMessage from './AlertMessage'
 
 class Login extends Component {
   state = {
@@ -32,16 +33,12 @@ class Login extends Component {
     let messages
     let { message, error } = this.state
 
-    if (message) {
+    if(message) {
       messages = (
-        <Message size="small" style={{ color: error ? 'red' : 'green' }}>
-          <Header
-            as='p'
-            id="response-message"
-            style={{ color: error ? 'red' : 'green' }}>
-            {message}
-          </Header>
-        </Message>
+        <AlertMessage 
+        message={message}
+        error={error}
+        />
       )
     }
 
