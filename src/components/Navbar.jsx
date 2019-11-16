@@ -22,9 +22,20 @@ class Navbar extends Component {
 
   render() {
     const notMobile = { minWidth: Responsive.onlyMobile.maxWidth + 1 }
-    let logOut, logIn
+    let logOut, logIn, welcomeMessage
 
     if (this.props.currentUser.isSignedIn) {
+      welcomeMessage = (
+        <Menu.Item>
+        <Header 
+        position='right' 
+        style={{ fontFamily: 'Condiment', color: 'green' }}
+        id="welcome-message"
+        >
+        Hello {this.props.currentUser.attributes.name}
+        </Header>
+      </Menu.Item>
+      )
       logOut = (
         <Logout />
       )
@@ -83,8 +94,8 @@ class Navbar extends Component {
                 style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Anton', color: 'white' }}>
                 foodhub
             </Header>
-              <Icon name='food' size='huge' />
             </Menu.Item>
+            {welcomeMessage}
             <Menu.Menu style={{ marginTop: '10rem' }}>
               <Menu.Item
                 id='nav-create'
@@ -104,6 +115,7 @@ class Navbar extends Component {
                   View Recipes
             </Header>
               </Menu.Item>
+              {welcomeMessage}
               {logIn}
               {logOut}
             </Menu.Menu>
@@ -119,8 +131,8 @@ class Navbar extends Component {
                 style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Anton' }}>
                 foodhub
             </Header>
-              <Icon name='food' size='huge' />
             </Menu.Item>
+            {welcomeMessage}
             <Menu.Item id='nav-create' as={NavLink} to='/create'>
               <Header position='right' style={{ fontFamily: 'Condiment' }}>
                 Create Recipe

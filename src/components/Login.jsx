@@ -29,7 +29,7 @@ class Login extends Component {
   }
 
   render() {
-    let messages, loginForm, welcomeMessage
+    let messages
     let { message, error } = this.state
 
     if (message) {
@@ -45,13 +45,8 @@ class Login extends Component {
       )
     }
 
-    if (this.props.currentUser.isSignedIn) {
-      welcomeMessage = <p id="welcome-message">Hello {this.props.currentUser.attributes.name}</p>
-    }
-
     return (
       <>
-        {welcomeMessage}
         {messages}
 
         <Modal id='modal'
