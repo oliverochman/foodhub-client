@@ -4,6 +4,7 @@ import '../css/navbar.css'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Logout from './Logout'
+import Login from './Login'
 
 class Navbar extends Component {
   state = { visibleSidebar: false }
@@ -21,10 +22,9 @@ class Navbar extends Component {
       )
     } else {
       logIn = (
-        <Menu.Item id='nav-login' as={NavLink} to='/login'>
-          <Header position='right' style={{ fontFamily: 'Condiment' }}>
-            Login
-          </Header>
+        <Menu.Item
+        id='login-button'>
+        <Login />
         </Menu.Item>
       )
     }

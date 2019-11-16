@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Message, Header } from 'semantic-ui-react'
-import VerifyCredentialsForm from './VerifyCredentialsForm'
+import { Message, Header, Modal, Button, Grid, Form, Icon } from 'semantic-ui-react'
 import { signInUser } from '../state/actions/reduxTokenAuthConfig'
 import { connect } from 'react-redux'
 
@@ -17,7 +16,7 @@ class Login extends Component {
     password = password.value
     email = email.value
 
-    signInUser({email, password})
+    signInUser({ email, password })
       .then(
         console.log('Successful!')
       )
@@ -48,23 +47,58 @@ class Login extends Component {
 
     if (this.props.currentUser.isSignedIn) {
       welcomeMessage = <p id="welcome-message">Hello {this.props.currentUser.attributes.name}</p>
-    } else {
-      loginForm = (
-        <>
-          <VerifyCredentialsForm
-            submitCredentials={this.submitCredentials}
-          />
-        </>
-      )
     }
 
     return (
-      <div className="create-wrapper">
-        <Header as='h1'>Welcome to the login page</Header>
+      <>
         {welcomeMessage}
         {messages}
-        {loginForm}
-      </div>
+
+        <Modal id='modal'
+          basic size='small'
+          trigger={
+              <Header position='right' style={{ fontFamily: 'Condiment' }}>
+                Log in
+              </Header>
+          }
+        >
+          <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+            <Grid.Column style={{ maxWidth: 450 }}>
+              <Header as='h1' color='teal' textAlign='center' fontSize='10rem'>
+                <Icon name='universal access' size='large' /> Log in to your account
+              </Header>
+              <Form
+                size='large'
+                id="credentials-form"
+                onSubmit={this.submitCredentials}
+              >
+                <Form.Input
+                  fluid
+                  icon='user'
+                  iconPosition='left'
+                  placeholder='Please enter a valid email'
+                  name="email"
+                />
+                <Form.Input
+                  fluid
+                  icon='lock'
+                  iconPosition='left'
+                  placeholder='Please enter a valid password'
+                  name="password"
+                />
+                <Button
+                  color='teal'
+                  type="submit"
+                  name="submit"
+                  fluid size='large'
+                >
+                  Login
+                </Button>
+              </Form>
+            </Grid.Column>
+          </Grid>
+        </Modal >
+      </>
     )
   }
 }
