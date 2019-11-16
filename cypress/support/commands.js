@@ -14,7 +14,7 @@ Cypress.Commands.add('loginUser', (email, password) => {
     cy.get('[name="email"]').type(email)
       .get('[name="password"]').type(password)
   });
-  cy.get('[name="submit"]').click()
+  cy.get('[name="submit"]').first().click()
 })
 
 Cypress.Commands.add('anotherLoginUser', (email, password) => {
@@ -33,7 +33,7 @@ Cypress.Commands.add('anotherLoginUser', (email, password) => {
     cy.get('[name="email"]').type(email)
       .get('[name="password"]').type(password)
   });
-  cy.get('[name="submit"]').click()
+  cy.get('[name="submit"]').first().click()
 })
 
 Cypress.Commands.add('failToLoginUser', (email, password) => {
@@ -52,5 +52,5 @@ Cypress.Commands.add('failToLoginUser', (email, password) => {
     cy.get('[name="email"]').type('email')
       .get('[name="password"]').type('passwordd')
   });
-  cy.get('[name="submit"]').click()
+  cy.get('[name="submit"]').first().click()
 })
