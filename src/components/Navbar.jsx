@@ -42,7 +42,7 @@ class Navbar extends Component {
         />
       )
       createRecipe = (
-        <Menu.Item id='nav-create' as={NavLink} to='/create'>
+        <Menu.Item id='nav-create' as={NavLink} to='/recipe/create'>
           <Header position='right'>
             Create Recipe
           </Header>
@@ -72,10 +72,7 @@ class Navbar extends Component {
               as={NavLink}
               to='/'
               id='nav-home'>
-              <Header
-                position='left'
-                className='navbar-header'
-                style={{ fontSize: '2rem', textAlign: 'center', fontFamily: 'Abril Fatface', fontWeight: 'bold' }}>
+              <Header position='left' className='navbar-header'>
                 foodhub
             </Header>
               <Icon name='food' size='large' />
@@ -102,25 +99,13 @@ class Navbar extends Component {
                 to='/'
                 id='nav-home'
               >
-                <Header
-                  position='left'
-                  className='navbar-header'
-                  style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Abril Fatface', fontWeight: 'bold' }}>
+                <Header position='left' className='navbar-header'>
                   foodhub
                 </Header>
                 <Icon name='food' size='large' />
               </Menu.Item>
               {welcomeMessage}
               {createRecipe}
-              <Menu.Item
-                id='nav-list-recipes'
-                as={NavLink}
-                to='/listrecipes'
-                position='right'>
-                <Header>
-                  View Recipes
-                </Header>
-              </Menu.Item>
               {logIn}
               {logOut}
             </Menu.Menu>
@@ -134,20 +119,13 @@ class Navbar extends Component {
               to='/'
               id='nav-home'
             >
-              <Header
-                className='navbar-header'
-                style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Abril Fatface', fontWeight: 'bold' }}>
+              <Header className='navbar-header'>
                 foodhub
               </Header>
             </Menu.Item>
             <Menu.Menu position='right'>
             {welcomeMessage}
             {createRecipe}
-            <Menu.Item id='nav-list-recipes' as={NavLink} to='/listrecipes'>
-              <Header>
-                View Recipes
-              </Header>
-            </Menu.Item>
             {logIn}
             {logOut}
             </Menu.Menu>

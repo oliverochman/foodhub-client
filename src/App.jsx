@@ -20,7 +20,7 @@ class App extends Component {
       <>
         <Navbar />
           <Route exact path='/' component={WelcomePage} />
-          <Route exact path='/listrecipes' component={ListRecipes} />
+          <Route exact path='/recipes' component={ListRecipes} />
           <Route exact path='/recipe/:id' component={SingleRecipe} />
           <Route exact path="/logout" component={Logout} />
           <Route exact path='/login' component={Login}>
@@ -29,7 +29,7 @@ class App extends Component {
           <Route exact path='/logout' component={Logout}>
             {this.props.currentUser.isSignedIn === false ? <Redirect to="/" /> : <Logout />}
           </Route>
-          <Route exact path="/create" component={requireSignIn(RecipeCU)} />
+          <Route exact path="/recipe/create" component={requireSignIn(RecipeCU)} />
       </>
     )
   }

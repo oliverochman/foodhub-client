@@ -17,11 +17,6 @@ describe('User edits recipe', () => {
       response: '{ "message": "Your recipe has been updated." }'
     })
     cy.loginUser('user@mail.com', 'password')
-
-    cy.get('#navbar').within(() => {
-      cy.get('#nav-list-recipes')
-        .click()
-    })
     cy.get('#recipe-1').click({ force: true })
     cy.get('[name="edit-recipe"]').click()
     cy.get('#edit-recipe-form').within(() => {
@@ -47,11 +42,6 @@ describe('User edits recipe', () => {
       response: '{ "error_message": "Unable to edit recipe." }'
     })
     cy.loginUser('user@mail.com', 'password')
-
-    cy.get('#navbar').within(() => {
-      cy.get('#nav-list-recipes')
-        .click()
-    })
     cy.get('#recipe-1').click({ force: true })
     cy.get('[name="edit-recipe"]').click()
     cy.get('#edit-recipe-form').within(() => {
@@ -63,19 +53,11 @@ describe('User edits recipe', () => {
   
   it('unsuccessful, user cant edit if they did not create recipe', () => {
     cy.anotherLoginUser('user2@mail.com', 'password')
-    cy.get('#navbar').within(() => {
-      cy.get('#nav-list-recipes')
-        .click()
-    })
     cy.get('#recipe-1').click({ force: true })
     cy.get('[name="edit-recipe"]').should('not.exist')
   })
 
   it('unsuccessful, visitor cant see the edit button', () => {
-    cy.get('#navbar').within(() => {
-      cy.get('#nav-list-recipes')
-        .click()
-    })
     cy.get('#recipe-1').click({ force: true })
     cy.get('[name="edit-recipe"]').should('not.exist')
   });

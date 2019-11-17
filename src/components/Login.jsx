@@ -86,7 +86,7 @@ class Login extends Component {
                   style={{ marginTop: '0.8rem' }}
                   color='red'
                   type='submit'
-                  name='submit'
+                  name='cancel'
                   fluid size='large'
                   onClick={this.props.handleModalOpen}
                 >

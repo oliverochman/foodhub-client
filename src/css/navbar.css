@@ -2,6 +2,9 @@
 
  .navbar-header {
   margin: 0.5rem 0 0.5rem 0.5rem !important;
+  font-size: 4rem !important;
+  font-family: 'Abril Fatface' !important;
+  font-weight: bold !important;
 }
 
 .fake-link-hover:hover {

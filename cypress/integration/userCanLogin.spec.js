@@ -10,5 +10,7 @@ describe('User can log in to application', () => {
     cy.failToLoginUser('user@mail.com', 'passwordd')
     cy.get('#response-message')
       .should('contain', 'Invalid login credentials. Please try again')
+    cy.wait(4000)
+    cy.get('#response-message').should('not.exist')
   })
 })
