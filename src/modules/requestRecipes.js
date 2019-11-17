@@ -33,6 +33,9 @@ const submitRecipe = async (title, ingredients, directions, image) => {
     let response = await axios.post(apiUrl + 'recipes',
       {
         recipe: recipeParams
+      },
+      {
+        headers: getCurrentCredentials()
       }
     )
 
