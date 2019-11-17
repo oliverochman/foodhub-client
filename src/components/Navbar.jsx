@@ -42,7 +42,7 @@ class Navbar extends Component {
         />
       )
       createRecipe = (
-        <Menu.Item id='nav-create' as={NavLink} to='/recipe/create'>
+        <Menu.Item id='nav-create' as={NavLink} to='/recipes/create'>
           <Header position='right'>
             Create Recipe
           </Header>

@@ -29,7 +29,7 @@ class App extends Component {
           <Route exact path='/logout' component={Logout}>
             {this.props.currentUser.isSignedIn === false ? <Redirect to="/" /> : <Logout />}
           </Route>
-          <Route exact path="/recipe/create" component={requireSignIn(RecipeCU)} />
+          <Route exact path="/recipes/create" component={requireSignIn(RecipeCU)} />
       </>
     )
   }
