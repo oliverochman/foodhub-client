@@ -29,7 +29,7 @@ class Navbar extends Component {
         <Menu.Item style={{ backgroundColor: 'white' }}>
           <Header
             position='right'
-            style={{ fontFamily: 'Condiment', color: 'green' }}
+            style={{ color: 'green' }}
             id="welcome-message"
           >
             Hello {this.props.currentUser.attributes.name}
@@ -43,7 +43,7 @@ class Navbar extends Component {
       )
       createRecipe = (
         <Menu.Item id='nav-create' as={NavLink} to='/create'>
-          <Header position='right' style={{ fontFamily: 'Condiment' }}>
+          <Header position='right'>
             Create Recipe
           </Header>
         </Menu.Item>
@@ -53,7 +53,6 @@ class Navbar extends Component {
         <Menu.Item id='nav-login' className='fake-link-hover'>
           <Header
             position='right'
-            style={{ fontFamily: 'Condiment' }}
             onClick={this.handleModalOpen}>
             Log in
           </Header>
@@ -76,7 +75,7 @@ class Navbar extends Component {
               <Header
                 position='left'
                 className='navbar-header'
-                style={{ fontSize: '2rem', textAlign: 'center', fontFamily: 'Abril Fatface' }}>
+                style={{ fontSize: '2rem', textAlign: 'center', fontFamily: 'Abril Fatface', fontWeight: 'bold' }}>
                 foodhub
             </Header>
               <Icon name='food' size='large' />
@@ -106,7 +105,7 @@ class Navbar extends Component {
                 <Header
                   position='left'
                   className='navbar-header'
-                  style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Abril Fatface' }}>
+                  style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Abril Fatface', fontWeight: 'bold' }}>
                   foodhub
                 </Header>
                 <Icon name='food' size='large' />
@@ -118,7 +117,7 @@ class Navbar extends Component {
                 as={NavLink}
                 to='/listrecipes'
                 position='right'>
-                <Header style={{ fontFamily: 'Condiment' }}>
+                <Header>
                   View Recipes
                 </Header>
               </Menu.Item>
@@ -137,19 +136,21 @@ class Navbar extends Component {
             >
               <Header
                 className='navbar-header'
-                style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Abril Fatface' }}>
+                style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Abril Fatface', fontWeight: 'bold' }}>
                 foodhub
               </Header>
             </Menu.Item>
+            <Menu.Menu position='right'>
             {welcomeMessage}
             {createRecipe}
             <Menu.Item id='nav-list-recipes' as={NavLink} to='/listrecipes'>
-              <Header style={{ fontFamily: 'Condiment' }}>
+              <Header>
                 View Recipes
               </Header>
             </Menu.Item>
             {logIn}
             {logOut}
+            </Menu.Menu>
           </Menu>
         </Responsive >
       </>

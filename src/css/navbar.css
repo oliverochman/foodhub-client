@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Condiment);
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
  .navbar-header {
   margin: 0.5rem 0 0.5rem 0.5rem !important;
@@ -9,6 +9,15 @@
   background: rgb(245, 243, 243) !important;
 }
 
+.fake-link-hover {
+  font-weight: 900 !important;
+}
+
 .ui.menu .item:hover {
   background: rgb(245, 243, 243) !important;
+}
+
+.ui.header {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400 !important;
 }
