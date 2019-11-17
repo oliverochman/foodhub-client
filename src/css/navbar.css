@@ -1,9 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Condiment);
 
- #navbar-header {
+ .navbar-header {
   margin: 0.5rem 0 0.5rem 0.5rem !important;
 }
 
 .fake-link-hover:hover {
   cursor: pointer;
+  background: rgb(245, 243, 243) !important;
+}
+
+.ui.menu .item:hover {
+  background: rgb(245, 243, 243) !important;
 }

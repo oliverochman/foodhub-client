@@ -3,8 +3,8 @@ import { Menu, Header, Icon, Responsive, Sidebar } from 'semantic-ui-react'
 import '../css/navbar.css'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Logout from './Logout'
 import Login from './Login'
+import { signOutUser } from '../state/actions/reduxTokenAuthConfig'
 
 class Navbar extends Component {
   state = { visibleSidebar: false, modalOpen: false }
@@ -20,13 +20,19 @@ class Navbar extends Component {
   handleShowClick = () => this.setState({ visibleSidebar: true })
   handleSidebarHide = () => this.setState({ visibleSidebar: false })
 
+  signOut = () => {
+    const { signOutUser } = this.props
+    signOutUser()
+  }
+
   render() {
     const notMobile = { minWidth: Responsive.onlyMobile.maxWidth + 1 }
     let logOut, logIn, welcomeMessage, createRecipe
+    const { signOut } = this
 
     if (this.props.currentUser.isSignedIn) {
       welcomeMessage = (
-        <Menu.Item>
+        <Menu.Item style={{ backgroundColor: 'white' }}>
           <Header
             position='right'
             style={{ fontFamily: 'Condiment', color: 'green' }}
@@ -37,9 +43,11 @@ class Navbar extends Component {
         </Menu.Item>
       )
       logOut = (
-        <Logout 
-          handleModalOpen={this.handleModalOpen}
-        />
+        <Menu.Item id='nav-logout' onClick={signOut} className='fake-link-hover'>
+        <Header position='right' onClick={this.handleModalOpen} style={{ fontFamily: 'Condiment' }}>
+          Log out
+        </Header>
+      </Menu.Item>
       )
       createRecipe = (
         <Menu.Item id='nav-create' as={NavLink} to='/create'>
@@ -69,10 +77,13 @@ class Navbar extends Component {
       <>
         <Responsive {...Responsive.onlyMobile}>
           <Menu id='navbar' style={{ marginTop: "1em" }} borderless={true}>
-            <Menu.Item>
+            <Menu.Item
+              as={NavLink}
+              to='/'
+              id='nav-home'>
               <Header
                 position='left'
-                id='navbar-header'
+                className='navbar-header'
                 style={{ fontSize: '2rem', textAlign: 'center', fontFamily: 'Abril Fatface' }}>
                 foodhub
             </Header>
@@ -95,22 +106,27 @@ class Navbar extends Component {
             id="mobile-menu"
           >
             <Menu.Menu style={{ color: 'white', fontSize: '2rem' }}>
-            <Menu.Item>
-              <Header
-                position='left'
-                id='navbar-header'
-                style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Abril Fatface' }}>
-                foodhub
-            </Header>
-            <Icon name='food' size='large' />
-            </Menu.Item>
-            {welcomeMessage}
+              <Menu.Item
+                as={NavLink}
+                to='/'
+                id='nav-home'
+              >
+                <Header
+                  position='left'
+                  className='navbar-header'
+                  style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Abril Fatface' }}>
+                  foodhub
+                </Header>
+                <Icon name='food' size='large' />
+              </Menu.Item>
+              {welcomeMessage}
               {createRecipe}
               <Menu.Item
                 id='nav-list-recipes'
                 as={NavLink}
-                to='/listrecipes'>
-                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', fontFamily: 'Condiment' }}>
+                to='/listrecipes'
+                position='right'>
+                <Header style={{ fontFamily: 'Condiment' }}>
                   View Recipes
                 </Header>
               </Menu.Item>
@@ -122,20 +138,23 @@ class Navbar extends Component {
 
         <Responsive {...notMobile}>
           <Menu id='navbar' borderless={true} style={{ color: 'black', fontSize: '1.5rem' }}>
-            <Menu.Item>
+            <Menu.Item
+              as={NavLink}
+              to='/'
+              id='nav-home'
+            >
               <Header
-                position='left'
-                id='navbar-header'
+                className='navbar-header'
                 style={{ fontSize: '4rem', textAlign: 'center', fontFamily: 'Abril Fatface' }}>
                 foodhub
-            </Header>
+              </Header>
             </Menu.Item>
             {welcomeMessage}
             {createRecipe}
             <Menu.Item id='nav-list-recipes' as={NavLink} to='/listrecipes'>
-              <Header position='right' style={{ fontFamily: 'Condiment' }}>
+              <Header style={{ fontFamily: 'Condiment' }}>
                 View Recipes
-            </Header>
+              </Header>
             </Menu.Item>
             {logIn}
             {logOut}
@@ -154,5 +173,6 @@ const mapStateToProps = state => {
 }
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  {signOutUser}
 )(Navbar);

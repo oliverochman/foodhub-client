@@ -15,7 +15,7 @@ class Logout extends Component {
 
     return (
       <>
-        <Menu.Item id='nav-logout' onClick={signOut}>
+        <Menu.Item id='nav-logout' onClick={signOut} className='fake-link-hover'>
           <Header position='right' onClick={this.props.handleModalOpen} style={{ fontFamily: 'Condiment' }}>
             Log out
           </Header>

@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import ListRecipes from './components/ListRecipes'
 import SingleRecipe from './components/SingleRecipe'
 import Login from './components/Login'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import WelcomePage from './components/WelcomePage'
 import RecipeCU from './components/RecipeCU'
 import Navbar from './components/Navbar'
 import Logout from './components/Logout'
 import { generateRequireSignInWrapper } from 'redux-token-auth'
+import { connect } from 'react-redux'
 
 const requireSignIn = generateRequireSignInWrapper({
   redirectPathIfNotSignedIn: '/',
@@ -18,17 +19,28 @@ class App extends Component {
     return (
       <>
         <Navbar />
-        <Switch>
           <Route exact path='/' component={WelcomePage} />
           <Route exact path='/listrecipes' component={ListRecipes} />
           <Route exact path='/recipe/:id' component={SingleRecipe} />
           <Route exact path="/logout" component={Logout} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path='/login' component={Login}>
+            {this.props.currentUser.isSignedIn ? <Redirect to="/" /> : <Login />}
+          </Route>
+          <Route exact path='/logout' component={Logout}>
+            {this.props.currentUser.isSignedIn === false ? <Redirect to="/" /> : <Logout />}
+          </Route>
           <Route exact path="/create" component={requireSignIn(RecipeCU)} />
-        </Switch>
       </>
     )
   }
 }
 
-export default App
+const mapStateToProps = state => {
+  return {
+    currentUser: state.reduxTokenAuth.currentUser
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(App)
