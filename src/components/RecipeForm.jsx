@@ -2,7 +2,8 @@ import React from "react"
 import { Form, Button } from "semantic-ui-react"
 
 const RecipeForm = props => {
-  let edit = props.edit 
+  let edit = props.edit
+  let fork = props.fork
   let buttonText = edit ? "Save Updates" : "Submit"
   return (
     <>
@@ -16,20 +17,27 @@ const RecipeForm = props => {
             label="Title"
             placeholder="Add title (maximum 255 characters)"
             name="title"
-            value={edit && props.recipe.title}
+            defaultValue={edit
+              ? edit && props.recipe.title
+              : fork && props.recipe.title}
+            
           />
         </Form.Group>
         <Form.TextArea
           label="Ingredients"
           placeholder="Add ingredients (maximum 500 characters)"
           name="ingredients"
-          value={edit && props.recipe.ingredients}
+          defaultValue={edit
+            ? edit && props.recipe.ingredients
+            : fork && props.recipe.ingredients}
         />
         <Form.TextArea
           label="Directions"
           placeholder="Add directions (maximum 5000 characters)"
           name="directions"
-          value={edit && props.recipe.directions}
+          defaultValue={edit
+            ? edit && props.recipe.directions
+            : fork && props.recipe.directions}
         />
         <input type="file" name="image" />
         <Button type="submit" name="submit">

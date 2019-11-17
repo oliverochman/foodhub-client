@@ -93,7 +93,7 @@ class RecipeCU extends Component {
           submitRecipeHandler={this.submitRecipeHandler}
           edit={edit}
           fork={fork}
-          recipe={ edit && this.props.recipe}
+          recipe={ (edit || fork) && this.props.recipe}
         />
       </div>
     );
