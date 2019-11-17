@@ -77,14 +77,13 @@ class SingleRecipe extends Component {
       }
       
       showSingleRecipe = (
-        <>
           <RecipeCard
             recipe={recipe}
             linked={false}
-          />
-          {edit}
-          {fork}
-        </>
+          >
+            {edit}
+            {fork}
+          </RecipeCard>
       )
     }
 
