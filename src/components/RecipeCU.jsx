@@ -22,7 +22,7 @@ class RecipeCU extends Component {
         ingredients.value,
         directions.value,
         image.files[0],
-        this.props.recipeId
+        this.props.recipe.id
       )
     } else if (this.props.fork) {
       response = await forkRecipe(
@@ -30,7 +30,7 @@ class RecipeCU extends Component {
         ingredients.value,
         directions.value,
         image.files[0],
-        this.props.recipeId
+        this.props.recipe.id
       )
     } else {
       response = await submitRecipe(
@@ -94,6 +94,7 @@ class RecipeCU extends Component {
           submitRecipeHandler={this.submitRecipeHandler}
           edit={edit}
           fork={fork}
+          recipe={ edit && this.props.recipe}
         />
       </div>
     );

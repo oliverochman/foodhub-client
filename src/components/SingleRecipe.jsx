@@ -65,13 +65,13 @@ class SingleRecipe extends Component {
     if (recipe) {
       if (this.props.currentUser.attributes.id === recipe.user_id) {
         edit = this.state.renderEditForm ?
-          <RecipeCU edit recipeId={recipe.id} />
+          <RecipeCU edit recipe={recipe} />
           :
           <Button name="edit-recipe" onClick={this.renderEditForm}>Edit Recipe</Button>
       }
       if (this.props.currentUser.attributes.id !== recipe.user_id) {
         fork = this.state.renderForkForm ?
-          <RecipeCU fork recipeId={recipe.id} />
+          <RecipeCU fork recipe={recipe} />
           :
           <Button name="fork-recipe" onClick={this.renderForkForm}>Fork Recipe</Button>
       }

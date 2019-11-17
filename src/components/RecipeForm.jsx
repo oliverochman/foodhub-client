@@ -16,17 +16,20 @@ const RecipeForm = props => {
             label="Title"
             placeholder="Add title (maximum 255 characters)"
             name="title"
+            value={edit && props.recipe.title}
           />
         </Form.Group>
         <Form.TextArea
           label="Ingredients"
           placeholder="Add ingredients (maximum 500 characters)"
           name="ingredients"
+          value={edit && props.recipe.ingredients}
         />
         <Form.TextArea
           label="Directions"
           placeholder="Add directions (maximum 5000 characters)"
           name="directions"
+          value={edit && props.recipe.directions}
         />
         <input type="file" name="image" />
         <Button type="submit" name="submit">

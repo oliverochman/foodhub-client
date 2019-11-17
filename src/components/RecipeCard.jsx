@@ -40,6 +40,7 @@ const RecipeCard = props => {
                     <p name="recipe-directions">{recipe.directions}</p>
                   </Card.Description>
                 </Card.Content>
+                {props.children}
               </Card>
             </Grid.Column>
           </Grid.Row>
