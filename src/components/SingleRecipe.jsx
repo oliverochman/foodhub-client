@@ -6,8 +6,6 @@ import RecipeCard from './RecipeCard'
 import RecipeCU from './RecipeCU'
 import { connect } from 'react-redux'
 
-
-
 class SingleRecipe extends Component {
 
   state = {

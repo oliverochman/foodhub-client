@@ -55,12 +55,6 @@ class RecipeCU extends Component {
   render() {
     let edit = this.props.edit
     let fork = this.props.fork
-    let header = edit
-      ? "Make some changes to your recipe!"
-      : "Create Your Own Recipe"
-    let subHeader = edit
-      ? "All input fields are mandatory in order to update your recipe."
-      : "All input fields are mandatory in order to submit a recipe."
     let messages
     let { message, error } = this.state
 
@@ -84,16 +78,12 @@ class RecipeCU extends Component {
 
     return (
       <div className="create-wrapper">
-        <Header as="h1" className={edit ? "edit-recipe" : "create-recipe"} style={{ textAlign: 'center' }}>
-          {header}
-        </Header>
-        <Header sub>{subHeader}.</Header>
         {messages}
         <RecipeForm
           submitRecipeHandler={this.submitRecipeHandler}
           edit={edit}
           fork={fork}
-          recipe={ (edit || fork) && this.props.recipe}
+          recipe={(edit || fork) && this.props.recipe}
         />
       </div>
     );

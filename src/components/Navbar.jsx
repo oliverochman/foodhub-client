@@ -4,12 +4,21 @@ import '../css/navbar.css'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Logout from './Logout'
+import RecipeForm from './RecipeForm'
 
 class Navbar extends Component {
-  state = { visibleSidebar: false }
+  state = { visibleSidebar: false, modalOpen: false }
 
   handleShowClick = () => this.setState({ visibleSidebar: true })
   handleSidebarHide = () => this.setState({ visibleSidebar: false })
+
+  handleModalOpen = () => {
+    this.setState(prevState => {
+      return {
+        modalOpen: !prevState.modalOpen
+      }
+    })
+  }
 
   render() {
     const notMobile = { minWidth: Responsive.onlyMobile.maxWidth + 1 }
@@ -75,9 +84,10 @@ class Navbar extends Component {
                 as={NavLink}
                 to='/create'
                 style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', padding: '2rem' }}>
-                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white', fontFamily: 'Condiment' }}>
+                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white', fontFamily: 'Condiment' }}
+                >
                   Create Recipe
-            </Header>
+               </Header>
               </Menu.Item>
               <Menu.Item
                 id='nav-listrecipes'
@@ -105,11 +115,21 @@ class Navbar extends Component {
             </Header>
               <Icon name='food' size='huge' />
             </Menu.Item>
-            <Menu.Item id='nav-create' as={NavLink} to='/create'>
-              <Header position='right' style={{ fontFamily: 'Condiment' }}>
-                Create Recipe
-            </Header>
-            </Menu.Item>
+            <Menu.Item
+                id='nav-create'
+                as={NavLink}
+                to='/create'
+                style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', padding: '2rem' }}>
+                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white', fontFamily: 'Condiment' }}
+                  onClick={this.handleModalOpen}
+                >
+                  Create Recipe
+               </Header>
+                <RecipeForm
+                  modalOpen={this.state.modalOpen}
+                  handleModalOpen={this.handleModalOpen}
+                />
+              </Menu.Item>
             <Menu.Item id='nav-listrecipes' as={NavLink} to='/listrecipes'>
               <Header position='right' style={{ fontFamily: 'Condiment' }}>
                 View Recipes

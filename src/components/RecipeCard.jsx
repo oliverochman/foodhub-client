@@ -12,12 +12,12 @@ const RecipeCard = props => {
       <Container
         textAlign="justified"
         name={linked ? `recipe-${recipe.id}` : "single-recipe"}
+        style={{marginTop: '2rem'}}
       >
         <Grid columns={1}>
           <Grid.Row>
             <Grid.Column>
-              <Card>
-                
+              <Card> 
                 <Card.Content>
                   {linked ? (
                     <Link
@@ -37,8 +37,6 @@ const RecipeCard = props => {
                     <Card.Header as="h3" name="recipe-title">
                       {recipe.title}
                     </Card.Header>
-                    </>
-                  )}
                   <Divider />
                   <Card.Description>
                     <p style={{ fontWeight: "bold" }}>Ingredients: </p>
@@ -46,6 +44,8 @@ const RecipeCard = props => {
                     <p style={{ fontWeight: "bold" }}>Directions: </p>
                     <p name="recipe-directions">{recipe.directions}</p>
                   </Card.Description>
+                  </>
+                  )}
                 </Card.Content>
                 {props.children}
               </Card>
