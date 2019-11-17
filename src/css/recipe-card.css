@@ -1,0 +1,11 @@
+.ui.card {
+  width: 50% !important;
+}
+
+.ui.card img {
+  width: 100%;
+}
+
+img {
+  width: 100%;
+}

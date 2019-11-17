@@ -14,7 +14,6 @@ class RecipeCU extends Component {
     event.preventDefault()
     let { title, directions, ingredients, image } = event.target
     let response
-    debugger
 
     if (this.props.edit) {
       response = await editRecipe(

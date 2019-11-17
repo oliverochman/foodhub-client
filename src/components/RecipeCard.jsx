@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Divider, Grid, Image, Card } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import '../css/recipe-card.css'
 
 const RecipeCard = props => {
   let recipe = props.recipe;
