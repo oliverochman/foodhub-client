@@ -1,8 +1,10 @@
+
 describe('View the welcome page ', () => {
-  it('should display "welcome to the foodhub page"', () => {
-    cy.get('h1')
-    cy.contains('welcome to the')
-    cy.get('h2')
-    cy.contains('foodhub');
+  it('should display welcome message', () => {
+    cy.get('#welcome').within(()=>{
+      cy.get('h1').should('have.text', 'Social Cooking')
+      cy.get('h5').should('have.text', 'by')
+      cy.get('h2').should('have.text', 'foodhub')
+    })
   })
 })
