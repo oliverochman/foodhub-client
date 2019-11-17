@@ -17,21 +17,27 @@ const RecipeCard = props => {
           <Grid.Row>
             <Grid.Column>
               <Card>
-                <Image src={recipe.image} alt="" />
+                
                 <Card.Content>
                   {linked ? (
                     <Link
                       id={`recipe-${recipe.id}`}
                       to={`/recipe/${recipe.id}`}
                     >
+                      <Image src={recipe.image} alt="" />
+                      <Divider />
                       <Card.Header as="h3" name="recipe-title">
                         {recipe.title}
                       </Card.Header>
                     </Link>
                   ) : (
+                    <>
+                    <Image src={recipe.image} alt="" />
+                    <Divider />
                     <Card.Header as="h3" name="recipe-title">
                       {recipe.title}
                     </Card.Header>
+                    </>
                   )}
                   <Divider />
                   <Card.Description>
