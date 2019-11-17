@@ -4,7 +4,7 @@ import '../css/navbar.css'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Login from './Login'
-import { signOutUser } from '../state/actions/reduxTokenAuthConfig'
+import Logout from './Logout'
 
 class Navbar extends Component {
   state = { visibleSidebar: false, modalOpen: false }
@@ -20,15 +20,9 @@ class Navbar extends Component {
   handleShowClick = () => this.setState({ visibleSidebar: true })
   handleSidebarHide = () => this.setState({ visibleSidebar: false })
 
-  signOut = () => {
-    const { signOutUser } = this.props
-    signOutUser()
-  }
-
   render() {
     const notMobile = { minWidth: Responsive.onlyMobile.maxWidth + 1 }
     let logOut, logIn, welcomeMessage, createRecipe
-    const { signOut } = this
 
     if (this.props.currentUser.isSignedIn) {
       welcomeMessage = (
@@ -43,11 +37,9 @@ class Navbar extends Component {
         </Menu.Item>
       )
       logOut = (
-        <Menu.Item id='nav-logout' onClick={signOut} className='fake-link-hover'>
-        <Header position='right' onClick={this.handleModalOpen} style={{ fontFamily: 'Condiment' }}>
-          Log out
-        </Header>
-      </Menu.Item>
+        <Logout
+          handleModalOpen={this.handleModalOpen}
+        />
       )
       createRecipe = (
         <Menu.Item id='nav-create' as={NavLink} to='/create'>
@@ -173,6 +165,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(
-  mapStateToProps,
-  {signOutUser}
+  mapStateToProps
 )(Navbar);
