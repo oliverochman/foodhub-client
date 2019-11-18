@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Divider, Grid, Image, Card } from "semantic-ui-react";
+import { Divider, Grid, Image, Card } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 const RecipeCard = props => {
@@ -14,7 +14,7 @@ const RecipeCard = props => {
         style={{marginBottom: "0.5rem"}}
       >
         <Card>
-          <Image src="https://i2.wp.com/www.livewellbakeoften.com/wp-content/uploads/2018/01/Banana-Nut-Bread-2.jpg?resize=1360%2C2040&ssl=1" alt="" />
+          <Image src="https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2017/07/satay-sweet-potato-curry.jpg?itok=bl5QzsfL" alt="" />
           <Card.Content>
             {linked ? (
               <Link

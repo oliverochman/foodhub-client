@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { fetchRecipes } from "../modules/requestRecipes"
-import { Message, Header, Container, Grid, Card } from "semantic-ui-react"
+import { Message, Header, Grid } from "semantic-ui-react"
 import RecipeCard from "./RecipeCard"
 
 class ListRecipes extends Component {
