@@ -7,5 +7,15 @@ describe('Save a recipe to Cookbook', () => {
       response: '{ "message": "The recipe was successfully added to your favorites" }',
       status: 201
     })
+    cy.loginUser('user@mail.com', 'password')
+    cy.get('#navbar').within(() => {
+      cy.get('#nav-cookbook')
+        .click()
+    })
+    cy.get('#cookbook-recipe-form').within(() => {
+      cy.get('[name="save-to-cookbook"]').click()
   })
+  cy.get('#response-message')
+  .should('contain', 'The recipe was successfully added to your favorites')
+})
 })
