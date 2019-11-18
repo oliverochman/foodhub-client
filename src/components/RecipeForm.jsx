@@ -1,9 +1,12 @@
 import React from "react"
 import { Form, Button, Modal, Header } from "semantic-ui-react"
+import AlertMessage from './AlertMessage'
 
 const RecipeForm = props => {
   let edit = props.edit
   let fork = props.fork
+  let message = props.message
+  let error = props.error
   let buttonText = edit ? "Save Updates" : "Submit"
   let header = edit
     ? "Make some changes to your recipe!"
@@ -11,6 +14,16 @@ const RecipeForm = props => {
   let subHeader = edit
     ? "All input fields are mandatory in order to update your recipe."
     : "All input fields are mandatory in order to submit a recipe."
+  let messages
+
+    if(message) {
+      messages = (
+        <AlertMessage 
+        message={message}
+        error={error}
+        />
+      )
+    }
 
   return (
     <>
@@ -18,6 +31,7 @@ const RecipeForm = props => {
         basic size='small'
         trigger={<Button>Show Modal</Button>}
       >
+        {messages}
         <Header as="h1" className={edit ? "edit-recipe" : "create-recipe"} style={{ textAlign: 'center' }}>
           {header}
         </Header>

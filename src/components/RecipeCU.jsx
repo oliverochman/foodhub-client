@@ -3,7 +3,6 @@ import { submitRecipe, editRecipe, forkRecipe } from "../modules/requestRecipes"
 import { withRouter } from "react-router"
 import RecipeForm from "./RecipeForm"
 import "../css/create-recipe.css"
-import AlertMessage from './AlertMessage'
 
 class RecipeCU extends Component {
   state = {
@@ -39,7 +38,7 @@ class RecipeCU extends Component {
         ingredients.value,
         directions.value,
         image.files[0],
-        setTimeout(() => { history.push('/')}, 2000)
+        setTimeout(() => { history.push('/')}, 3000)
       )
     }
 
@@ -61,15 +60,6 @@ class RecipeCU extends Component {
     let messages
     let { message, error } = this.state
 
-    if(message) {
-      messages = (
-        <AlertMessage 
-        message={message}
-        error={error}
-        />
-      )
-    }
-
     return (
       <div className="create-wrapper">
         {messages}
@@ -78,6 +68,8 @@ class RecipeCU extends Component {
           edit={edit}
           fork={fork}
           recipe={(edit || fork) && this.props.recipe}
+          message={message}
+          error={error}
         />
       </div>
     );
