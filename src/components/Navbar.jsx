@@ -26,10 +26,9 @@ class Navbar extends Component {
 
     if (this.props.currentUser.isSignedIn) {
       welcomeMessage = (
-        <Menu.Item style={{ backgroundColor: 'white' }}>
+        <Menu.Item>
           <Header
             position='right'
-            style={{ color: '#4C5966' }}
             id="welcome-message"
           >
             Hello {this.props.currentUser.attributes.name}
@@ -67,7 +66,7 @@ class Navbar extends Component {
     return (
       <>
         <Responsive {...Responsive.onlyMobile}>
-          <Menu id='navbar' style={{ marginTop: "1em" }} borderless={true}>
+          <Menu id='navbar' borderless={true}>
             <Menu.Item
               as={NavLink}
               to='/'
@@ -93,7 +92,7 @@ class Navbar extends Component {
             style={{ minWidth: "100%" }}
             id="mobile-menu"
           >
-            <Menu.Menu style={{ color: 'white', fontSize: '2rem' }}>
+            <Menu.Menu>
               <Menu.Item
                 as={NavLink}
                 to='/'
@@ -113,7 +112,7 @@ class Navbar extends Component {
         </Responsive>
 
         <Responsive {...notMobile}>
-          <Menu id='navbar' borderless={true} style={{ color: 'black', fontSize: '1.5rem' }}>
+          <Menu id='navbar' borderless={true}>
             <Menu.Item
               as={NavLink}
               to='/'

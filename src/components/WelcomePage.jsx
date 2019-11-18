@@ -12,10 +12,10 @@ class Welcome extends Component {
         <div id="welcome">
           <LazyHero
             parallaxOffset={1}
-            minHeight='80vh'
-            color='#383838'
+            minHeight='95vh'
+
             opacity={0.2}
-            imageSrc="https://images.pexels.com/photos/277253/pexels-photo-277253.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            imageSrc="https://github.com/miyeaier/react-portfolio/blob/master/Img/AdobeStock_199252786.jpeg?raw=true"
           >
             <h1>
               Social Cooking
@@ -29,7 +29,7 @@ class Welcome extends Component {
           </LazyHero>
         </div>
       <Container style={{marginTop: '2vh'}}>
-        <Header as="h1">Bring your recipes to the world</Header>
+        <Header>Bring your recipes to the world!</Header>
       <ListRecipes />
       </Container>
       </>
