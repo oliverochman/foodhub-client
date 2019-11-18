@@ -1,15 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
-
- .navbar-header {
-  margin: 0.5rem 0 0.5rem 0.5rem !important;
-  font-size: 4rem !important;
-  font-family: 'Abril Fatface' !important;
-  font-weight: bold !important;
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
 .fake-link-hover:hover {
   cursor: pointer;
-  background: rgb(245, 243, 243) !important;
+  background: #FCE8CE !important;
 }
 
 .fake-link-hover {
@@ -17,10 +11,16 @@
 }
 
 .ui.menu .item:hover {
-  background: rgb(245, 243, 243) !important;
+  background: #FCE8CE !important;
+}
+.ui.menu {
+  background:#FCFCFC !important;
+  border: #FCFCFC !important;
 }
 
 .ui.header {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400 !important;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem !important;
+  font-weight: lighter !important;
+  
 }

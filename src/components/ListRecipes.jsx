@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { fetchRecipes } from "../modules/requestRecipes"
-import { Message, Header } from "semantic-ui-react"
+import { Message, Header, Grid } from "semantic-ui-react"
 import RecipeCard from "./RecipeCard"
 
 class ListRecipes extends Component {
@@ -26,7 +26,7 @@ class ListRecipes extends Component {
     } else {
       message = (
         <Message style={{ color: "red" }}>
-          <Header as="p" id="message" style={{ color: "green" }}>
+          <Header as="p" id="message" style={{ color: "#4C5966" }}>
             There are no recipes
           </Header>
         </Message>
@@ -35,7 +35,7 @@ class ListRecipes extends Component {
     return (
       <>
         {message}
-        {renderListRecipes && <div id="list">{renderListRecipes}</div>}
+        {renderListRecipes && <Grid columns={3} id="list"><Grid.Row>{renderListRecipes}</Grid.Row></Grid>}
       </>
     )
   }
