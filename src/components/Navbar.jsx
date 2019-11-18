@@ -120,15 +120,15 @@ class Navbar extends Component {
                 as={NavLink}
                 to='/create'
                 style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', padding: '2rem' }}>
-                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'white', fontFamily: 'Condiment' }}
-                  onClick={this.handleModalOpen}
+                <Header position='right' style={{ height: "2.5rem", lineHeight: "2.5rem", fontWeight: 'bold', color: 'black', fontFamily: 'Condiment' }}
+                  // onClick={this.handleModalOpen}
                 >
                   Create Recipe
                </Header>
-                <RecipeForm
+                {/* <RecipeForm
                   modalOpen={this.state.modalOpen}
                   handleModalOpen={this.handleModalOpen}
-                />
+                /> */}
               </Menu.Item>
             <Menu.Item id='nav-listrecipes' as={NavLink} to='/listrecipes'>
               <Header position='right' style={{ fontFamily: 'Condiment' }}>
