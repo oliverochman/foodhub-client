@@ -13,7 +13,8 @@ class SingleRecipe extends Component {
     recipe: null,
     message: null,
     error: false, 
-    renderEditForm: false
+    renderEditForm: false,
+    renderForkForm: false
   }
 
   async componentDidMount() {
@@ -36,10 +37,15 @@ class SingleRecipe extends Component {
     })
   }
 
+  renderForkForm = () => {
+    this.setState({
+      renderForkForm: true
+    })
+  }
+
   render() {
     let { recipe, message, error } = this.state
-    let showSingleRecipe, messages
-    let edit
+    let showSingleRecipe, messages, edit, fork
 
     if(message) {
       messages = (
@@ -53,19 +59,25 @@ class SingleRecipe extends Component {
     if (recipe) {
       if (this.props.currentUser.attributes.id === recipe.user_id) {
         edit = this.state.renderEditForm ?
-          <RecipeCU edit recipeId={recipe.id} />
+          <RecipeCU edit recipe={recipe} />
           :
           <Button name="edit-recipe" onClick={this.renderEditForm}>Edit Recipe</Button>
       }
+      if (this.props.currentUser.attributes.id !== recipe.user_id) {
+        fork = this.state.renderForkForm ?
+          <RecipeCU fork recipe={recipe} />
+          :
+          <Button name="fork-recipe" onClick={this.renderForkForm}>Fork Recipe</Button>
+      }
       
       showSingleRecipe = (
-        <>
           <RecipeCard
             recipe={recipe}
             linked={false}
-          />
-          {edit}
-        </>
+          >
+            {edit}
+            {fork}
+          </RecipeCard>
       )
     }
 
