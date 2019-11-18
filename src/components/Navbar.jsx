@@ -29,7 +29,7 @@ class Navbar extends Component {
         <Menu.Item style={{ backgroundColor: 'white' }}>
           <Header
             position='right'
-            style={{ color: 'green' }}
+            style={{ color: '#4C5966' }}
             id="welcome-message"
           >
             Hello {this.props.currentUser.attributes.name}
@@ -73,7 +73,7 @@ class Navbar extends Component {
               to='/'
               id='nav-home'>
               <Header position='left' className='navbar-header'>
-                foodhub
+                FOODHUB
             </Header>
               <Icon name='food' size='large' />
             </Menu.Item>
@@ -100,7 +100,7 @@ class Navbar extends Component {
                 id='nav-home'
               >
                 <Header position='left' className='navbar-header'>
-                  foodhub
+                  FOODHUB
                 </Header>
                 <Icon name='food' size='large' />
               </Menu.Item>
@@ -120,7 +120,7 @@ class Navbar extends Component {
               id='nav-home'
             >
               <Header className='navbar-header'>
-                foodhub
+                FOODHUB
               </Header>
             </Menu.Item>
             <Menu.Menu position='right'>
