@@ -20,6 +20,7 @@ class SingleRecipe extends Component {
   async componentDidMount() {
     let response = await getSingleRecipe(this.props.match.params.id)
     if (response.recipe) {
+      debugger
       this.setState({
         recipe: response.recipe
       })

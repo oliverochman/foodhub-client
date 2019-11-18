@@ -1,11 +1,12 @@
-import React from "react";
-import { Divider, Grid, Image, Card } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import React from "react"
+import { Divider, Grid, Image, Card } from "semantic-ui-react"
+import { Link } from "react-router-dom"
 import '../css/recipe-card.css'
 
 const RecipeCard = props => {
-  let recipe = props.recipe;
-  let linked = props.linked;
+  let recipe = props.recipe
+  let linked = props.linked
+  //let parent = props.recipe.parent
 
   return (
     <>
@@ -38,6 +39,18 @@ const RecipeCard = props => {
               <p style={{ fontWeight: "bold" }}>Directions: </p>
               <p name="recipe-directions">{recipe.directions}</p>
             </Card.Description>
+            <Divider />
+            <Card.Content extra>
+              {recipe.parent.id !== null ? (
+              <Link
+                id={`recipe-${recipe.parent.id}`}
+                to={`/recipe/${recipe.parent.id}`}
+              >
+                <p name="parent-data">{recipe.parent.title} by {recipe.parent.user_name}</p>
+
+              </Link>
+              ) : ("") }
+            </Card.Content>
           </Card.Content>
           {props.children}
         </Card>
