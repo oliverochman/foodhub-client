@@ -29,8 +29,7 @@ describe('User forks a recipe', () => {
       });
       cy.get('[name="submit"]').click()
     })
-    cy.get('#response-message')
-      .should('contain', 'The recipe was successfully forked')
+    cy.get('#response-message').should('contain', 'The recipe was successfully forked')
   })
 
   it('Cannot fork own recipe', () => {
