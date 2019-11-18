@@ -1,9 +1,9 @@
 import React, { Component } from "react"
-import { Message, Header } from "semantic-ui-react"
 import { submitRecipe, editRecipe, forkRecipe } from "../modules/requestRecipes"
+import { withRouter } from "react-router"
 import RecipeForm from "./RecipeForm"
 import "../css/create-recipe.css"
-import { withRouter } from "react-router";
+import AlertMessage from './AlertMessage'
 
 class RecipeCU extends Component {
   state = {
@@ -61,22 +61,13 @@ class RecipeCU extends Component {
     let messages
     let { message, error } = this.state
 
-    if (message) {
+    if(message) {
       messages = (
-        <Message
-          className="create-message"
-          size="small"
-          style={{ color: error ? "red" : "green" }}
-        >
-          <Header
-            as="p"
-            id="response-message"
-            style={{ color: error ? "red" : "green" }}
-          >
-            {message}
-          </Header>
-        </Message>
-      );
+        <AlertMessage 
+        message={message}
+        error={error}
+        />
+      )
     }
 
     return (

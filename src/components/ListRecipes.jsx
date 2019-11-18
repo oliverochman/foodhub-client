@@ -35,8 +35,8 @@ debugger
     }
     return (
       <>
-        {renderListRecipes && <div id="list">{renderListRecipes}</div>}
         {message}
+        {renderListRecipes && <div id="list">{renderListRecipes}</div>}
       </>
     )
   }

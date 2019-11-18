@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Header, Message, Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 import { getSingleRecipe } from '../modules/requestRecipes'
 import '../css/single-recipe.css'
 import RecipeCard from './RecipeCard'
 import RecipeCU from './RecipeCU'
 import { connect } from 'react-redux'
+import AlertMessage from './AlertMessage'
 
 class SingleRecipe extends Component {
 
@@ -46,19 +47,14 @@ class SingleRecipe extends Component {
     let { recipe, message, error } = this.state
     let showSingleRecipe, messages, edit, fork
 
-    if (message) {
+    if(message) {
       messages = (
-        <Message className="create-message" size="small" style={{ color: error ? 'red' : 'green' }}>
-          <Header
-            as='p'
-            id="response-message"
-            style={{ color: error ? 'red' : 'green' }}>
-            {message}
-          </Header>
-        </Message>
+        <AlertMessage 
+        message={message}
+        error={error}
+        />
       )
     }
-    
     
     if (recipe) {
       if (this.props.currentUser.attributes.id === recipe.user_id) {
