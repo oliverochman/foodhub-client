@@ -55,10 +55,9 @@ class RecipeCU extends Component {
   }
 
   render() {
-    let edit = this.props.edit
-    let fork = this.props.fork
-    let messages
+    let { edit, fork } = this.props
     let { message, error } = this.state
+    let messages
 
     return (
       <div className="create-wrapper">

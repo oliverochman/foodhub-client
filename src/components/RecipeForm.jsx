@@ -7,11 +7,11 @@ const RecipeForm = props => {
   let fork = props.fork
   let message = props.message
   let error = props.error
-  let buttonText = edit ? "Save Updates" : "Submit"
-  let header = edit
+  let buttonText = edit || fork ? "Save Updates" : "Submit"
+  let header = edit && fork
     ? "Make some changes to your recipe!"
     : "Create Your Own Recipe"
-  let subHeader = edit
+  let subHeader = edit && fork
     ? "All input fields are mandatory in order to update your recipe."
     : "All input fields are mandatory in order to submit a recipe."
   let messages
@@ -32,7 +32,7 @@ const RecipeForm = props => {
         open={props.modalOpen}
       >
         {messages}
-        <Header as="h1" className={edit ? "edit-recipe" : "create-recipe"} style={{ textAlign: 'center' }}>
+        <Header as="h1" className={edit || fork ? "edit-recipe" : "create-recipe"} style={{ textAlign: 'center' }}>
           {header}
         </Header>
         <Header sub>{subHeader}</Header>
