@@ -82,6 +82,39 @@ const editRecipe = async (title, ingredients, directions, image, recipeId) => {
   }
 }
 
+const forkRecipe = async (title, ingredients, directions, image, recipeId) => {
+  try {
+    let encodedImage, recipeParams
+    recipeParams = {
+      title: title,
+      ingredients: ingredients,
+      directions: directions
+    }
+
+    if (image) {
+      encodedImage = await toBase64(image)
+      recipeParams.image = encodedImage
+    }
+
+    let response = await axios.post(apiUrl + `recipes/${recipeId}/fork`,
+      {
+        recipe: recipeParams
+      },
+      {
+        headers: getCurrentCredentials()
+      }
+    )
+
+    return {
+      message: response.data.message,
+    }
+  } catch(error) {
+    return {
+      error: error.response.data.error_message || error.message 
+    }
+  }
+}
+
 const getSingleRecipe = async (recipeId) => {
   try {
     let response = await axios.get(apiUrl + `recipes/${recipeId}`)
@@ -95,4 +128,4 @@ const getSingleRecipe = async (recipeId) => {
   }
 }
 
-export { fetchRecipes, submitRecipe, getSingleRecipe, editRecipe }
+export { fetchRecipes, submitRecipe, getSingleRecipe, editRecipe, forkRecipe }

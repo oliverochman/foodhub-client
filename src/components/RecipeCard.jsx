@@ -1,6 +1,7 @@
 import React from "react";
 import { Divider, Grid, Image, Card } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import '../css/recipe-card.css'
 
 const RecipeCard = props => {
   let recipe = props.recipe;
@@ -38,6 +39,7 @@ const RecipeCard = props => {
               <p name="recipe-directions">{recipe.directions}</p>
             </Card.Description>
           </Card.Content>
+          {props.children}
         </Card>
       </Grid.Column>
     </>

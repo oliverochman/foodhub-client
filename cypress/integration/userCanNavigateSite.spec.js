@@ -6,7 +6,7 @@ describe('Navigating the site on a desktop', () => {
       cy.get('#nav-create')
         .click()
     })
-    cy.get('.create-recipe')
+    cy.get('h1')
       .should('contain', 'Create Your Own Recipe')
   })
 })
