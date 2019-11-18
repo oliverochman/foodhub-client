@@ -37,4 +37,14 @@ describe('User forks a recipe', () => {
     cy.get('#recipe-1').click({ force: true })
     cy.get('[name="fork-recipe"]').should('not.exist')
   })
+
+  it('A forked recipe has original creators details', () => {
+    cy.anotherLoginUser('user2@mail.com', 'password')
+    cy.get('#recipe-2').click({ force: true })
+    cy.get('[name="single-recipe"]').within(() => {
+      cy.get('.header').should('contain', 'Quiche')
+        .get('[name="recipe-parent-creator"]').should('contain', 'Bob')
+        .get('[name="recipe-parent-title"]').should('contain', 'Quiche')
+    })
+  })
 })
