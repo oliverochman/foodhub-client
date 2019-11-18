@@ -1,0 +1,17 @@
+{ 
+  "favorites":
+  [
+    {
+      "id": 1,  
+      "title": "Quiche", 
+      "ingredients": "Eggs", 
+      "directions": "Stir the mixture"
+    },
+    {
+      "id": 2,
+      "title": "Chocolate Croissant", 
+      "ingredients": "Creme", 
+      "directions": "Bake in the oven"
+    } 
+  ]
+}
