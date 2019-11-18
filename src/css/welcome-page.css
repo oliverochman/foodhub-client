@@ -1,35 +1,40 @@
-@import url('https://fonts.googleapis.com/css?family=Condiment&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
 
 #welcome h1{
-  text-align: center;
-  font-size: 5rem;
+  font-size: 80px;
   line-height:1.6;
-  color:whitesmoke;
-  font-family: 'Condiment', cursive;
-  text-align: center;
+  color:rgba(0, 0, 0, 0.808);
+  font-family: 'Lato', sans-serif !important;
+  font-weight: lighter !important;
   padding-bottom: 5rem;
+  margin-right: 700px;
+  margin-top: -120px;
 }
 
 #welcome h5{
-  text-align: center;
   font-size: 2rem;
   margin-top: -70px;
-  color:whitesmoke;
-  font-family: 'Condiment', cursive;
-  text-align: center;
+  color:rgb(0, 0, 0);
+  font-family: 'Lato' !important;
   padding-bottom: 5rem;
+  font-weight: 800 !important;
+  margin-right: 700px;
 }
 
 #welcome h2{
-  text-align: center;
-  font-size: 4rem;
-  font-family: "Abril Fatface";
-  font-style: Regular;
-  font-weight: bold;
+  font-size: 6rem;
+  font-family: 'Raleway-Black' !important;
   line-height:0;
-  color:whitesmoke;
+  color:rgba(0, 0, 0, 0.808);
+  margin-right: 700px;
 }
 
-                          
+#welcome header{
+  font-size: 6rem;
+  font-family: 'Raleway', !important;
+  font-weight: lighter !important;
+  line-height:0;
+  color:rgb(0, 0, 0);
+}

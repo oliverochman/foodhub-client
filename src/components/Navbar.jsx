@@ -26,10 +26,9 @@ class Navbar extends Component {
 
     if (this.props.currentUser.isSignedIn) {
       welcomeMessage = (
-        <Menu.Item style={{ backgroundColor: 'white' }}>
+        <Menu.Item>
           <Header
             position='right'
-            style={{ color: 'green' }}
             id="welcome-message"
           >
             Hello {this.props.currentUser.attributes.name}
@@ -67,13 +66,13 @@ class Navbar extends Component {
     return (
       <>
         <Responsive {...Responsive.onlyMobile}>
-          <Menu id='navbar' style={{ marginTop: "1em" }} borderless={true}>
+          <Menu id='navbar' borderless={true}>
             <Menu.Item
               as={NavLink}
               to='/'
               id='nav-home'>
-              <Header position='left' className='navbar-header'>
-                foodhub
+              <Header position='left' className='navbar-header' background='#FCE8CE'>
+                FOODHUB
             </Header>
               <Icon name='food' size='large' />
             </Menu.Item>
@@ -93,14 +92,14 @@ class Navbar extends Component {
             style={{ minWidth: "100%" }}
             id="mobile-menu"
           >
-            <Menu.Menu style={{ color: 'white', fontSize: '2rem' }}>
+            <Menu.Menu>
               <Menu.Item
                 as={NavLink}
                 to='/'
                 id='nav-home'
               >
                 <Header position='left' className='navbar-header'>
-                  foodhub
+                  FOODHUB
                 </Header>
                 <Icon name='food' size='large' />
               </Menu.Item>
@@ -113,14 +112,14 @@ class Navbar extends Component {
         </Responsive>
 
         <Responsive {...notMobile}>
-          <Menu id='navbar' borderless={true} style={{ color: 'black', fontSize: '1.5rem' }}>
+          <Menu id='navbar' borderless={true}>
             <Menu.Item
               as={NavLink}
               to='/'
               id='nav-home'
             >
               <Header className='navbar-header'>
-                foodhub
+                FOODHUB
               </Header>
             </Menu.Item>
             <Menu.Menu position='right'>
