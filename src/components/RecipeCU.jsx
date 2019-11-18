@@ -25,7 +25,6 @@ class RecipeCU extends Component {
         this.props.recipe.id
       )
     } else if (this.props.fork) {
-      debugger;
       response = await forkRecipe(
         title.value,
         ingredients.value,
