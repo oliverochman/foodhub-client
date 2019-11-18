@@ -3,6 +3,7 @@ import { Message, Header } from "semantic-ui-react"
 import { submitRecipe, editRecipe, forkRecipe } from "../modules/requestRecipes"
 import RecipeForm from "./RecipeForm"
 import "../css/create-recipe.css"
+import { withRouter } from "react-router";
 
 class RecipeCU extends Component {
   state = {
@@ -12,6 +13,7 @@ class RecipeCU extends Component {
 
   submitRecipeHandler = async event => {
     event.preventDefault()
+    const { history } = this.props
     let { title, directions, ingredients, image } = event.target
     let response
 
@@ -36,7 +38,8 @@ class RecipeCU extends Component {
         title.value,
         ingredients.value,
         directions.value,
-        image.files[0]
+        image.files[0],
+        setTimeout(() => { history.push('/')}, 2000)
       )
     }
 
@@ -90,4 +93,4 @@ class RecipeCU extends Component {
   }
 }
 
-export default RecipeCU
+export default withRouter(RecipeCU)
