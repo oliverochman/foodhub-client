@@ -9,9 +9,4 @@ class Cookbook extends Component {
   return ()
 }
 
-
-
-
-
-
 export default Cookbook

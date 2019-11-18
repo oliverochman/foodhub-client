@@ -3,17 +3,17 @@ describe('Navigating the site on a desktop', () => {
   it('successfully', () => {
     cy.loginUser('user@mail.com', 'password')
     cy.get('#navbar').within(() => {
-      cy.get('#nav-create')
+      cy.get('#nav-create', '#nav-cookbook' )
         .click()
     })
     cy.get('h1')
-      .should('contain', 'Create Your Own Recipe')
+      .should('contain', 'Create Your Own Recipe', 'save-to-cookbook')
   })
 })
 
 describe('Navigating the site on a mobile', () => {
   beforeEach(() => {
-    cy.viewport('iphone-6')
+    xcy.viewport('iphone-6')
   })
 
   it('successfully', () => {
