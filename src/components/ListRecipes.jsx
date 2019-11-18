@@ -19,7 +19,6 @@ class ListRecipes extends Component {
     let renderListRecipes
     const recipeData = this.state.recipes
     let message
-debugger
     if (recipeData.length > 0) {
       renderListRecipes = recipeData.map(recipe => {
         return <RecipeCard key={recipe.id} recipe={recipe} linked />
