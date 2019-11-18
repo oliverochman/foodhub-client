@@ -3,10 +3,7 @@ import { Form, Button, Header } from "semantic-ui-react"
 import AlertMessage from './AlertMessage'
 
 const RecipeForm = props => {
-  let buttonText
-  let header
-  let subHeader
-  let formId
+  let buttonText, header, subHeader, formId
 
   switch(props.version) {
     case 'fork':
@@ -31,7 +28,6 @@ const RecipeForm = props => {
 
   let message = props.message
   let error = props.error
-
   let messages
 
   if(message) {
