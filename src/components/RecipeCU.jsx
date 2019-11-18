@@ -25,6 +25,7 @@ class RecipeCU extends Component {
         this.props.recipe.id
       )
     } else if (this.props.fork) {
+      debugger;
       response = await forkRecipe(
         title.value,
         ingredients.value,
@@ -55,6 +56,14 @@ class RecipeCU extends Component {
   }
 
   render() {
+    let version
+    if (this.props.fork) {
+      version = 'fork'
+    } else if (this.props.edit) {
+      version = 'edit'
+    } else {
+      version = 'create'
+    }
     let { edit, fork } = this.props
     let { message, error } = this.state
     let messages
@@ -64,9 +73,8 @@ class RecipeCU extends Component {
         {messages}
         <RecipeForm
           submitRecipeHandler={this.submitRecipeHandler}
-          edit={edit}
-          fork={fork}
-          recipe={(edit || fork) && this.props.recipe}
+          version={version}
+          recipe={edit || fork ? this.props.recipe : false}
           message={message}
           error={error}
         />
