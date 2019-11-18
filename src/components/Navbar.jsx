@@ -43,21 +43,10 @@ class Navbar extends Component {
         />
       )
       createRecipe = (
-        // <Menu.Item id='nav-create' as={NavLink} to='/recipes/create'>
-        //   <Header position='right'>
-        //     Create Recipe
-        //   </Header>
-        // </Menu.Item>
-        <Menu.Item id='nav-create' className='fake-link-hover'>
-        <Header
-          position='right'
-          onClick={this.handleModalOpen}>
-          Create Recipe
-        </Header>
-        <RecipeForm
-          modalOpen={this.state.modalOpen}
-          handleModalOpen={this.handleModalOpen}
-        />
+        <Menu.Item id='nav-create' as={NavLink} to='/recipes/create'>
+          <Header position='right'>
+            Create Recipe
+          </Header>
         </Menu.Item>
       )
     } else {

@@ -1,5 +1,5 @@
 import React from "react"
-import { Form, Button, Modal, Header } from "semantic-ui-react"
+import { Form, Button, Header } from "semantic-ui-react"
 import AlertMessage from './AlertMessage'
 
 const RecipeForm = props => {
@@ -27,10 +27,6 @@ const RecipeForm = props => {
 
   return (
     <>
-      <Modal id='modal'
-        basic size='small'
-        open={props.modalOpen}
-      >
         {messages}
         <Header as="h1" className={edit || fork ? "edit-recipe" : "create-recipe"} style={{ textAlign: 'center' }}>
           {header}
@@ -38,7 +34,7 @@ const RecipeForm = props => {
         <Header sub>{subHeader}</Header>
         <div>
         <Form
-          id={edit ? "edit-recipe-form" : "create-recipe-form"}
+          id={(edit || fork) ? "edit-recipe-form" : "create-recipe-form"}
           onSubmit={props.submitRecipeHandler}
         >
           <Form.Group widths="equal">
@@ -79,19 +75,8 @@ const RecipeForm = props => {
           >
             {buttonText}
           </Button>
-          <Button
-            style={{ marginTop: '0.8rem' }}
-            color='red'
-            type='submit'
-            name='cancel'
-            fluid size='large'
-            onClick={props.handleModalOpen}
-          >
-            Cancel
-          </Button>
         </Form>
         </div>
-      </Modal>
     </>
   )
 }
