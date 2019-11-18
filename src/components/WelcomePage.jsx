@@ -13,7 +13,6 @@ class Welcome extends Component {
           <LazyHero
             parallaxOffset={1}
             minHeight='95vh'
-
             opacity={0.2}
             imageSrc="https://github.com/miyeaier/react-portfolio/blob/master/Img/AdobeStock_199252786.jpeg?raw=true"
           >

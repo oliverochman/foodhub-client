@@ -14,7 +14,7 @@ const RecipeCard = props => {
         style={{marginBottom: "0.5rem"}}
       >
         <Card>
-          <Image src="https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2017/07/satay-sweet-potato-curry.jpg?itok=bl5QzsfL" alt="" />
+          <Image src={recipe.image} alt="" />
           <Card.Content>
             {linked ? (
               <Link
