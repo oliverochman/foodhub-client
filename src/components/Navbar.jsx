@@ -21,14 +21,6 @@ class Navbar extends Component {
   handleShowClick = () => this.setState({ visibleSidebar: true })
   handleSidebarHide = () => this.setState({ visibleSidebar: false })
 
-  handleModalOpen = () => {
-    this.setState(prevState => {
-      return {
-        modalOpen: !prevState.modalOpen
-      }
-    })
-  }
-
   render() {
     const notMobile = { minWidth: Responsive.onlyMobile.maxWidth + 1 }
     let logOut, logIn, welcomeMessage, createRecipe
@@ -51,10 +43,21 @@ class Navbar extends Component {
         />
       )
       createRecipe = (
-        <Menu.Item id='nav-create' as={NavLink} to='/recipes/create'>
-          <Header position='right'>
-            Create Recipe
-          </Header>
+        // <Menu.Item id='nav-create' as={NavLink} to='/recipes/create'>
+        //   <Header position='right'>
+        //     Create Recipe
+        //   </Header>
+        // </Menu.Item>
+        <Menu.Item id='nav-create' className='fake-link-hover'>
+        <Header
+          position='right'
+          onClick={this.handleModalOpen}>
+          Create Recipe
+        </Header>
+        <RecipeForm
+          modalOpen={this.state.modalOpen}
+          handleModalOpen={this.handleModalOpen}
+        />
         </Menu.Item>
       )
     } else {

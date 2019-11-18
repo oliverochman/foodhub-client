@@ -29,7 +29,7 @@ const RecipeForm = props => {
     <>
       <Modal id='modal'
         basic size='small'
-        trigger={<Button>Show Modal</Button>}
+        open={props.modalOpen}
       >
         {messages}
         <Header as="h1" className={edit ? "edit-recipe" : "create-recipe"} style={{ textAlign: 'center' }}>
@@ -39,7 +39,7 @@ const RecipeForm = props => {
         <div>
         <Form
           id={edit ? "edit-recipe-form" : "create-recipe-form"}
-          onSubmit={event => props.submitRecipeHandler(event)}
+          onSubmit={props.submitRecipeHandler}
         >
           <Form.Group widths="equal">
             <Form.Input
@@ -78,6 +78,16 @@ const RecipeForm = props => {
             style={{ marginTop: '0.8rem' }}
           >
             {buttonText}
+          </Button>
+          <Button
+            style={{ marginTop: '0.8rem' }}
+            color='red'
+            type='submit'
+            name='cancel'
+            fluid size='large'
+            onClick={props.handleModalOpen}
+          >
+            Cancel
           </Button>
         </Form>
         </div>
