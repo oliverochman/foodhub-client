@@ -35,8 +35,8 @@ class ListRecipes extends Component {
     }
     return (
       <>
-        {renderListRecipes && <div id="list">{renderListRecipes}</div>}
         {message}
+        {renderListRecipes && <div id="list">{renderListRecipes}</div>}
       </>
     )
   }

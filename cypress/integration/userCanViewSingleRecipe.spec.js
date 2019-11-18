@@ -7,10 +7,6 @@ describe('View single recipe', () => {
       response: 'fixture:single_recipe.json',
       status: 200
     })
-    cy.get('#navbar').within(() => {
-      cy.get('#nav-listrecipes')
-        .click()
-    })
     cy.get('#recipe-1')
       .click({ force: true })
     cy.get('[name="single-recipe"]').within(() => {
@@ -26,10 +22,6 @@ describe('View single recipe', () => {
       url: 'http://localhost:3000/v1/recipes/1',
       response: '{ "error_message": "The recipe could not be found" }',
       status: 404
-    })
-    cy.get('#navbar').within(() => {
-      cy.get('#nav-listrecipes')
-        .click()
     })
     cy.get('#recipe-1')
       .click({ force: true })

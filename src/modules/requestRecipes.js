@@ -1,4 +1,5 @@
 import axios from 'axios'
+import getCurrentCredentials from './getCredentials'
 
 const apiUrl = 'http://localhost:3000/v1/'
 
@@ -32,6 +33,9 @@ const submitRecipe = async (title, ingredients, directions, image) => {
     let response = await axios.post(apiUrl + 'recipes',
       {
         recipe: recipeParams
+      },
+      {
+        headers: getCurrentCredentials()
       }
     )
 
@@ -62,6 +66,9 @@ const editRecipe = async (title, ingredients, directions, image, recipeId) => {
     let response = await axios.put(apiUrl + `recipes/${recipeId}`,
       {
         recipe: recipeParams
+      },
+      {
+        headers: getCurrentCredentials()
       }
     )
 

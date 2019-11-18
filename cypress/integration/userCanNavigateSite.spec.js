@@ -1,6 +1,7 @@
 describe('Navigating the site on a desktop', () => {
 
   it('successfully', () => {
+    cy.loginUser('user@mail.com', 'password')
     cy.get('#navbar').within(() => {
       cy.get('#nav-create')
         .click()

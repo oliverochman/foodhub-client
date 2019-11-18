@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Message, Header } from 'semantic-ui-react'
-import VerifyCredentialsForm from './VerifyCredentialsForm'
+import { Header, Modal, Button, Grid, Form, Icon } from 'semantic-ui-react'
 import { signInUser } from '../state/actions/reduxTokenAuthConfig'
 import { connect } from 'react-redux'
+import AlertMessage from './AlertMessage'
 
 class Login extends Component {
   state = {
@@ -17,7 +17,7 @@ class Login extends Component {
     password = password.value
     email = email.value
 
-    signInUser({email, password})
+    signInUser({ email, password })
       .then(
         console.log('Successful!')
       )
@@ -30,41 +30,73 @@ class Login extends Component {
   }
 
   render() {
-    let messages, loginForm, welcomeMessage
+    let messages
     let { message, error } = this.state
 
-    if (message) {
+    if(message) {
       messages = (
-        <Message size="small" style={{ color: error ? 'red' : 'green' }}>
-          <Header
-            as='p'
-            id="response-message"
-            style={{ color: error ? 'red' : 'green' }}>
-            {message}
-          </Header>
-        </Message>
-      )
-    }
-
-    if (this.props.currentUser.isSignedIn) {
-      welcomeMessage = <p id="welcome-message">Hello {this.props.currentUser.attributes.name}</p>
-    } else {
-      loginForm = (
-        <>
-          <VerifyCredentialsForm
-            submitCredentials={this.submitCredentials}
-          />
-        </>
+        <AlertMessage 
+        message={message}
+        error={error}
+        />
       )
     }
 
     return (
-      <div className="create-wrapper">
-        <Header as='h1'>Welcome to the login page</Header>
-        {welcomeMessage}
-        {messages}
-        {loginForm}
-      </div>
+      <>
+        <Modal id='modal'
+          basic size='small'
+          open={this.props.modalOpen}
+          >
+          <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+            <Grid.Column style={{ maxWidth: 450 }}>
+            {messages}
+              <Header as='h1' color='teal' textAlign='center' fontSize='10rem'>
+                <Icon name='universal access' size='large' /> Log in to your account
+              </Header>
+              <Form
+                size='large'
+                id="credentials-form"
+                onSubmit={this.submitCredentials}
+              >
+                <Form.Input
+                  fluid
+                  icon='user'
+                  iconPosition='left'
+                  placeholder='Please enter your email'
+                  name="email"
+                />
+                <Form.Input
+                  fluid
+                  icon='lock'
+                  iconPosition='left'
+                  placeholder='Please enter your password'
+                  name='password'
+                  type='password'
+                />
+                <Button
+                  color='teal'
+                  type='submit'
+                  name='submit'
+                  fluid size='large'
+                >
+                  Login
+                </Button>
+                <Button
+                  style={{ marginTop: '0.8rem' }}
+                  color='red'
+                  type='submit'
+                  name='cancel'
+                  fluid size='large'
+                  onClick={this.props.handleModalOpen}
+                >
+                  Cancel
+                </Button>
+              </Form>
+            </Grid.Column>
+          </Grid>
+        </Modal >
+      </>
     )
   }
 }

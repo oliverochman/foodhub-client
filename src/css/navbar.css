@@ -1,28 +1,26 @@
-#navbar-header {
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+ .navbar-header {
   margin: 0.5rem 0 0.5rem 0.5rem !important;
+  font-size: 4rem !important;
+  font-family: 'Abril Fatface' !important;
+  font-weight: bold !important;
 }
 
-i.huge.icon {
-  margin-bottom: 0.5rem !important;
-  background: -webkit-linear-gradient(#eee, #0f402b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.navbar-links {
-  font-size: '4rem';
-  text-align: 'center';
-  font-family: 'Anton';
-  height: "2.5rem";
-  line-height: "2.5rem";
-  font-weight: 'bold';
-}
-
-a:hover {
+.fake-link-hover:hover {
   cursor: pointer;
+  background: rgb(245, 243, 243) !important;
 }
 
-a:visited {
-  background: #fff !important;
+.fake-link-hover {
+  font-weight: 900 !important;
 }
 
+.ui.menu .item:hover {
+  background: rgb(245, 243, 243) !important;
+}
+
+.ui.header {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400 !important;
+}
