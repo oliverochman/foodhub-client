@@ -17,8 +17,8 @@ describe('User forks a recipe', () => {
     })
     cy.anotherLoginUser('user2@mail.com', 'password')
     cy.get('#recipe-1').click({ force: true })
-    cy.get('[name="fork-recipe"]').should('exist')
-    cy.get('#edit-recipe-form').within(() => {
+    cy.get('[name="fork-recipe"]').click()
+    cy.get('#fork-recipe-form').within(() => {
       cy.get('[name="title"]').type('Apple Pie')
         .get('[name="ingredients"]').type('Apples, dough')
         .get('[name="directions"]').type('Bake pie at 200')
