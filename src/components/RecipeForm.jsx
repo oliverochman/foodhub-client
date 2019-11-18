@@ -3,38 +3,56 @@ import { Form, Button, Header } from "semantic-ui-react"
 import AlertMessage from './AlertMessage'
 
 const RecipeForm = props => {
-  let edit = props.edit
-  let fork = props.fork
+  let buttonText
+  let header
+  let subHeader
+  let formId
+
+  switch(props.version) {
+    case 'fork':
+      buttonText = 'Fork Recipe'
+      header = 'If you want to make some changes to your fork, do it here'
+      subHeader = 'All input fields are mandatory in order to complete the fork.'
+      formId = "fork-recipe-form"
+      break;
+    case 'edit':
+      buttonText = 'Save Updates'
+      header = 'Make some changes to your recipe!'
+      subHeader = 'All input fields are mandatory in order to update your recipe.'
+      formId = "edit-recipe-form"
+      break;
+    default:
+      buttonText = 'Submit'
+      header = 'Create Your Own Recipe'
+      subHeader = 'All input fields are mandatory in order to submit a recipe.'
+      formId = "create-recipe-form"
+
+  }
+
   let message = props.message
   let error = props.error
-  let buttonText = edit || fork ? "Save Updates" : "Submit"
-  let header = edit && fork
-    ? "Make some changes to your recipe!"
-    : "Create Your Own Recipe"
-  let subHeader = edit && fork
-    ? "All input fields are mandatory in order to update your recipe."
-    : "All input fields are mandatory in order to submit a recipe."
+
   let messages
 
-    if(message) {
-      messages = (
-        <AlertMessage 
+  if(message) {
+    messages = (
+      <AlertMessage 
         message={message}
         error={error}
-        />
-      )
-    }
+      />
+    )
+  }
 
   return (
     <>
         {messages}
-        <Header as="h1" className={edit || fork ? "edit-recipe" : "create-recipe"} style={{ textAlign: 'center' }}>
+        <Header as="h1" style={{ textAlign: 'center' }}>
           {header}
         </Header>
         <Header sub>{subHeader}</Header>
         <div>
         <Form
-          id={(edit || fork) ? "edit-recipe-form" : "create-recipe-form"}
+          id={formId}
           onSubmit={props.submitRecipeHandler}
         >
           <Form.Group widths="equal">
@@ -43,9 +61,7 @@ const RecipeForm = props => {
               label="Title"
               placeholder="Add title (maximum 255 characters)"
               name="title"
-              defaultValue={edit
-                ? edit && props.recipe.title
-                : fork && props.recipe.title}
+              defaultValue={props.version == 'edit' || 'fork' ? props.recipe.title : ''}
 
             />
           </Form.Group>
@@ -53,17 +69,15 @@ const RecipeForm = props => {
             label="Ingredients"
             placeholder="Add ingredients (maximum 500 characters)"
             name="ingredients"
-            defaultValue={edit
-              ? edit && props.recipe.ingredients
-              : fork && props.recipe.ingredients}
+            defaultValue={props.version == 'edit' || 'fork' ? props.recipe.ingredients : ''}
+
           />
           <Form.TextArea
             label="Directions"
             placeholder="Add directions (maximum 5000 characters)"
             name="directions"
-            defaultValue={edit
-              ? edit && props.recipe.directions
-              : fork && props.recipe.directions}
+            defaultValue={props.version == 'edit' || 'fork' ? props.recipe.directions : ''}
+
           />
           <input type="file" name="image" />
           <Button
