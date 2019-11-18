@@ -1,5 +1,4 @@
-
-describe('View the welcome page ', () => {
+describe('View the welcome page', () => {
   it('should display welcome message', () => {
     cy.get('#welcome').within(()=>{
       cy.get('h1').should('have.text', 'Social Cooking')
