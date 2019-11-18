@@ -3,7 +3,7 @@
 
 .fake-link-hover:hover {
   cursor: pointer;
-  background: #F4EFEF !important;
+  background: #FCE8CE !important;
 }
 
 .fake-link-hover {
@@ -11,14 +11,16 @@
 }
 
 .ui.menu .item:hover {
-  background: #F4EFEF !important;
+  background: #FCE8CE !important;
 }
 .ui.menu {
   background:#FCFCFC !important;
+  border: #FCFCFC !important;
 }
 
 .ui.header {
   font-family: 'Raleway', sans-serif;
   font-size: 1rem !important;
   font-weight: lighter !important;
+  
 }

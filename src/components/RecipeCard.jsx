@@ -8,9 +8,10 @@ const RecipeCard = props => {
 
   return (
     <>
-      <Container
+      <Grid.Column
         textAlign="justified"
         name={linked ? `recipe-${recipe.id}` : "single-recipe"}
+        style={{marginBottom: "0.5rem"}}
       >
         <Card>
           <Image src="https://i2.wp.com/www.livewellbakeoften.com/wp-content/uploads/2018/01/Banana-Nut-Bread-2.jpg?resize=1360%2C2040&ssl=1" alt="" />
@@ -38,7 +39,7 @@ const RecipeCard = props => {
             </Card.Description>
           </Card.Content>
         </Card>
-      </Container>
+      </Grid.Column>
     </>
   );
 };

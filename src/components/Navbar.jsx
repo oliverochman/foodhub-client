@@ -71,7 +71,7 @@ class Navbar extends Component {
               as={NavLink}
               to='/'
               id='nav-home'>
-              <Header position='left' className='navbar-header'>
+              <Header position='left' className='navbar-header' background='#FCE8CE'>
                 FOODHUB
             </Header>
               <Icon name='food' size='large' />

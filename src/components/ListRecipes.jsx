@@ -36,7 +36,7 @@ class ListRecipes extends Component {
     return (
       <>
         {message}
-        {renderListRecipes && <div id="list">{renderListRecipes}</div>}
+        {renderListRecipes && <Grid columns={3} id="list"><Grid.Row>{renderListRecipes}</Grid.Row></Grid>}
       </>
     )
   }
