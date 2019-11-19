@@ -113,7 +113,6 @@ class Navbar extends Component {
               </Menu.Item>
               {welcomeMessage}
               {createRecipe}
-              {cookbook}
               {logIn}
               {logOut}
             </Menu.Menu>
