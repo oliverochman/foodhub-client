@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { withRouter } from "react-router"
 import "../css/create-recipe.css"
-import { submitFavorite } from '../modules/requestFavorites'
+import { fetchRecipes } from '../modules/requestRecipes'
 
 class Cookbook extends Component {
   state = {
@@ -14,7 +14,7 @@ class Cookbook extends Component {
   async renderFavorites() {
     const result = this.recipe.favorite
     try {
-      await saveData(result)
+      await fetchRecipes(result)
       this.props.entryHandler()
     } catch (error) {
       console.log(error)
@@ -28,6 +28,7 @@ class Cookbook extends Component {
 
     return (
       <div>
+        <h1>My Cookbook</h1>
         {favorite}
       </div>
     )
