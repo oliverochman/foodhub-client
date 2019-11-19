@@ -1,7 +1,7 @@
 describe('Visitor can signup', () => {
 
   it('Successfully signs up', () => {
-    cy.signinUser('BettySpaghetti', 'user@mail.com', 'password', 'password')
+    cy.signInUser('BettySpaghetti', 'user@mail.com', 'password', 'password')
     cy.get('#welcome-message')
     .should('contain', 'Hello BettySpaghetti')
   })

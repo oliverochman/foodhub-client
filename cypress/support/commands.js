@@ -55,7 +55,7 @@ Cypress.Commands.add('failToLoginUser', (email, password) => {
   cy.get('[name="submit"]').click()
 })
 
-Cypress.Commands.add('signinUser', (name, email, password, password_confirmation) => {
+Cypress.Commands.add('signInUser', (name, email, password, password_confirmation) => {
   cy.route({
     method: 'POST',
     url: 'http://localhost:3000/v1/auth',
