@@ -58,7 +58,7 @@ Cypress.Commands.add('failToLoginUser', (email, password) => {
 Cypress.Commands.add('signinUser', (name, email, password, password_confirmation) => {
   cy.route({
     method: 'POST',
-    url: 'http://localhost:3000/v1/auth/sign_in',
+    url: 'http://localhost:3000/v1/auth',
     response: 'fixture:successful_signup.json',
     status: 200
   })
@@ -81,7 +81,7 @@ Cypress.Commands.add('signinUser', (name, email, password, password_confirmation
 Cypress.Commands.add('failTosignUpUser', (name, email, password, password_confirmation) => {
   cy.route({
     method: 'POST',
-    url: 'http://localhost:3000/v1/auth/sign_in',
+    url: 'http://localhost:3000/v1/auth',
     response: '{"errors": "full_messages": "Invalid login credentials. Please try again"}',
     status: 401
   })
