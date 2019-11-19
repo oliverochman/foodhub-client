@@ -9,14 +9,6 @@ describe('Navigating the site on a desktop', () => {
     cy.get('h1')
       .should('contain', 'Create Your Own Recipe')
   })
-
-  it('successfully', () => {
-    cy.loginUser('user@mail.com', 'password')
-    cy.get('#navbar').within(() => {
-      cy.get('#nav-cookbook')
-        .click()
-    })
-  })
 })
 
 describe('Navigating the site on a mobile', () => {
