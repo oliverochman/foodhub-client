@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Header, Button, Grid, Form, Icon } from 'semantic-ui-react'
+import { Header, Button, Grid, Form, Icon, Segment } from 'semantic-ui-react'
 import { registerUser } from '../state/actions/reduxTokenAuthConfig'
 import { connect } from 'react-redux'
 import AlertMessage from './AlertMessage'
 import { Link } from "react-router-dom"
+import '../css/sign-up.css'
 
 class SignUp extends Component {
   state = {
@@ -46,10 +47,11 @@ class SignUp extends Component {
     }
 
     return (
-      <>
+      <div className="signup-bg">
         <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
             {messages}
+            <Segment>
             <Header as='h1' color='teal' textAlign='center' fontSize='10rem'>
               <Icon name='universal access' size='large' />
               Register an account
@@ -107,9 +109,10 @@ class SignUp extends Component {
               Cancel
                   </Link>
           </Button>
+          </Segment>
           </Grid.Column>
       </Grid>
-      </>
+      </div>
     )
   }
 }
