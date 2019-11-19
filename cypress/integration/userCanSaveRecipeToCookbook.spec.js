@@ -1,22 +1,17 @@
-describe('Save a recipe to Cookbook', () => {
-
+describe('Save recipe to Cookbook', () => {
   beforeEach(() => {
-    cy.server()
     cy.route({
       method: 'POST',
       url: 'http://localhost:3000/v1/favorites',
-      response: '{"favorites":[]}',
+      response: 'fixture:favorites.json',
       status: 201
     })
-    cy.visit('http://localhost:3001')
   })
-  it('successfully logs in ', () => {
+  it('Successfully saves the recipe in Cookbook', () => {
     cy.loginUser('user@mail.com', 'password')
-    cy.get('#nav-cookbook')
-      .should('contain', 'Cookbook')
-  })
-  it('successfully saves recipe', () => {
-    cy.get('#save-recipe').click()
-    cy.contains('The recipe was successfully added to your favorites')
+    cy.get('#navbar').within(() => {
+      cy.get('#nav-cookbook')
+        .click()
+    })
   })
 })
