@@ -63,12 +63,12 @@ class SignUp extends Component {
                 fluid
                 icon='user'
                 iconPosition='left'
-                placeholder='Please enter your email'
+                placeholder='Please enter your name'
                 name="name"
               />
               <Form.Input
                 fluid
-                icon='user'
+                icon='mail'
                 iconPosition='left'
                 placeholder='Please enter your email'
                 name="email"
@@ -85,7 +85,7 @@ class SignUp extends Component {
                 fluid
                 icon='lock'
                 iconPosition='left'
-                placeholder='Please enter your password'
+                placeholder='Please confirm your password'
                 name='password_confirmation'
                 type='password'
               />
