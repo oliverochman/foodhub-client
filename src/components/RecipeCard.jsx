@@ -6,7 +6,8 @@ import '../css/recipe-card.css'
 const RecipeCard = props => {
   let recipe = props.recipe
   let linked = props.linked
-  //let parent = props.recipe.parent
+  
+  let parent = props.recipe.parent
 
   return (
     <>
@@ -41,14 +42,14 @@ const RecipeCard = props => {
             </Card.Description>
             <Divider />
             <Card.Content extra>
-              {recipe.parent.id !== null ? (
-              <Link
-                id={`recipe-${recipe.parent.id}`}
-                to={`/recipe/${recipe.parent.id}`}
-              >
-                <p name="parent-data">{recipe.parent.title} by {recipe.parent.user_name}</p>
+              {parent ? (
+                <Link
+                  id={`recipe-${parent.id}`}
+                  to={`/recipe/${parent.id}`}
+                >
+                  <p name="parent-data">{parent.title} by {parent.user_name}</p>
 
-              </Link>
+                </Link>
               ) : ("") }
             </Card.Content>
           </Card.Content>

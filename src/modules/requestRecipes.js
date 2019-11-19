@@ -118,7 +118,6 @@ const forkRecipe = async (title, ingredients, directions, image, recipeId) => {
 const getSingleRecipe = async (recipeId) => {
   try {
     let response = await axios.get(apiUrl + `recipes/${recipeId}`)
-    debugger
     return {
       recipe: response.data.recipe
     }

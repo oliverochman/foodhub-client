@@ -48,8 +48,9 @@ describe('User forks a recipe', () => {
       response: 'fixture:forked_recipe.json'
     })
   })
+
+  
   it('A forked recipe has original creators details', () => {
-    
     cy.anotherLoginUser('user2@mail.com', 'password')
     cy.get('#recipe-2').click({ force: true })
     cy.get('[name="single-recipe"]').within(() => {
