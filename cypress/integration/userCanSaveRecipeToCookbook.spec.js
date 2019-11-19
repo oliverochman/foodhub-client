@@ -5,8 +5,7 @@ describe('Save recipe to Cookbook', () => {
       url: 'http://localhost:3000/v1/recipes/1',
       response: 'fixture:single_recipe.json',
       status: 200
-    })
-
+    }),
     cy.route({
       method: 'POST',
       url: 'http://localhost:3000/v1/recipes/1/favorite',
