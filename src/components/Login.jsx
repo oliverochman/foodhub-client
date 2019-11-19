@@ -3,6 +3,7 @@ import { Header, Modal, Button, Grid, Form, Icon } from 'semantic-ui-react'
 import { signInUser } from '../state/actions/reduxTokenAuthConfig'
 import { connect } from 'react-redux'
 import AlertMessage from './AlertMessage'
+import { Link } from "react-router-dom"
 
 class Login extends Component {
   state = {
@@ -35,9 +36,9 @@ class Login extends Component {
 
     if(message) {
       messages = (
-        <AlertMessage 
-        message={message}
-        error={error}
+        <AlertMessage
+          message={message}
+          error={error}
         />
       )
     }
@@ -47,10 +48,10 @@ class Login extends Component {
         <Modal id='modal'
           basic size='small'
           open={this.props.modalOpen}
-          >
+        >
           <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
             <Grid.Column style={{ maxWidth: 450 }}>
-            {messages}
+              {messages}
               <Header as='h1' color='teal' textAlign='center' fontSize='10rem'>
                 <Icon name='universal access' size='large' /> Log in to your account
               </Header>
@@ -93,6 +94,16 @@ class Login extends Component {
                   Cancel
                 </Button>
               </Form>
+              <Button
+                  style={{ marginTop: '0.8rem' }}
+                  color='blue'
+                  fluid size='large'
+                  onClick={this.props.handleModalOpen}
+                >
+                  <Link name='register' to='/signup' style={{ color: 'white' }}>
+                  Not yet a member? Sign Up
+                  </Link>
+                </Button>
             </Grid.Column>
           </Grid>
         </Modal >

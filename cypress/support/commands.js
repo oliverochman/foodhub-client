@@ -68,7 +68,7 @@ Cypress.Commands.add('signinUser', (email, password, password_confirmation) => {
       cy.get('#nav-login').click()
     })
   cy.get('#credentials-form')
-    .get('[name="signup"]').click()
+    .get('[name="register"]').click()
   cy.get('#signup-form').within(() => {
     cy.get('[name="email"]').type(email)
       .get('[name="password"]').type(password)
@@ -77,7 +77,7 @@ Cypress.Commands.add('signinUser', (email, password, password_confirmation) => {
   cy.get('[name="submit"]').click()
 })
 
-Cypress.Commands.add('failToLoginUser', (email, password, password_confirmation) => {
+Cypress.Commands.add('failTosignUpUser', (email, password, password_confirmation) => {
   cy.route({
     method: 'POST',
     url: 'http://localhost:3000/v1/auth/sign_in',
@@ -90,7 +90,7 @@ Cypress.Commands.add('failToLoginUser', (email, password, password_confirmation)
       cy.get('#nav-login').click()
     })
   cy.get('#credentials-form')
-    .get('[name="signup"]').click()
+    .get('[name="register"]').click()
   cy.get('#signup-form').within(() => {
     cy.get('[name="email"]').type(email)
       .get('[name="password"]').type(password)
