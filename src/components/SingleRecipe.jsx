@@ -100,10 +100,10 @@ class SingleRecipe extends Component {
     }
 
     return (
-      <div>
+      <>
         {messages}
         {showSingleRecipe}
-      </div>
+      </>
     )
   }
 }

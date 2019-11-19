@@ -47,6 +47,7 @@ const RecipeCard = props => {
               <p style={{ fontWeight: "bold" }}>Directions: </p>
               <p name="recipe-directions">{recipe.directions}</p>
             </Card.Description>
+            <Divider />
             {addRecipeToFavorites}
           </Card.Content>
           {props.children}
