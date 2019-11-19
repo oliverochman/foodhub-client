@@ -6,8 +6,7 @@
       "ingredients": "Eggs", 
       "directions": "Stir the mixture",
       "user_id": 1,
-      "crap": "crap",
-      "parent": {
+    "parent": {
         "id": "1",
         "title": "Quiche",
         "user_name": "Bob"

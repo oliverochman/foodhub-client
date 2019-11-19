@@ -6,7 +6,7 @@ import '../css/recipe-card.css'
 const RecipeCard = props => {
   let recipe = props.recipe
   let linked = props.linked
-  
+
   let parent = props.recipe.parent
 
   return (
@@ -14,7 +14,7 @@ const RecipeCard = props => {
       <Grid.Column
         textAlign="justified"
         name={linked ? `recipe-${recipe.id}` : "single-recipe"}
-        style={{marginBottom: "0.5rem"}}
+        style={{ marginBottom: "0.5rem" }}
       >
         <Card>
           <Image src={recipe.image} alt="" />
@@ -29,10 +29,10 @@ const RecipeCard = props => {
                 </Card.Header>
               </Link>
             ) : (
-              <Card.Header as="h3" name="recipe-title">
-                {recipe.title}
-              </Card.Header>
-            )}
+                <Card.Header as="h3" name="recipe-title">
+                  {recipe.title}
+                </Card.Header>
+              )}
             <Divider />
             <Card.Description>
               <p style={{ fontWeight: "bold" }}>Ingredients: </p>
@@ -42,23 +42,24 @@ const RecipeCard = props => {
             </Card.Description>
             <Divider />
             <Card.Content extra>
-              {parent ? (
+              {parent && linked ? (
                 <Link
                   id={`recipe-${parent.id}`}
                   to={`/recipe/${parent.id}`}
                 >
-                  <p name="parent-data"><Icon name='food' size='large' /> 
+                  <p name="parent-data">
+                    <Icon name='food' size='large' />
                     This recipe {parent.title} was forked from {parent.user_name}
                   </p>
                 </Link>
-              ) : ("") }
+                  ) : ("") }
             </Card.Content>
           </Card.Content>
-          {props.children}
+            {props.children}
         </Card>
       </Grid.Column>
     </>
-  );
-};
-
+      );
+    };
+    
 export default RecipeCard;
