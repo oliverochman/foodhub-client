@@ -7,7 +7,8 @@ describe('Visitor can signup', () => {
   })
 
   it('Attempts to fill in unmatching passwords', () => {
-    cy.failTosignUpUser('BettySpaghetti', 'user@mail.com', 'password', 'passwordd')
-    cy.get('#response-message').should('contain','Invalid credentials to sign up. Please try again.')
+    cy.failToSignUpUser('BettySpaghetti', 'user@mail.com', 'password', 'passwordd')
+    cy.get('#response-message')
+      .should('contain','Password confirmation doesn\'t match Password')
   })
 });

@@ -78,11 +78,11 @@ Cypress.Commands.add('signinUser', (name, email, password, password_confirmation
   cy.get('[name="submit"]').click()
 })
 
-Cypress.Commands.add('failTosignUpUser', (name, email, password, password_confirmation) => {
+Cypress.Commands.add('failToSignUpUser', (name, email, password, password_confirmation) => {
   cy.route({
     method: 'POST',
     url: 'http://localhost:3000/v1/auth',
-    response: '{"errors": "full_messages": "Invalid login credentials. Please try again"}',
+    response: '{"errors": {"full_messages": "Password confirmation doesn\'t match Password"}}',
     status: 401
   })
 
