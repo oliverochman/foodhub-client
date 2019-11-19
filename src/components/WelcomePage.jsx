@@ -18,29 +18,29 @@ class Welcome extends Component {
             imageSrc="https://github.com/miyeaier/react-portfolio/blob/master/Img/AdobeStock_199252786.jpeg?raw=true"
           >
             <Responsive minWidth={1230}>
-            <div className="welcome-text" style={{ marginRight: '50rem', marginBottom: '20rem', textAlign: 'left' }}>
-              <h1>
-                Social Cooking
-            </h1>
-              <h5>
-                by
-            </h5>
-              <h2>
-                FOODHUB
-            </h2>
-            </div>
+              <div className="welcome-text" style={{ marginRight: '50rem', marginBottom: '20rem', textAlign: 'left' }}>
+                <h1>
+                  Social Cooking
+                </h1>
+                <h5>
+                  by
+                </h5>
+                <h2>
+                  FOODHUB
+                </h2>
+              </div>
             </Responsive>
             <Responsive as={Segment} maxWidth={1229} style={{ padding: '4rem', paddingBottom: '8rem', opacity: '0.8' }}>
               <div style={{ textAlign: 'center' }}>
                 <h1>
                   Social Cooking
-            </h1>
+                </h1>
                 <h5>
                   by
-            </h5>
+                </h5>
                 <h2>
                   FOODHUB
-            </h2>
+                </h2>
               </div>
             </Responsive>
           </LazyHero>
