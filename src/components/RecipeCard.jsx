@@ -1,11 +1,20 @@
 import React from "react";
-import { Divider, Grid, Image, Card } from "semantic-ui-react";
+import { Divider, Grid, Image, Card, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import '../css/recipe-card.css'
 
 const RecipeCard = props => {
   let recipe = props.recipe;
   let linked = props.linked;
+  let addRecipeToFavorites
+  if (props.isSignedIn) {
+    addRecipeToFavorites = (
+      <Button name="save-recipe-to-cookbook" onClick={() => props.setRecipeAsFavorite()}>
+        Add this recipe to your favorites
+      </Button>
+    )
+  }
+
 
   return (
     <>
@@ -38,6 +47,7 @@ const RecipeCard = props => {
               <p style={{ fontWeight: "bold" }}>Directions: </p>
               <p name="recipe-directions">{recipe.directions}</p>
             </Card.Description>
+            {addRecipeToFavorites}
           </Card.Content>
           {props.children}
         </Card>
