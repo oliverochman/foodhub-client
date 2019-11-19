@@ -57,7 +57,7 @@ const RecipeForm = props => {
               label="Title"
               placeholder="Add title (maximum 255 characters)"
               name="title"
-              defaultValue={props.version == 'edit' || 'fork' ? props.recipe.title : ''}
+              defaultValue={props.version === 'edit' || 'fork' ? props.recipe.title : ''}
 
             />
           </Form.Group>
@@ -65,14 +65,14 @@ const RecipeForm = props => {
             label="Ingredients"
             placeholder="Add ingredients (maximum 500 characters)"
             name="ingredients"
-            defaultValue={props.version == 'edit' || 'fork' ? props.recipe.ingredients : ''}
+            defaultValue={props.version === 'edit' || 'fork' ? props.recipe.ingredients : ''}
 
           />
           <Form.TextArea
             label="Directions"
             placeholder="Add directions (maximum 5000 characters)"
             name="directions"
-            defaultValue={props.version == 'edit' || 'fork' ? props.recipe.directions : ''}
+            defaultValue={props.version === 'edit' || 'fork' ? props.recipe.directions : ''}
 
           />
           <input type="file" name="image" />
