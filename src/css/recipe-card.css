@@ -1,5 +1,7 @@
 .ui.card {
-  width: 50% !important;
+  position: relative;
+  left: 30%;
+  right: 70%;
 }
 
 .ui.card img {

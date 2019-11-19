@@ -1,5 +1,5 @@
 import React from "react";
-import { Divider, Grid, Image, Card, Button, Icon } from "semantic-ui-react";
+import { Divider, Grid, Image, Card, Button, Icon, Container } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import '../css/recipe-card.css'
 
@@ -10,7 +10,7 @@ const RecipeCard = props => {
   if (props.isSignedIn) {
     addRecipeToFavorites = (
       <Button color="olive" name="save-recipe-to-cookbook" onClick={() => props.setRecipeAsFavorite()}>
-        <Icon name= 'plus'/> Add this recipe to your favorites
+        <Icon name='plus' /> Add this recipe to your favorites
       </Button>
     )
   }
@@ -21,12 +21,22 @@ const RecipeCard = props => {
       <Grid.Column
         textAlign="justified"
         name={linked ? `recipe-${recipe.id}` : "single-recipe"}
-        style={{marginBottom: "0.5rem"}}
+        style={{ marginBottom: "0.5rem" }}
       >
-        <Card>
-          <Image src={recipe.image} alt="" />
-          <Card.Content>
-            {linked ? (
+        <Container style={{ textAlign: 'center', paddingLeft: '5rem' }}>
+        {addRecipeToFavorites}
+        {props.children}
+        </Container>
+      </Grid.Column>
+      <Grid.Column
+        textAlign="justified"
+        name={linked ? `recipe-${recipe.id}` : "single-recipe"}
+        style={{ marginBottom: "0.5rem" }}
+      >
+        {linked ? (
+          <Card style={{ width: '100%' }}>
+            <Image src={recipe.image} alt="" />
+            <Card.Content>
               <Link
                 id={`recipe-${recipe.id}`}
                 to={`/recipe/${recipe.id}`}
@@ -35,24 +45,34 @@ const RecipeCard = props => {
                   {recipe.title}
                 </Card.Header>
               </Link>
-            ) : (
-              <Card.Header as="h3" name="recipe-title">
-                {recipe.title}
-              </Card.Header>
-            )}
-            <Divider />
-            <Card.Description>
-              <p style={{ fontWeight: "bold" }}>Ingredients: </p>
-              <p name="recipe-ingredients">{recipe.ingredients}</p>
-              <p style={{ fontWeight: "bold" }}>Directions: </p>
-              <p name="recipe-directions">{recipe.directions}</p>
-            </Card.Description>
-            <Divider />
-          </Card.Content>
-          {addRecipeToFavorites}
-          {props.children}
-        </Card>
-      </Grid.Column>
+              <Divider />
+              <Card.Description>
+                <p style={{ fontWeight: "bold" }}>Ingredients: </p>
+                <p name="recipe-ingredients">{recipe.ingredients}</p>
+              </Card.Description>
+            </Card.Content>
+          </Card>
+        ) : (
+            <Container>
+              <Card style={{ width: '50%', marginTop: '2rem' }}>
+                <Image src={recipe.image} alt="" />
+                <Card.Content>
+                  <Card.Header as="h3" name="recipe-title">
+                    {recipe.title}
+                  </Card.Header>
+                  <Divider />
+                  <Card.Description>
+                    <p style={{ fontWeight: "bold" }}>Ingredients: </p>
+                    <p name="recipe-ingredients">{recipe.ingredients}</p>
+                    <p style={{ fontWeight: "bold" }}>Directions: </p>
+                    <p name="recipe-directions">{recipe.directions}</p>
+                  </Card.Description>
+                  <Divider />
+                </Card.Content>
+              </Card>
+            </Container>
+          )}
+      </Grid.Column >
     </>
   );
 };

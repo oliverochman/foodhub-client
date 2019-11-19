@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { Button } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react'
 import { getSingleRecipe } from '../modules/requestRecipes'
 import { submitFavorite } from '../modules/requestFavorites'
-
 import '../css/single-recipe.css'
 import RecipeCard from './RecipeCard'
 import RecipeCU from './RecipeCU'
@@ -84,7 +83,7 @@ class SingleRecipe extends Component {
         fork = this.state.renderForkForm ?
           <RecipeCU fork recipe={recipe} />
           :
-          <Button name="fork-recipe" onClick={this.renderForkForm}>Fork Recipe</Button>
+          <Button color='teal' name="fork-recipe" onClick={this.renderForkForm}><Icon name='plus' /> Fork Recipe</Button>
       }
       showSingleRecipe = (
         <RecipeCard
@@ -102,7 +101,9 @@ class SingleRecipe extends Component {
     return (
       <>
         {messages}
+        <div className="single-card-bg">
         {showSingleRecipe}
+        </div>
       </>
     )
   }
