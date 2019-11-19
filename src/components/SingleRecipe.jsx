@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Button } from 'semantic-ui-react'
 import { getSingleRecipe } from '../modules/requestRecipes'
+import { submitFavorite } from '../modules/requestFavorites'
+
 import '../css/single-recipe.css'
 import RecipeCard from './RecipeCard'
 import RecipeCU from './RecipeCU'
@@ -41,6 +43,21 @@ class SingleRecipe extends Component {
     }
   }
 
+  submitRecipeAsFavorite = async () => {
+    let response = await submitFavorite(this.state.recipe.id)
+
+    if (response.message) {
+      this.setState({
+        message: response.message
+      })
+    } else {
+      this.setState({
+        message: response.error,
+        error: true
+      })
+    }
+  }
+
   renderEditForm = () => {
     this.setState({
       renderEditForm: true
@@ -60,8 +77,8 @@ class SingleRecipe extends Component {
     if(message) {
       messages = (
         <AlertMessage 
-        message={message}
-        error={error}
+          message={message}
+          error={error}
         />
       )
     }
@@ -79,23 +96,24 @@ class SingleRecipe extends Component {
           :
           <Button name="fork-recipe" onClick={this.renderForkForm}>Fork Recipe</Button>
       }
-      
       showSingleRecipe = (
-          <RecipeCard
-            recipe={recipe}
-            linked={false}
-          >
-            {edit}
-            {fork}
-          </RecipeCard>
+        <RecipeCard
+          recipe={recipe}
+          linked={false}
+          setRecipeAsFavorite={this.submitRecipeAsFavorite}
+          isSignedIn={this.props.currentUser.isSignedIn}
+        >
+          {edit}
+          {fork}
+        </RecipeCard>
       )
     }
 
     return (
-      <div>
+      <>
         {messages}
         {showSingleRecipe}
-      </div>
+      </>
     )
   }
 }

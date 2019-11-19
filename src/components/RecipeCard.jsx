@@ -1,11 +1,19 @@
 import React from "react"
-import { Divider, Grid, Image, Card, Icon } from "semantic-ui-react"
+import { Divider, Grid, Image, Card, Button, Icon } from "semantic-ui-react"
 import { Link } from "react-router-dom"
 import '../css/recipe-card.css'
 
 const RecipeCard = props => {
   let recipe = props.recipe
   let linked = props.linked
+  let addRecipeToFavorites
+  if (props.isSignedIn) {
+    addRecipeToFavorites = (
+      <Button color="olive" name="save-recipe-to-cookbook" onClick={() => props.setRecipeAsFavorite()}>
+        <Icon name= 'plus'/> Add this recipe to your favorites
+      </Button>
+    )
+  }
 
   let parent = props.recipe.parent
   return (
@@ -54,7 +62,8 @@ const RecipeCard = props => {
                   ) : ("") }
             </Card.Content>
           </Card.Content>
-            {props.children}
+          {addRecipeToFavorites}
+          {props.children}
         </Card>
       </Grid.Column>
     </>
