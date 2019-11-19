@@ -23,8 +23,12 @@ class App extends Component {
           <Route exact path='/' component={WelcomePage} />
           <Route exact path='/recipes' component={ListRecipes} />
           <Route exact path='/recipe/:id' component={SingleRecipe} />
-          <Route exact path="/logout" component={Logout} />
-          <Route exact path="/signup" component={SignUp} />
+          <Route exact path='/logout' component={Logout}>
+            {this.props.currentUser.isSignedIn === false ? <Redirect to="/" /> : <Logout />}
+          </Route>
+          <Route exact path='/signup' component={SignUp}>
+            {this.props.currentUser.isSignedIn ? <Redirect to="/" /> : <SignUp />}
+          </Route>
           <Route exact path='/login' component={Login}>
             {this.props.currentUser.isSignedIn ? <Redirect to="/" /> : <Login />}
           </Route>
