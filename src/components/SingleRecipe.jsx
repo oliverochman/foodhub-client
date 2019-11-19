@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Button } from 'semantic-ui-react'
 import { getSingleRecipe } from '../modules/requestRecipes'
 import { submitFavorite } from '../modules/requestFavorites'
-
 import '../css/single-recipe.css'
 import RecipeCard from './RecipeCard'
 import RecipeCU from './RecipeCU'

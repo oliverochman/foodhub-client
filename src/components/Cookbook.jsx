@@ -1,27 +1,36 @@
 import React, { Component } from "react"
 import { withRouter } from "react-router"
 import "../css/create-recipe.css"
+import { submitFavorite } from '../modules/requestFavorites'
 
 class Cookbook extends Component {
   state = {
-    recipes: []
+    recipe: null,
+    message: null,
+    error: false, 
+    renderFavorites: false,
   }
 
-  componentDidMount() {
-    fetchRecipes().then(result => {
-      this.setState({
-        recipes: result
-      })
-    })
+  async renderFavorites() {
+    const result = this.recipe.favorite
+    try {
+      await saveData(result)
+      this.props.entryHandler()
+    } catch (error) {
+      console.log(error)
+    }
   }
+
 
   render() {
     let favorite
+
+
     return (
       <div>
+        {favorite}
       </div>
-    );
+    )
   }
 }
-
-export default withRouter(Cookbook)
+export default Cookbook
