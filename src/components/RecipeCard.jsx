@@ -1,5 +1,5 @@
 import React from "react"
-import { Divider, Grid, Image, Card } from "semantic-ui-react"
+import { Divider, Grid, Image, Card, Icon } from "semantic-ui-react"
 import { Link } from "react-router-dom"
 import '../css/recipe-card.css'
 
@@ -47,8 +47,9 @@ const RecipeCard = props => {
                   id={`recipe-${parent.id}`}
                   to={`/recipe/${parent.id}`}
                 >
-                  <p name="parent-data">{parent.title} by {parent.user_name}</p>
-
+                  <p name="parent-data"><Icon name='food' size='large' /> 
+                    This recipe {parent.title} was forked from {parent.user_name}
+                  </p>
                 </Link>
               ) : ("") }
             </Card.Content>
