@@ -8,7 +8,7 @@ const RecipeCard = props => {
   let linked = props.linked
 
   let parent = props.recipe.parent
-
+debugger
   return (
     <>
       <Grid.Column
@@ -42,7 +42,7 @@ const RecipeCard = props => {
             </Card.Description>
             <Divider />
             <Card.Content extra>
-              {parent && linked ? (
+              {parent ? (
                 <Link
                   id={`recipe-${parent.id}`}
                   to={`/recipe/${parent.id}`}
