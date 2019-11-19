@@ -1,6 +1,5 @@
 describe('View single recipe', () => {
-
-  xit('Successfully', () => {
+  it('Successfully', () => {
     cy.route({
       method: 'GET',
       url: 'http://localhost:3000/v1/recipes/1',
@@ -16,7 +15,7 @@ describe('View single recipe', () => {
     })
   })
 
-  xit('Fails to', () => {
+  it('Fails to', () => {
     cy.route({
       method: 'GET',
       url: 'http://localhost:3000/v1/recipes/1',
@@ -47,13 +46,13 @@ describe('View single recipe', () => {
     cy.get('[name="single-recipe"]').within(() => {
       cy.get('.header').should('contain', 'Quiche')
         .get('[name="parent-data"]').should('contain', 'This recipe Quiche was forked from Bob')
-        // .get('[name="parent-data"]').click()
-      cy.get('#recipe-1').click({ force: true })
-      cy.get('[name="single-recipe"]').within(() => {
-        cy.get('.header').should('contain', 'Quiche')
-          .get('[name="recipe-ingredients"]').should('contain', 'Eggs')
-          .get('[name="recipe-directions"]').should('contain', 'Stir the mixture')
-      })
+        .get('[name="parent-data"]').click()
     })
+    cy.get('[name="single-recipe"]').within(() => {
+      cy.get('.header').should('contain', 'Quiche')
+        .get('[name="recipe-ingredients"]').should('contain', 'Eggs')
+        .get('[name="recipe-directions"]').should('contain', 'Stir the mixture')
+    })
+    
   })
 })

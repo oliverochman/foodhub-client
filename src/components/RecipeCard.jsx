@@ -8,7 +8,6 @@ const RecipeCard = props => {
   let linked = props.linked
 
   let parent = props.recipe.parent
-debugger
   return (
     <>
       <Grid.Column
