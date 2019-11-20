@@ -1,11 +1,11 @@
-import React from "react";
-import { Divider, Grid, Image, Card, Button, Icon } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import React from "react"
+import { Divider, Grid, Image, Card, Button, Icon } from "semantic-ui-react"
+import { Link } from "react-router-dom"
 import '../css/recipe-card.css'
 
 const RecipeCard = props => {
-  let recipe = props.recipe;
-  let linked = props.linked;
+  let recipe = props.recipe
+  let linked = props.linked
   let addRecipeToFavorites
   if (props.isSignedIn) {
     addRecipeToFavorites = (
@@ -15,13 +15,13 @@ const RecipeCard = props => {
     )
   }
 
-
+  let parent = props.recipe.parent
   return (
     <>
       <Grid.Column
         textAlign="justified"
         name={linked ? `recipe-${recipe.id}` : "single-recipe"}
-        style={{marginBottom: "0.5rem"}}
+        style={{ marginBottom: "0.5rem" }}
       >
         <Card>
           <Image src={recipe.image} alt="" />
@@ -36,10 +36,10 @@ const RecipeCard = props => {
                 </Card.Header>
               </Link>
             ) : (
-              <Card.Header as="h3" name="recipe-title">
-                {recipe.title}
-              </Card.Header>
-            )}
+                <Card.Header as="h3" name="recipe-title">
+                  {recipe.title}
+                </Card.Header>
+              )}
             <Divider />
             <Card.Description>
               <p style={{ fontWeight: "bold" }}>Ingredients: </p>
@@ -48,13 +48,26 @@ const RecipeCard = props => {
               <p name="recipe-directions">{recipe.directions}</p>
             </Card.Description>
             <Divider />
+            <Card.Content extra>
+              {parent ? (
+                <Link
+                  id={`recipe-${parent.id}`}
+                  to={`/recipe/${parent.id}`}
+                >
+                  <p name="parent-data">
+                    <Icon name='food' size='large' />
+                    This recipe {parent.title} was forked from {parent.user_name}
+                  </p>
+                </Link>
+                  ) : ("") }
+            </Card.Content>
           </Card.Content>
           {addRecipeToFavorites}
           {props.children}
         </Card>
       </Grid.Column>
     </>
-  );
-};
-
+      );
+    };
+    
 export default RecipeCard;

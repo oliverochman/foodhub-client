@@ -37,4 +37,16 @@ describe('User forks a recipe', () => {
     cy.get('#recipe-1').click({ force: true })
     cy.get('[name="fork-recipe"]').should('not.exist')
   })
+
+  it('Cannot see fork button unless logged in', () => {
+    cy.get('#recipe-1').click({ force: true })
+    cy.get('[name="single-recipe"]').within(() => {
+      cy.get('.header').should('contain', 'Quiche')
+        .get('[name="recipe-ingredients"]').should('contain', 'Eggs')
+        .get('[name="recipe-directions"]').should('contain', 'Stir the mixture')
+    })
+    cy.get('[name="fork-recipe"]').should('not.exist')
+  })
 })
+
+

@@ -5,7 +5,7 @@ import AlertMessage from './AlertMessage'
 const RecipeForm = props => {
   let buttonText, header, subHeader, formId
 
-  switch(props.version) {
+  switch (props.version) {
     case 'fork':
       buttonText = 'Fork Recipe'
       header = 'If you want to make some changes to your fork, do it here'
@@ -30,9 +30,9 @@ const RecipeForm = props => {
   let error = props.error
   let messages
 
-  if(message) {
+  if (message) {
     messages = (
-      <AlertMessage 
+      <AlertMessage
         message={message}
         error={error}
       />
@@ -41,12 +41,12 @@ const RecipeForm = props => {
 
   return (
     <>
-        {messages}
-        <Header as="h1" style={{ textAlign: 'center' }}>
-          {header}
-        </Header>
-        <Header sub>{subHeader}</Header>
-        <div>
+      {messages}
+      <Header as="h1" style={{ textAlign: 'center' }}>
+        {header}
+      </Header>
+      <Header sub>{subHeader}</Header>
+      <div>
         <Form
           id={formId}
           onSubmit={props.submitRecipeHandler}
@@ -86,7 +86,7 @@ const RecipeForm = props => {
             {buttonText}
           </Button>
         </Form>
-        </div>
+      </div>
     </>
   )
 }
