@@ -10,19 +10,19 @@ const RecipeForm = props => {
     case 'fork':
       buttonText = 'Fork Recipe'
       header = 'If you want to make some changes to your fork, do it here'
-      subHeader = 'All input fields are mandatory in order to complete the fork.'
+      subHeader = 'All input fields are needed in order to complete the fork.'
       formId = "fork-recipe-form"
       break;
     case 'edit':
       buttonText = 'Save Updates'
       header = 'Make some changes to your recipe!'
-      subHeader = 'All input fields are mandatory in order to update your recipe.'
+      subHeader = 'All input fields are needed in order to update your recipe.'
       formId = "edit-recipe-form"
       break;
     default:
       buttonText = 'Submit'
       header = 'Create Your Own Recipe'
-      subHeader = 'All input fields are mandatory in order to submit a recipe.'
+      subHeader = 'All input fields are needed in order to submit a recipe.'
       formId = "create-recipe-form"
 
   }
@@ -47,7 +47,7 @@ const RecipeForm = props => {
         <Header as="h1" style={{ textAlign: 'center' }}>
           {header}
         </Header>
-        <Header sub>{subHeader}</Header>
+        <Header as="h3" style={{ fontStyle: 'italic', textAlign: 'center' }}>{subHeader}</Header>
         <div>
           <Form
             id={formId}

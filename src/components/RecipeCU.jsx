@@ -38,7 +38,7 @@ class RecipeCU extends Component {
         ingredients.value,
         directions.value,
         image.files[0],
-        setTimeout(() => { history.push('/')}, 3000)
+        setTimeout(() => { history.push('/') }, 3000)
       )
     }
 
@@ -68,15 +68,17 @@ class RecipeCU extends Component {
     let messages
 
     return (
-      <div className="create-wrapper">
-        {messages}
-        <RecipeForm
-          submitRecipeHandler={this.submitRecipeHandler}
-          version={version}
-          recipe={edit || fork ? this.props.recipe : false}
-          message={message}
-          error={error}
-        />
+      <div className="cu-bg">
+        <div className="create-wrapper">
+          {messages}
+          <RecipeForm
+            submitRecipeHandler={this.submitRecipeHandler}
+            version={version}
+            recipe={edit || fork ? this.props.recipe : false}
+            message={message}
+            error={error}
+          />
+        </div>
       </div>
     );
   }
