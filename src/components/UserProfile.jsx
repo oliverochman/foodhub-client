@@ -1,8 +1,8 @@
 import React, { Component } from "react"
-import { fetchCurrentRecipes } from "../modules/requestRecipes"
-import { Message, Header, Segment } from "semantic-ui-react"
+import { fetchCurrentUsersRecipes } from "../modules/requestRecipes"
+import { Header, List, Container, Image } from "semantic-ui-react"
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import "../css/user-profile.css"
 
 class UserProfile extends Component {
   state = {
@@ -18,50 +18,46 @@ class UserProfile extends Component {
 
   render() {
     let renderUserListOfRecipes, message, profileGreeting
-    if (this.state.userRecipes.length > 0) { 
-      renderUserListOfRecipes = (
-        <>
-          {this.state.userRecipes.map(recipe => {
-            debugger;
-            let trim_ingress = recipe.ingredients.substr(0, 75)
-            let ingress = trim_ingress.substr(0, Math.min(trim_ingress.length, trim_ingress.lastIndexOf(" "))) + ' ...'
-            return (
-              <NavLink id={`recipe-${recipe.id}`} key={recipe.id} to={`/recipes/${recipe.id}`}>
-                <Segment id={`recipe-${recipe.id}`}>
-                  <Segment.Header id={`recipe-${recipe.id}`}>{recipe.title}</Segment.Header>
-                  <Segment.Description>Ingredients: {ingress}</Segment.Description>
-                </Segment>
-              </NavLink>
-            )
-          })}
-        </>
-      )
-    } else {
-      message = (
-        <Message style={{ color: "red" }}>
-          <Header as="p" id="message" style={{ color: "#4C5966" }}>
-            After you have created a recipe you can always view it here
-          </Header>
-        </Message>
-      )
+    const recipeUserData = this.state.userRecipes
+
+    if (recipeUserData.length !== []) {
+      renderUserListOfRecipes = recipeUserData.map(recipe => {
+        return (
+          <List.Item key={recipe.id}>
+            <Image avatar src={recipe.image} />
+            <List.Content>
+              <List.Header name="recipe-title">Title: {recipe.title}</List.Header>
+              <List.Description name="recipe-ingredients">Ingredients: {recipe.ingredients}</List.Description>
+            </List.Content>
+          </List.Item>
+        )
+      })
     }
 
+    message = (
+      <Header as="p" id="message" style={{ color: "#4C5966", textAlign: 'center' }}>
+        After you have created a recipe you can always view it here
+      </Header>
+    )
 
     profileGreeting = (
-      <Message style={{ color: "red" }} id="profile-greeting">
-        <Header as="p" id="message" style={{ color: "#4C5966" }}>
-          Hello {this.props.currentUser.attributes.name}, here are the recipes you have created:
+      <Header as="p" id="profile-greeting" style={{ color: "#4C5966", textAlign: 'center' }}>
+        Hello {this.props.currentUser.attributes.name}, here are the recipes you have created:
         </Header>
-      </Message>
     )
-    
 
     return (
-      <>
-        {profileGreeting}
-        {message}
-        {renderUserListOfRecipes}
-      </>
+      <div className="profile-bg">
+        <Container className="profile-container">
+          {profileGreeting}
+          {message}
+          <Container>
+            <List divided relaxed>
+              {renderUserListOfRecipes}
+            </List>
+          </Container>
+        </Container>
+      </div>
     )
   }
 }
