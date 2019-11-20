@@ -37,7 +37,7 @@ class Welcome extends Component {
               </Link>
             </Responsive>
             <Responsive as={Segment} maxWidth={1229} style={{ padding: '4rem', paddingBottom: '8rem', opacity: '0.8', borderRadius: '10px' }}>
-              <div style={{ textAlign: 'center' }}>
+              <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
                 <h1>
                   Social Cooking
                 </h1>
@@ -48,11 +48,20 @@ class Welcome extends Component {
                   FOODHUB
                 </h2>
               </div>
+              <Link
+                to="/#view-all-recipes"
+                activeClassName="selected">
+                <Icon name="arrow circle down" size="huge" />
+              </Link>
             </Responsive>
           </LazyHero>
         </div>
         <Container style={{ marginTop: '2vh', fontSize: '1.5rem' }}>
-          <Header sub style={{ fontStyle: 'italic', fontWeight: 'bold', marginBottom: '2rem', backgroundColor: '#FCE8CE', width: '100vw', padding: '1rem', borderRadius: '5px', boxShadow: "1px 3px 1px #fcdcce" }} id="view-all-recipes">Bring your recipes to the world!</Header>
+          <Header sub
+            style={{ fontStyle: 'italic', fontWeight: 'bold', marginBottom: '2rem', backgroundColor: '#FCE8CE', width: '100vw', padding: '1rem', borderRadius: '5px', boxShadow: "1px 3px 1px #fcdcce" }} id="view-all-recipes">
+            <Icon name="caret down" size="huge" />
+            Bring your recipes to the world!
+            </Header>
           <ListRecipes />
         </Container>
       </>
