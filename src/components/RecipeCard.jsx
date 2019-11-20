@@ -25,15 +25,9 @@ const RecipeCard = props => {
         style={{ marginBottom: "0.5rem" }}
       >
         <Container style={{ textAlign: 'center', paddingLeft: '5rem' }}>
-        {addRecipeToFavorites}
-        {props.children}
+          {addRecipeToFavorites}
+          {props.children}
         </Container>
-      </Grid.Column>
-      <Grid.Column
-        textAlign="justified"
-        name={linked ? `recipe-${recipe.id}` : "single-recipe"}
-        style={{ marginBottom: "0.5rem" }}
-      >
         {linked ? (
           <Card style={{ width: '100%', left: '0%', right: '0%' }}>
             <Image src={recipe.image} alt="" />
@@ -71,24 +65,24 @@ const RecipeCard = props => {
                   <Divider />
                 </Card.Content>
                 <Card.Content extra>
-              {parent ? (
-                <Link
-                  id={`recipe-${parent.id}`}
-                  to={`/recipe/${parent.id}`}
-                >
-                  <p name="parent-data">
-                    <Icon name='food' size='large' />
-                    This recipe was forked from '{parent.title}' by {parent.user_name}
-                  </p>
-                </Link>
-                  ) : ("") }
-            </Card.Content>
+                  {parent ? (
+                    <Link
+                      id={`recipe-${parent.id}`}
+                      to={`/recipe/${parent.id}`}
+                    >
+                      <p name="parent-data">
+                        <Icon name='food' size='large' />
+                        This recipe was forked from '{parent.title}' by {parent.user_name}
+                      </p>
+                    </Link>
+                  ) : ("")}
+                </Card.Content>
               </Card>
             </Container>
           )}
       </Grid.Column >
     </>
-      );
-    };
-    
+  );
+};
+
 export default RecipeCard;
