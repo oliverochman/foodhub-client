@@ -46,7 +46,7 @@ class Welcome extends Component {
           </LazyHero>
         </div>
         <Container style={{ marginTop: '2vh', fontSize: '1.5rem' }}>
-          <Header sub style={{ fontStyle: 'italic', fontWeight: 'bold', marginBottom: '2rem', backgroundColor: '#FCE8CE', width: '100vw', padding: '0.5rem', borderRadius: '5px' }} id="view-all-recipes">Bring your recipes to the world!</Header>
+          <Header sub style={{ fontStyle: 'italic', fontWeight: 'bold', marginBottom: '2rem', backgroundColor: '#FCE8CE', width: '100vw', padding: '0.5rem', borderRadius: '5px', boxShadow: "1px 3px 1px #fcdcce" }} id="view-all-recipes">Bring your recipes to the world!</Header>
           <ListRecipes />
         </Container>
       </>
