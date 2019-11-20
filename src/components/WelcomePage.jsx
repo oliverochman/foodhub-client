@@ -46,7 +46,7 @@ class Welcome extends Component {
           </LazyHero>
         </div>
         <Container style={{ marginTop: '2vh' }}>
-          <Header>Bring your recipes to the world!</Header>
+          <Header id="view-all-recipes">Bring your recipes to the world!</Header>
           <ListRecipes />
         </Container>
       </>

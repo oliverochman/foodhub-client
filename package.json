@@ -2,7 +2,7 @@
   "name": "foodhub-client",
   "version": "0.1.0",
   "private": true,
-  "resolutions":{
+  "resolutions": {
     "react-redux": "^7.1.3"
   },
   "dependencies": {
@@ -14,6 +14,7 @@
     "react-lazy-hero": "^2.0.0",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
+    "react-router-hash-link": "^1.2.2",
     "react-scripts": "^3.2.0",
     "react-test-renderer": "^16.11.0",
     "redux": "^4.0.4",

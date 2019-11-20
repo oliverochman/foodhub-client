@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Login from './Login'
 import Logout from './Logout'
+import { HashLink as Link } from 'react-router-hash-link';
 
 class Navbar extends Component {
   state = { visibleSidebar: false, modalOpen: false }
@@ -122,10 +123,20 @@ class Navbar extends Component {
               </Header>
             </Menu.Item>
             <Menu.Menu position='right'>
-            {welcomeMessage}
-            {createRecipe}
-            {logIn}
-            {logOut}
+              <Menu.Item>
+                <Link
+                  to="/#view-all-recipes"
+                  activeClassName="selected"
+                >              
+                <Header position='right'>
+                  View Recipes
+                </Header>
+                </Link> 
+              </Menu.Item>
+              {welcomeMessage}
+              {createRecipe}
+              {logIn}
+              {logOut}
             </Menu.Menu>
           </Menu>
         </Responsive >
