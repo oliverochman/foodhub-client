@@ -103,6 +103,16 @@ class Navbar extends Component {
                 </Header>
                 <Icon name='food' size='large' />
               </Menu.Item>
+              <Menu.Item>
+                <Link
+                  to="/#view-all-recipes"
+                  activeClassName="selected"
+                >
+                  <Header position='right'>
+                    View All Recipes
+                  </Header>
+                </Link>
+              </Menu.Item>
               {welcomeMessage}
               {createRecipe}
               {logIn}
@@ -127,11 +137,11 @@ class Navbar extends Component {
                 <Link
                   to="/#view-all-recipes"
                   activeClassName="selected"
-                >              
-                <Header position='right'>
-                  View Recipes
+                >
+                  <Header position='right'>
+                    View All Recipes
                 </Header>
-                </Link> 
+                </Link>
               </Menu.Item>
               {welcomeMessage}
               {createRecipe}
