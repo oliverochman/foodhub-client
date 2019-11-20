@@ -3,7 +3,7 @@ import { Header, Button, Grid, Form, Icon, Segment } from 'semantic-ui-react'
 import { registerUser } from '../state/actions/reduxTokenAuthConfig'
 import { connect } from 'react-redux'
 import AlertMessage from './AlertMessage'
-import { Link } from "react-router-dom"
+import { NavLink } from 'react-router-dom'
 import '../css/sign-up.css'
 
 class SignUp extends Component {
@@ -96,18 +96,20 @@ class SignUp extends Component {
                   type='submit'
                   name='submit'
                   fluid size='large'
+                  style={{ marginBottom: '0.8rem' }}
                 >
                   Sign Up
                 </Button>
               </Form>
               <Button
-                style={{ marginTop: '0.8rem' }}
                 color='red'
                 fluid size='large'
+                as={NavLink}
+                to='/'
+                name="cancel"
+                style={{ color: 'white' }}
               >
-                <Link name='cancel' to='/' style={{ color: 'white' }}>
                   Cancel
-                </Link>
               </Button>
             </Segment>
           </Grid.Column>
