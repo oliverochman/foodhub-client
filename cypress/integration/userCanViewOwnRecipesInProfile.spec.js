@@ -15,7 +15,7 @@ describe('Recipes created by user are displayed in the profile', () => {
     })
   })
 
-  it('successfully views own recipes ', () => {
+  xit('successfully views own recipes ', () => {
     cy.loginUser('user@mail.com', 'password')
     cy.get('#welcome-message')
       .should('contain', 'Hello BettySpaghetti')
@@ -40,16 +40,21 @@ describe('Recipes created by user are displayed in the profile', () => {
 describe('FoodHub user cannot view recipes in profile if there are none', () => {
 
   beforeEach(() => {
-    cy.server()
     cy.route({
       method: 'GET',
       url: 'http://localhost:3000/v1/recipes',
       response: '{"recipes":[]}'
     })
-    cy.visit('http://localhost:3001')
   })
-
+  
   it('sees message for no recipes', () => {
+    cy.loginUser('user@mail.com', 'password')
+    cy.get('#navbar')
+      .within(() => {
+        cy.get('#nav-profile').click()
+      })
+    cy.get('#profile-greeting')
+      .should('contain', 'Hello BettySpaghetti, here are the recipes you have created:')
     cy.get('#message')
       .should('contain', 'After you have created a recipe you can always view it here')
   })

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { fetchCurrentUsersRecipes } from "../modules/requestRecipes"
+import { fetchRecipes } from "../modules/requestRecipes"
 import { Message, Header, Segment } from "semantic-ui-react"
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
@@ -10,30 +10,48 @@ class UserProfile extends Component {
   }
 
   componentDidMount() {
-    fetchCurrentUsersRecipes().then(result => {
+    fetchRecipes().then(result => {
       this.setState({
         recipes: result
       })
     })
   }
 
+  // componentDidMount() {
+  //   axios.get('/v1/recipes').then(response => {
+  //     this.setState({ userRecipes: response.data });
+  //   })
+  // }
+
   render() {
     let renderUserListOfRecipes, message, profileGreeting
+    let usersRecipes = []
     const userRecipeData = this.state.userRecipes
 
-    if (userRecipeData.length !== 0) {
+    if (this.props.currentUser.isSignedIn === true) {
+      let currentUser = this.props.currentUser.attributes.id
+  
+      userRecipeData.map(recipe => {
+        if (recipe.user.id === currentUser) {
+            return usersRecipes.push(recipe)
+          }
+        }
+      )
+    }
+
+    if (usersRecipes.length !== 0) {
       renderUserListOfRecipes = (
         <>
-          {userRecipeData.map(recipe => {
+          {usersRecipes.map(recipe => {
             let trim_ingress = recipe.ingredients.substr(0, 75)
             let ingress = trim_ingress.substr(0, Math.min(trim_ingress.length, trim_ingress.lastIndexOf(" "))) + ' ...'
             return (
-            <NavLink id={`recipe-${recipe.id}`} key={recipe.id} to={`/recipes/${recipe.id}`}>
-              <Segment id={`recipe-${recipe.id}`}>
-                <Segment.Header id={`recipe-${recipe.id}`}>{recipe.title}</Segment.Header>
-                <Segment.Description>Ingredients: {ingress}</Segment.Description>
-              </Segment>
-            </NavLink>
+              <NavLink id={`recipe-${recipe.id}`} key={recipe.id} to={`/recipes/${recipe.id}`}>
+                <Segment id={`recipe-${recipe.id}`}>
+                  <Segment.Header id={`recipe-${recipe.id}`}>{recipe.title}</Segment.Header>
+                  <Segment.Description>Ingredients: {ingress}</Segment.Description>
+                </Segment>
+              </NavLink>
             )
           })}
         </>
@@ -70,7 +88,6 @@ class UserProfile extends Component {
 
 const mapStateToProps = state => {
   return {
-    state: state,
     currentUser: state.reduxTokenAuth.currentUser
   }
 }
