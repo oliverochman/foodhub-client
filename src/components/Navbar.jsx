@@ -103,18 +103,17 @@ class Navbar extends Component {
                 </Header>
                 <Icon name='food' size='large' />
               </Menu.Item>
+              {welcomeMessage}
+              {createRecipe}
               <Menu.Item>
                 <Link
                   to="/#view-all-recipes"
-                  activeClassName="selected"
-                >
+                  activeClassName="selected">
                   <Header position='right'>
                     View All Recipes
                   </Header>
                 </Link>
               </Menu.Item>
-              {welcomeMessage}
-              {createRecipe}
               {logIn}
               {logOut}
             </Menu.Menu>
@@ -133,18 +132,17 @@ class Navbar extends Component {
               </Header>
             </Menu.Item>
             <Menu.Menu position='right'>
+              {welcomeMessage}
+              {createRecipe}
               <Menu.Item>
                 <Link
                   to="/#view-all-recipes"
-                  activeClassName="selected"
-                >
+                  activeClassName="selected">
                   <Header position='right'>
                     View All Recipes
-                </Header>
+                  </Header>
                 </Link>
               </Menu.Item>
-              {welcomeMessage}
-              {createRecipe}
               {logIn}
               {logOut}
             </Menu.Menu>
