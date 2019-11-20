@@ -9,7 +9,8 @@ const config = {
   },
   userRegistrationAttributes: {
     uid: "uid",
-    name: "name"
+    name: "name",
+    password_confirmation: "password_confirmation"
   }
 }
 

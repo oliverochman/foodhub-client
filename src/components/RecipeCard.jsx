@@ -4,8 +4,8 @@ import { Link } from "react-router-dom"
 import '../css/recipe-card.css'
 
 const RecipeCard = props => {
-  let recipe = props.recipe;
-  let linked = props.linked;
+  let recipe = props.recipe
+  let linked = props.linked
   let addRecipeToFavorites
 
   if (props.isSignedIn) {
@@ -16,6 +16,7 @@ const RecipeCard = props => {
     )
   }
 
+  let parent = props.recipe.parent
   return (
     <>
       <Grid.Column
@@ -69,12 +70,25 @@ const RecipeCard = props => {
                   </Card.Description>
                   <Divider />
                 </Card.Content>
+                <Card.Content extra>
+              {parent ? (
+                <Link
+                  id={`recipe-${parent.id}`}
+                  to={`/recipe/${parent.id}`}
+                >
+                  <p name="parent-data">
+                    <Icon name='food' size='large' />
+                    This recipe {parent.title} was forked from {parent.user_name}
+                  </p>
+                </Link>
+                  ) : ("") }
+            </Card.Content>
               </Card>
             </Container>
           )}
       </Grid.Column >
     </>
-  );
-};
-
+      );
+    };
+    
 export default RecipeCard;

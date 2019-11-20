@@ -22,7 +22,8 @@ class RecipeCU extends Component {
         ingredients.value,
         directions.value,
         image.files[0],
-        this.props.recipe.id
+        this.props.recipe.id,
+        setTimeout(() => { history.push('/')}, 3000)
       )
     } else if (this.props.fork) {
       response = await forkRecipe(
@@ -30,7 +31,8 @@ class RecipeCU extends Component {
         ingredients.value,
         directions.value,
         image.files[0],
-        this.props.recipe.id
+        this.props.recipe.id,
+        setTimeout(() => { history.push('/')}, 3000)
       )
     } else {
       response = await submitRecipe(

@@ -1,0 +1,15 @@
+{ 
+  "recipe":
+    {
+      "id": 2,  
+      "title": "Vegan Quiche", 
+      "ingredients": "Vegan friendly Eggs", 
+      "directions": "Stir the vegan mixture",
+      "user_id": 1,
+    "parent": {
+        "id": "1",
+        "title": "Quiche",
+        "user_name": "Bob"
+      }
+    }
+}
