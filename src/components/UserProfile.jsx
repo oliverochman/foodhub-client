@@ -9,22 +9,20 @@ class UserProfile extends Component {
     userRecipes: []
   }
 
-  componentDidMount() {
-    fetchCurrentUsersRecipes().then(result => {
-      this.setState({
-        recipes: result
-      })
+  async componentDidMount() {
+    let response = await fetchCurrentUsersRecipes()
+    this.setState({
+      userRecipes: response
     })
   }
 
   render() {
     let renderUserListOfRecipes, message, profileGreeting
-    const userRecipeData = this.state.userRecipes
-
-    if (userRecipeData.length !== 0) {
+    if (this.state.userRecipes.length > 0) { 
       renderUserListOfRecipes = (
         <>
-          {userRecipeData.map(recipe => {
+          {this.state.userRecipes.map(recipe => {
+            debugger;
             let trim_ingress = recipe.ingredients.substr(0, 75)
             let ingress = trim_ingress.substr(0, Math.min(trim_ingress.length, trim_ingress.lastIndexOf(" "))) + ' ...'
             return (
@@ -48,15 +46,15 @@ class UserProfile extends Component {
       )
     }
 
-    if (this.props.currentUser.isSignedIn) {
-      profileGreeting = (
-        <Message style={{ color: "red" }} id="profile-greeting">
-          <Header as="p" id="message" style={{ color: "#4C5966" }}>
-            Hello {this.props.currentUser.attributes.name}, here are the recipes you have created:
-          </Header>
-        </Message>
-      )
-    }
+
+    profileGreeting = (
+      <Message style={{ color: "red" }} id="profile-greeting">
+        <Header as="p" id="message" style={{ color: "#4C5966" }}>
+          Hello {this.props.currentUser.attributes.name}, here are the recipes you have created:
+        </Header>
+      </Message>
+    )
+    
 
     return (
       <>

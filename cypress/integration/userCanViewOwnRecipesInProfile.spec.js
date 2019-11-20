@@ -3,22 +3,14 @@ describe('Recipes created by user are displayed in the profile', () => {
   beforeEach(() => {
     cy.route({
       method: 'GET',
-      url: 'http://localhost:3000/v1/recipes/1',
-      response: 'fixture:profile_recipe.json',
-      status: 200
-    }),
-    cy.route({
-      method: 'GET',
-      url: 'http://localhost:3000/v1/recipes/1',
-      response: 'fixture:single_recipe.json',
+      url: 'http://localhost:3000/v1/recipes?user_recipe=true',
+      response: 'fixture:recipes.json',
       status: 200
     })
   })
 
   it('successfully views own recipes ', () => {
     cy.loginUser('user@mail.com', 'password')
-    cy.get('#welcome-message')
-      .should('contain', 'Hello BettySpaghetti')
     cy.get('#navbar')
       .within(() => {
         cy.get('#nav-profile').click()
