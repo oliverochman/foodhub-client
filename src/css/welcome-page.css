@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC|Francois+One|Patua+One|Staatliches&display=swap');
 
 #welcome h1{
   font-size: 80px;
@@ -22,8 +21,8 @@
 
 #welcome h2{
   font-size: 6rem;
-  font-family: 'Bowlby One SC', cursive;
-  font-weight: '400';
+  font-family: 'Raleway-Black';
+  font-weight: '900';
   line-height:0;
   color:rgba(0, 0, 0, 0.808);
 }

@@ -22,10 +22,10 @@ class Welcome extends Component {
                 <h1>
                   Social Cooking
                 </h1>
-                <h5>
+                <h5 style={{textAlign: 'center'}}>
                   by
                 </h5>
-                <h2>
+                <h2 style={{textAlign: 'center'}}>
                   FOODHUB
                 </h2>
               </div>
