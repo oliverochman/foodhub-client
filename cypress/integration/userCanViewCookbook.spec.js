@@ -3,7 +3,7 @@ describe('User can view cookbook', () => {
     cy.route({
       method: 'GET',
       url: 'http://localhost:3000/v1/favorites',
-      response: 'fixture:favorite_recipes.json',
+      response: 'fixture:favorites.json',
       status: 200
     })
   })
