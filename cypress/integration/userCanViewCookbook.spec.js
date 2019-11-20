@@ -13,8 +13,7 @@ describe('User can view cookbook', () => {
     cy.get('#navbar')
     .within(() => {
       cy.get('#nav-cookbook').click()
+      cy.get('h1').should('contain','My Cookbook')
     })
-    cy.get('h1')
-    cy.should('contain', 'My Cookbook')
-    })
-  })
+  }) 
+})

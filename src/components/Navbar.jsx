@@ -44,7 +44,7 @@ class Navbar extends Component {
       cookbook = (
       <Menu.Item id='nav-cookbook' as={NavLink} to='/recipes/favorite'>
         <Header position='right'>
-          Cookbook
+          My Cookbook
         </Header>
       </Menu.Item>
       )
