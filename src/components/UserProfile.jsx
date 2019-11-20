@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { fetchRecipes } from "../modules/requestRecipes"
+import { fetchCurrentUsersRecipes } from "../modules/requestRecipes"
 import { Message, Header, Segment } from "semantic-ui-react"
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
@@ -7,6 +7,14 @@ import { NavLink } from 'react-router-dom'
 class UserProfile extends Component {
   state = {
     userRecipes: []
+  }
+
+  componentDidMount() {
+    fetchCurrentUsersRecipes().then(result => {
+      this.setState({
+        recipes: result
+      })
+    })
   }
 
   render() {
