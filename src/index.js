@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import configureStore from './state/store/configureStore'
 import { verifyCredentials } from './state/actions/reduxTokenAuthConfig'
+import './index.css'
 
 const store = configureStore()
 verifyCredentials(store)

@@ -1,9 +1,10 @@
 import React, { Component } from "react"
 import LazyHero from 'react-lazy-hero';
 import ListRecipes from './ListRecipes'
-import { Container, Header } from 'semantic-ui-react'
+import { Container, Header, Icon } from 'semantic-ui-react'
 import '../css/welcome-page.css'
 import { Responsive, Segment } from 'semantic-ui-react'
+import { HashLink as Link } from 'react-router-hash-link';
 
 class Welcome extends Component {
   render() {
@@ -22,15 +23,20 @@ class Welcome extends Component {
                 <h1>
                   Social Cooking
                 </h1>
-                <h5 style={{textAlign: 'center'}}>
+                <h5 style={{ textAlign: 'center' }}>
                   by
                 </h5>
-                <h2 style={{textAlign: 'center'}}>
+                <h2 style={{ textAlign: 'center' }}>
                   FOODHUB
                 </h2>
               </div>
+              <Link
+                to="/#view-all-recipes"
+                activeClassName="selected">
+                <Icon name="arrow circle down" size="huge" />
+              </Link>
             </Responsive>
-            <Responsive as={Segment} maxWidth={1229} style={{ padding: '4rem', paddingBottom: '8rem', opacity: '0.8' }}>
+            <Responsive as={Segment} maxWidth={1229} style={{ padding: '4rem', paddingBottom: '8rem', opacity: '0.8', borderRadius: '10px' }}>
               <div style={{ textAlign: 'center' }}>
                 <h1>
                   Social Cooking
@@ -46,7 +52,7 @@ class Welcome extends Component {
           </LazyHero>
         </div>
         <Container style={{ marginTop: '2vh', fontSize: '1.5rem' }}>
-          <Header sub style={{ fontStyle: 'italic', fontWeight: 'bold', marginBottom: '2rem', backgroundColor: '#FCE8CE', width: '100vw', padding: '0.5rem', borderRadius: '5px', boxShadow: "1px 3px 1px #fcdcce" }} id="view-all-recipes">Bring your recipes to the world!</Header>
+          <Header sub style={{ fontStyle: 'italic', fontWeight: 'bold', marginBottom: '2rem', backgroundColor: '#FCE8CE', width: '100vw', padding: '1rem', borderRadius: '5px', boxShadow: "1px 3px 1px #fcdcce" }} id="view-all-recipes">Bring your recipes to the world!</Header>
           <ListRecipes />
         </Container>
       </>
