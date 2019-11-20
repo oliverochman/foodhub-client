@@ -38,7 +38,7 @@ class UserProfile extends Component {
 
     message = (
       <Header as="p" id="message" style={{ color: "#4C5966", textAlign: 'center' }}>
-        After you have created a recipe you can always view it here
+        After you have created a recipe you can always access it from here
       </Header>
     )
 
