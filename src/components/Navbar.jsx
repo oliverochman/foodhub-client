@@ -74,7 +74,6 @@ class Navbar extends Component {
               <Header position='left' className='navbar-header' background='#FCE8CE'>
                 FOODHUB
             </Header>
-              <Icon name='food' size='large' />
             </Menu.Item>
             <Menu.Item onClick={this.handleShowClick} position='right' id="sidebar-menu">
               <Icon size="big" name="align justify" />
