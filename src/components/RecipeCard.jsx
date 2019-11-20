@@ -78,7 +78,7 @@ const RecipeCard = props => {
                 >
                   <p name="parent-data">
                     <Icon name='food' size='large' />
-                    This recipe {parent.title} was forked from {parent.user_name}
+                    This recipe was forked from '{parent.title}' by {parent.user_name}
                   </p>
                 </Link>
                   ) : ("") }

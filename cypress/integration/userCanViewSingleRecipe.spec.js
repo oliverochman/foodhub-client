@@ -45,7 +45,7 @@ describe('View single recipe', () => {
     cy.get('#recipe-2').click({ force: true })
     cy.get('[name="single-recipe"]').within(() => {
       cy.get('.header').should('contain', 'Quiche')
-        .get('[name="parent-data"]').should('contain', 'This recipe Quiche was forked from Bob')
+        .get('[name="parent-data"]').should('contain', "This recipe was forked from 'Quiche' by Bob")
         .get('[name="parent-data"]').click()
     })
     cy.get('[name="single-recipe"]').within(() => {

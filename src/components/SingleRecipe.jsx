@@ -13,7 +13,7 @@ class SingleRecipe extends Component {
   state = {
     recipe: null,
     message: null,
-    error: false, 
+    error: false,
     renderEditForm: false,
     renderForkForm: false
   }
@@ -28,7 +28,7 @@ class SingleRecipe extends Component {
     this.fetchRecipe()
   }
 
-  fetchRecipe = async() => {
+  fetchRecipe = async () => {
     let response = await getSingleRecipe(this.props.match.params.id)
     if (response.recipe) {
       this.setState({
@@ -73,15 +73,15 @@ class SingleRecipe extends Component {
     let { recipe, message, error } = this.state
     let showSingleRecipe, messages, edit, fork
 
-    if(message) {
+    if (message) {
       messages = (
-        <AlertMessage 
+        <AlertMessage
           message={message}
           error={error}
         />
       )
     }
-    
+
     if (recipe) {
       if (this.props.currentUser.attributes.id === recipe.user_id) {
         edit = this.state.renderEditForm ?
@@ -110,9 +110,11 @@ class SingleRecipe extends Component {
 
     return (
       <>
-        {messages}
+        <div style={{ margin: '2rem' }}>
+          {messages}
+        </div>
         <div className="single-card-bg">
-        {showSingleRecipe}
+          {showSingleRecipe}
         </div>
       </>
     )
