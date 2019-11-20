@@ -1,8 +1,9 @@
 import React, { Component } from "react"
 import { fetchCurrentUsersRecipes } from "../modules/requestRecipes"
 import { Header, List, Container, Image } from "semantic-ui-react"
-import { connect } from 'react-redux'
+import { connect } from "react-redux"
 import "../css/user-profile.css"
+import { Link } from "react-router-dom"
 
 class UserProfile extends Component {
   state = {
@@ -24,11 +25,12 @@ class UserProfile extends Component {
       renderUserListOfRecipes = recipeUserData.map(recipe => {
         return (
           <List.Item key={recipe.id}>
-            <Image avatar src={recipe.image} />
-            <List.Content>
-              <List.Header name="recipe-title">Title: {recipe.title}</List.Header>
-              <List.Description name="recipe-ingredients">Ingredients: {recipe.ingredients}</List.Description>
-            </List.Content>
+              <Image avatar src={recipe.image} />
+              <List.Content style={{ fontSize: '1.2rem' }}>
+                <List.Header name="recipe-title">Title: {recipe.title}</List.Header>
+                <List.Description name="recipe-ingredients">Ingredients: {recipe.ingredients}</List.Description>
+                <Link id={`recipe-${recipe.id}`} to={`/recipe/${recipe.id}`}><List.Description className="profile-link">View recipe</List.Description></Link>
+              </List.Content>
           </List.Item>
         )
       })
@@ -42,7 +44,7 @@ class UserProfile extends Component {
 
     profileGreeting = (
       <Header as="p" id="profile-greeting" style={{ color: "#4C5966", textAlign: 'center' }}>
-        Hello {this.props.currentUser.attributes.name}, here are the recipes you have created:
+        Hello {this.props.currentUser.attributes.name}, welcome to your profile page
         </Header>
     )
 
