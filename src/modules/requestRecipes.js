@@ -11,8 +11,16 @@ const toBase64 = file => new Promise((resolve, reject) => {
 })
 
 const fetchRecipes = async () => {
-
   let response = await axios.get(apiUrl + 'recipes')
+  return response.data.recipes
+}
+
+const fetchCurrentUsersRecipes = async () => {
+  let response = await axios.get(apiUrl + 'recipes?user_recipe=true',
+    {
+      headers: getCurrentCredentials()
+    }
+  )
   return response.data.recipes
 }
 
@@ -128,4 +136,4 @@ const getSingleRecipe = async (recipeId) => {
   }
 }
 
-export { fetchRecipes, submitRecipe, getSingleRecipe, editRecipe, forkRecipe }
+export { fetchRecipes, submitRecipe, getSingleRecipe, editRecipe, forkRecipe, fetchCurrentUsersRecipes }

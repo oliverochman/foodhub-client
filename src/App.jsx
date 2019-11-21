@@ -10,6 +10,7 @@ import Logout from './components/Logout'
 import { generateRequireSignInWrapper } from 'redux-token-auth'
 import { connect } from 'react-redux'
 import SignUp from './components/SignUp'
+import UserProfile from './components/UserProfile'
 
 const requireSignIn = generateRequireSignInWrapper({
   redirectPathIfNotSignedIn: '/',
@@ -36,6 +37,7 @@ class App extends Component {
             {this.props.currentUser.isSignedIn === false ? <Redirect to="/" /> : <Logout />}
           </Route>
           <Route exact path="/recipes/create" component={requireSignIn(RecipeCU)} />
+          <Route exact path="/profile" component={requireSignIn(UserProfile)} />
       </>
     )
   }
