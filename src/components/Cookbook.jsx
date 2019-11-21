@@ -1,8 +1,9 @@
 import React, { Component } from "react"
-import { Header, List, Container, Image, Button, Message } from "semantic-ui-react"
+import { Header, List, Container, Image, Button, Icon } from "semantic-ui-react"
 import "../css/create-recipe.css"
 import { fetchFavorites, fetchCookbookPdf } from '../modules/requestFavorites'
 import { Link } from "react-router-dom"
+import AlertMessage from './AlertMessage'
 
 class Cookbook extends Component {
   state = {
@@ -30,7 +31,7 @@ class Cookbook extends Component {
   }
 
   render() {
-    let renderFavoriteRecipeList, message, image, createPDF, pdfMessage, pdfLink
+    let renderFavoriteRecipeList, image, createPDF, pdfMessage, pdfLink
     const favouritesData = this.state.favoriteRecipes
 
     if (favouritesData.length > 0) {
@@ -49,49 +50,49 @@ class Cookbook extends Component {
       })
     }
 
-    message = (
-      <Header as="p" id="message" style={{ color: "#4C5966", textAlign: 'center', fontStyle: 'italic' }}>
-        After you have added a recipe you can always access it in your Cookbook
-      </Header>
-    )
-
     if (this.state.message) {
       pdfMessage = (
-        <Message style={{ color: "green" }}>
-          <Header as="p" id="response-message" style={{ color: "#4C5966" }}>
-            {this.state.message}
-          </Header>
-      </Message>
+        <AlertMessage
+          message={this.state.message}
+        />
+      )
+    } else {
+      createPDF = (
+        <Container textAlign='center'>
+          <Button
+            name="create-pdf"
+            color='teal'
+            onClick={() => this.submitPdfRequest()}
+          >
+            Generate cookbook
+        </Button>
+        </Container>
       )
     }
 
-
-    createPDF = (
-      <Button
-      name="create-pdf"
-      onClick={() => this.submitPdfRequest()}
-    >
-      Submit
-      </Button>
-    )
-    
     if (this.state.pdfLink) {
       pdfLink = (
-        <a href={this.state.pdfLink}>Download ur Cookbook here!</a>
+        <Container style={{ fontSize: '1.5rem', margin: '1rem', textAlign: 'center' }}>
+          <Link to={this.state.pdfLink}><Icon name='food' size='small' />
+            Click here to view your new cookbook!
+        </Link>
+        </Container>
       )
     }
-  
+
 
     return (
       <div className="profile-bg">
         <Container className="profile-container">
+          {pdfMessage}
+          {pdfLink}
           <Header as="h1" style={{ color: "#4C5966", textAlign: 'center' }}>
             My Cookbook
           </Header>
-          {message}
+          <Header as="p" id="message" style={{ color: "#4C5966", textAlign: 'center', fontStyle: 'italic' }}>
+            After you have added a recipe you can always access it in your Cookbook
+          </Header>
           {createPDF}
-          {pdfLink}
-          {pdfMessage}
           <Container>
             <List divided relaxed>
               {renderFavoriteRecipeList}
