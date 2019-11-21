@@ -24,8 +24,8 @@ class Cookbook extends Component {
   }
 
   async submitPdfRequest() {
-    const response = await fetchCookbookPdf()
     this.setState({ isLoading: true })
+    const response = await fetchCookbookPdf()
     this.setState({
       message: response.message,
       pdfLink: response.url,
