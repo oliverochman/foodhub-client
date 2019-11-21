@@ -18,17 +18,17 @@ class UserProfile extends Component {
   }
 
   render() {
-    let renderUserListOfRecipes, message, profileGreeting
+    let renderUserListOfRecipes, message, profileGreeting, image
     const recipeUserData = this.state.userRecipes
 
     if (recipeUserData.length !== []) {
       renderUserListOfRecipes = recipeUserData.map(recipe => {
+        image = recipe.image ? <Image avatar src={recipe.image} /> : ''
         return (
           <List.Item key={recipe.id}>
-              <Image avatar src={recipe.image} />
+              {image}
               <List.Content style={{ fontSize: '1.2rem' }}>
                 <List.Header name="recipe-title">Title: {recipe.title}</List.Header>
-                <List.Description name="recipe-ingredients">Ingredients: {recipe.ingredients}</List.Description>
                 <Link id={`recipe-${recipe.id}`} to={`/recipe/${recipe.id}`}><List.Description className="profile-link">View recipe</List.Description></Link>
               </List.Content>
           </List.Item>
@@ -36,16 +36,18 @@ class UserProfile extends Component {
       })
     }
 
-    message = (
-      <Header as="p" id="message" style={{ color: "#4C5966", textAlign: 'center' }}>
-        You do not currently have any recipes
-      </Header>
-    )
+    if (recipeUserData.length == []) {
+      message = (
+        <Header as="p" id="message" style={{ color: "#4C5966", textAlign: 'center' }}>
+          You do not currently have any recipes
+        </Header>
+      )
+    }
 
     profileGreeting = (
       <Header as="p" id="profile-greeting" style={{ color: "#4C5966", textAlign: 'center' }}>
         Hello {this.props.currentUser.attributes.name}, welcome to your profile page
-        </Header>
+      </Header>
     )
 
     return (

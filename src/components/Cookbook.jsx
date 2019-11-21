@@ -1,14 +1,16 @@
 import React, { Component } from "react"
-import { Header, List, Container, Image } from "semantic-ui-react"
+import { Header, List, Container, Image, Button, Icon } from "semantic-ui-react"
 import "../css/create-recipe.css"
-import { fetchFavorites } from '../modules/requestFavorites'
+import { fetchFavorites, fetchCookbookPdf } from '../modules/requestFavorites'
 import { Link } from "react-router-dom"
+import AlertMessage from './AlertMessage'
 
 class Cookbook extends Component {
   state = {
     favoriteRecipes: [],
     message: null,
-    error: false,
+    pdfLink: null,
+    isLoading: null
   }
   componentDidMount() {
     this.renderFavorites()
@@ -21,8 +23,18 @@ class Cookbook extends Component {
     })
   }
 
+  async submitPdfRequest() {
+    this.setState({ isLoading: true })
+    const response = await fetchCookbookPdf()
+    this.setState({
+      message: response.message,
+      pdfLink: response.url,
+      isLoading: false
+    })
+  }
+
   render() {
-    let renderFavoriteRecipeList, message, image
+    let renderFavoriteRecipeList, image, createPDF, pdfMessage, pdfLink
     const favouritesData = this.state.favoriteRecipes
 
     if (favouritesData.length > 0) {
@@ -41,19 +53,59 @@ class Cookbook extends Component {
       })
     }
 
-    message = (
-      <Header as="p" id="message" style={{ color: "#4C5966", textAlign: 'center', fontStyle: 'italic' }}>
-        After you have added a recipe you can always access it in your Cookbook
-      </Header>
-    )
+    if (this.state.message) {
+      pdfMessage = (
+        <AlertMessage
+          message={this.state.message}
+        />
+      )
+    } else {
+      createPDF = (
+        <Container textAlign='center'>
+          <Button
+            name="create-pdf"
+            color='teal'
+            onClick={() => this.submitPdfRequest()}
+          >
+            Generate cookbook
+          </Button>
+        </Container>
+      )
+    }
+
+    if (this.state.pdfLink) {
+      pdfLink = (
+        <Container style={{ fontSize: '1.5rem', margin: '1rem', textAlign: 'center' }}>
+          <a href={this.state.pdfLink}><Icon name='food' size='small' />
+            Click here to view your new cookbook!
+          </a>
+        </Container>
+      )
+    }
+
+    if (this.state.isLoading) {
+      createPDF = (
+        <Container textAlign='center'>
+          <Button basic loading color='teal'>
+            Is Loading Right Now
+          </Button>
+        </Container>
+      )
+    }
+
 
     return (
       <div className="profile-bg">
         <Container className="profile-container">
+          {pdfMessage}
+          {pdfLink}
           <Header as="h1" style={{ color: "#4C5966", textAlign: 'center' }}>
             My Cookbook
           </Header>
-          {message}
+          <Header as="p" id="message" style={{ color: "#4C5966", textAlign: 'center', fontStyle: 'italic' }}>
+            After you have added a recipe you can always access it in your Cookbook
+          </Header>
+          {createPDF}
           <Container>
             <List divided relaxed>
               {renderFavoriteRecipeList}

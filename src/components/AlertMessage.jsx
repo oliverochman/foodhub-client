@@ -9,7 +9,7 @@ const AlertMessage = (props) => {
         <Header
           as='p'
           id="response-message"
-          style={{ color: props.error ? 'red' : 'green' }}>
+          style={{ color: props.error ? 'red' : 'green', textAlign: 'center' }}>
           {props.message}
         </Header>
       </Message>
