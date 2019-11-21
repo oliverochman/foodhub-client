@@ -16,7 +16,6 @@ describe('Save recipe to Cookbook', () => {
   
   it('Successfully saves recipe to the Cookbook list', () => {
     cy.anotherLoginUser('user2@mail.com', 'password')
-
     cy.get('#recipe-1').click({ force: true })
     cy.get('[name="save-recipe-to-cookbook"]').click()
     cy.get('#response-message').should('contain', 'The recipe was successfully added to your favorites')
