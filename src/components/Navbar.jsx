@@ -22,7 +22,7 @@ class Navbar extends Component {
 
   render() {
     const notMobile = { minWidth: Responsive.onlyMobile.maxWidth + 1 }
-    let logOut, logIn, welcomeMessage, createRecipe, cookbook
+    let logOut, logIn, welcomeMessage, createRecipe, cookbook, userProfile
 
     if (this.props.currentUser.isSignedIn) {
       welcomeMessage = (
@@ -51,6 +51,13 @@ class Navbar extends Component {
         <Menu.Item id='nav-create' as={NavLink} to='/recipes/create'>
           <Header position='right'>
             Create Recipe
+          </Header>
+        </Menu.Item>
+      )
+      userProfile = (
+        <Menu.Item id='nav-profile' as={NavLink} to='/profile'>
+          <Header position='right'>
+            My Profile
           </Header>
         </Menu.Item>
       )
@@ -113,6 +120,7 @@ class Navbar extends Component {
               {createRecipe}
               {cookbook}
               {logIn}
+              {userProfile}
               {logOut}
             </Menu.Menu>
           </Sidebar>
@@ -134,6 +142,7 @@ class Navbar extends Component {
             {createRecipe}
             {cookbook}
             {logIn}
+            {userProfile}
             {logOut}
             </Menu.Menu>
           </Menu>

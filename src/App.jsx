@@ -11,6 +11,7 @@ import Cookbook from './components/Cookbook'
 import { generateRequireSignInWrapper } from 'redux-token-auth'
 import { connect } from 'react-redux'
 import SignUp from './components/SignUp'
+import UserProfile from './components/UserProfile'
 
 const requireSignIn = generateRequireSignInWrapper({
   redirectPathIfNotSignedIn: '/',
@@ -35,6 +36,7 @@ class App extends Component {
           </Route>
           <Route exact path="/recipes/create" component={requireSignIn(RecipeCU)} />
           <Route exact path="/cookbook" component={requireSignIn(Cookbook)} />
+          <Route exact path="/profile" component={requireSignIn(UserProfile)} />
       </>
     )
   }
