@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Login from './Login'
 import Logout from './Logout'
-import Cookbook from './Cookbook'
 
 class Navbar extends Component {
   state = { visibleSidebar: false, modalOpen: false }

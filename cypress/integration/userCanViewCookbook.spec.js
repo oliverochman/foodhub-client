@@ -14,9 +14,7 @@ describe('User can view cookbook', () => {
     .within(() => {
       cy.get('#nav-cookbook').click()
     })
-    cy.get('[name="recipe-2"]').within(() => {
-      cy.get('[name="recipe-title"]').should('contain', 'Chocolate Croissant')
-    })
+    cy.get('[name="recipe-title"]').should('contain', 'Chocolate Croissant')
   })
 
   it('Sees message for no favorite recipes have been added into your Cookbook', () => {

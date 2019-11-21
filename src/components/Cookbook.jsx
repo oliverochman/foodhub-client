@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Message, Header, List, Container, Image } from "semantic-ui-react"
+import { Header, List, Container, Image } from "semantic-ui-react"
 import "../css/create-recipe.css"
 import { fetchFavorites } from '../modules/requestFavorites'
 import { Link } from "react-router-dom"
@@ -8,7 +8,7 @@ class Cookbook extends Component {
   state = {
     favoriteRecipes: [],
     message: null,
-    error: false, 
+    error: false,
   }
   componentDidMount() {
     this.renderFavorites()
@@ -24,11 +24,11 @@ class Cookbook extends Component {
 
   render() {
     let renderFavoriteRecipeList
-    const recipeData = this.state.favoriteRecipes
+    const favouritesData = this.state.favoriteRecipes
     let message
 
-    if (recipeData.length > 0) {
-      renderFavoriteRecipeList = recipeData.map(recipe => {
+    if (favouritesData.length > 0) {
+      renderFavoriteRecipeList = favouritesData.map(recipe => {
         return (
           <List.Item key={recipe.id}>
             <Image avatar src={recipe.image} />
@@ -40,38 +40,30 @@ class Cookbook extends Component {
           </List.Item>
         )
       })
-    } 
-    
+    }
+
     message = (
-        <Message style={{ color: "red" }}>
-          <Header as="p" id="message" style={{ color: "#4C5966", textAlign: 'center' }}>
-            After you have added a recipe you can always access it in your Cookbook
+      <Header as="p" id="message" style={{ color: "#4C5966", textAlign: 'center', fontStyle: 'italic' }}>
+        After you have added a recipe you can always access it in your Cookbook
+      </Header>
+    )
+
+    return (
+      <div className="profile-bg">
+        <Container className="profile-container">
+          <Header as="h1" style={{ color: "#4C5966", textAlign: 'center' }}>
+            My Cookbook
           </Header>
-        </Message>
-        )
-        
-        return (
-        <div className="profile-bg">
-          <h1>My Cookbook</h1>
-            <Container className="profile-container">
-              {message}
-              <Container>
-                <List divided relaxed>
-                  {renderFavoriteRecipeList}
-                </List>
-              </Container>
-            </Container>
-        </div>
+          {message}
+          <Container>
+            <List divided relaxed>
+              {renderFavoriteRecipeList}
+            </List>
+          </Container>
+        </Container>
+      </div>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state.reduxTokenAuth.currentUser
-  }
-}
-
-export default connect(
-  mapStateProps
-  )(Cookbook);
+export default Cookbook;

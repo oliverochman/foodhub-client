@@ -22,6 +22,7 @@ const submitFavorite = async (recipeId) => {
 
 const fetchFavorites = async () => {
   let response = await axios.get(apiUrl + 'favorites')
+  debugger;
   return response.data.cookbook.cookbook_recipes
 }
 
