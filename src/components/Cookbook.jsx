@@ -1,8 +1,8 @@
 import React, { Component } from "react"
-import { withRouter } from "react-router"
-import { Message, Header, Grid } from "semantic-ui-react"
+import { Message, Header, List, Container, Image } from "semantic-ui-react"
 import "../css/create-recipe.css"
 import { fetchFavorites } from '../modules/requestFavorites'
+import { Link } from "react-router-dom"
 
 class Cookbook extends Component {
   state = {
@@ -30,28 +30,48 @@ class Cookbook extends Component {
     if (recipeData.length > 0) {
       renderFavoriteRecipeList = recipeData.map(recipe => {
         return (
-          <div name={`recipe-${recipe.id}`}>
-            <p name="recipe-title"> {recipe.title}</p> 
-          </div>
+          <List.Item key={recipe.id}>
+            <Image avatar src={recipe.image} />
+            <List.Content style={{ fontSize: '1.2rem' }}>
+              <List.Header name="recipe-title">Title: {recipe.title}</List.Header>
+              <List.Description name="recipe-ingredients">Ingredients: {recipe.ingredients}</List.Description>
+              <Link id={`recipe-${recipe.id}`} to={`/recipe/${recipe.id}`}><List.Description className="profile-link">View recipe</List.Description></Link>
+            </List.Content>
+          </List.Item>
         )
       })
-    } else {
-      message = (
+    } 
+    
+    message = (
         <Message style={{ color: "red" }}>
-          <Header as="p" id="message" style={{ color: "#4C5966" }}>
+          <Header as="p" id="message" style={{ color: "#4C5966", textAlign: 'center' }}>
             After you have added a recipe you can always access it in your Cookbook
           </Header>
         </Message>
-      )
-    }
-
-    return (
-      <div>
-        <h1>My Cookbook</h1>
-        {message}
-        {renderFavoriteRecipeList}
-      </div>
+        )
+        
+        return (
+        <div className="profile-bg">
+          <h1>My Cookbook</h1>
+            <Container className="profile-container">
+              {message}
+              <Container>
+                <List divided relaxed>
+                  {renderFavoriteRecipeList}
+                </List>
+              </Container>
+            </Container>
+        </div>
     )
   }
 }
-export default Cookbook
+
+const mapStateToProps = state => {
+  return {
+    currentUser: state.reduxTokenAuth.currentUser
+  }
+}
+
+export default connect(
+  mapStateProps
+  )(Cookbook);
