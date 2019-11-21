@@ -6,8 +6,9 @@ import '../css/recipe-card.css'
 const RecipeCard = props => {
   let recipe = props.recipe
   let linked = props.linked
-  let addRecipeToFavorites
+  let parent = props.recipe.parent
   let splitRecipe = recipe.ingredients.split(',').map((ingredient, index) => <List key={index}>{ingredient}</List>)
+  let addRecipeToFavorites
 
   if (props.isSignedIn) {
     addRecipeToFavorites = (
@@ -17,7 +18,6 @@ const RecipeCard = props => {
     )
   }
 
-  let parent = props.recipe.parent
   return (
     <>
       <Grid.Column
@@ -46,7 +46,7 @@ const RecipeCard = props => {
                       id={`recipe-${parent.id}`}
                       to={`/recipe/${parent.id}`}
                     >
-                      <p name="parent-data">
+                      <p>
                         <Icon name='food' size='large' />
                         This recipe was forked from '{parent.title}' by {parent.user_name}
                       </p>
