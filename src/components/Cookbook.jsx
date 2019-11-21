@@ -16,7 +16,6 @@ class Cookbook extends Component {
 
   async renderFavorites() {
     const response = await fetchFavorites()
-    debugger;
     this.setState({
       favoriteRecipes: response
     })
