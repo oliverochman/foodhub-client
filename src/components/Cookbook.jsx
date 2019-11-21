@@ -29,13 +29,17 @@ class Cookbook extends Component {
 
     if (recipeData.length > 0) {
       renderFavoriteRecipeList = recipeData.map(recipe => {
-      return <p name={'recipe'+recipe.id} > {recipe.title}</p>
+        return (
+          <div name={`recipe-${recipe.id}`}>
+            <p name="recipe-title"> {recipe.title}</p> 
+          </div>
+        )
       })
     } else {
       message = (
         <Message style={{ color: "red" }}>
           <Header as="p" id="message" style={{ color: "#4C5966" }}>
-            There are no recipes
+            After you have added a recipe you can always access it in your Cookbook
           </Header>
         </Message>
       )
