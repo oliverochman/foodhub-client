@@ -31,11 +31,12 @@ const fetchFavorites = async () => {
 
 const fetchCookbookPdf = async () => {
   let response = await axios.post(apiUrl + 'cookbooks',
-  {
-    headers: getCurrentCredentials()
-  }
+    {},
+    {
+      headers: getCurrentCredentials()
+    }
   )
-  return response.data.message
+  return response.data
 }
 
 export { submitFavorite, fetchFavorites, fetchCookbookPdf }

@@ -7,15 +7,15 @@ describe('User can get a PDF version of the cookbook', () => {
       response: 'fixture:favorites.json',
       status: 200
     }),
-      cy.route({
-        method: "POST",
-        url: "http://localhost:3000/v1/cookbooks",
-        response: {
-          "message": "The cookbook was generated and is available for download",
-          "url": "attachment_url"
-        },
-        status: 201
-      });
+    cy.route({
+      method: "POST",
+      url: "http://localhost:3000/v1/cookbooks",
+      response: {
+        "message": "The cookbook was generated and is available for download",
+        "url": "attachment_url"
+      },
+      status: 201
+    });
 
     cy.loginUser('user@mail.com', 'password')
     cy.get('#navbar')
@@ -25,7 +25,7 @@ describe('User can get a PDF version of the cookbook', () => {
     cy.get('h1').should('contain', 'My Cookbook')
     cy.get('[name="create-pdf"]').click()
     cy.get('#response-message')
-      .should('contain', 'The cookbook was generated and is available for download at attachment_url')
+      .should('contain', 'The cookbook was generated and is available for download')
   })
 
   it('Cannot generate a cookbook unless logged in', () => {

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Header, List, Container, Image } from "semantic-ui-react"
+import { Header, List, Container, Image, Button, Message } from "semantic-ui-react"
 import "../css/create-recipe.css"
 import { fetchFavorites, fetchCookbookPdf } from '../modules/requestFavorites'
 import { Link } from "react-router-dom"
@@ -7,7 +7,8 @@ import { Link } from "react-router-dom"
 class Cookbook extends Component {
   state = {
     favoriteRecipes: [],
-    message: null
+    message: null,
+    pdfLink: null
   }
   componentDidMount() {
     this.renderFavorites()
@@ -23,12 +24,13 @@ class Cookbook extends Component {
   async submitPdfRequest() {
     const response = await fetchCookbookPdf()
     this.setState({
-      message: response.message
+      message: response.message,
+      pdfLink: response.url
     })
   }
 
   render() {
-    let renderFavoriteRecipeList, message, image
+    let renderFavoriteRecipeList, message, image, createPDF, pdfMessage, pdfLink
     const favouritesData = this.state.favoriteRecipes
 
     if (favouritesData.length > 0) {
@@ -53,15 +55,16 @@ class Cookbook extends Component {
       </Header>
     )
 
-    if (message) {
+    if (this.state.message) {
       pdfMessage = (
         <Message style={{ color: "green" }}>
-        <Header as="p" id="response-message" style={{ color: "#4C5966" }}>
-          {message}
-        </Header>
+          <Header as="p" id="response-message" style={{ color: "#4C5966" }}>
+            {this.state.message}
+          </Header>
       </Message>
       )
     }
+
 
     createPDF = (
       <Button
@@ -71,6 +74,13 @@ class Cookbook extends Component {
       Submit
       </Button>
     )
+    
+    if (this.state.pdfLink) {
+      pdfLink = (
+        <a href={this.state.pdfLink}>Download ur Cookbook here!</a>
+      )
+    }
+  
 
     return (
       <div className="profile-bg">
@@ -80,6 +90,7 @@ class Cookbook extends Component {
           </Header>
           {message}
           {createPDF}
+          {pdfLink}
           {pdfMessage}
           <Container>
             <List divided relaxed>
