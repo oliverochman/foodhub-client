@@ -73,9 +73,9 @@ class Cookbook extends Component {
     if (this.state.pdfLink) {
       pdfLink = (
         <Container style={{ fontSize: '1.5rem', margin: '1rem', textAlign: 'center' }}>
-          <Link to={this.state.pdfLink}><Icon name='food' size='small' />
+          <a href={this.state.pdfLink}><Icon name='food' size='small' />
             Click here to view your new cookbook!
-        </Link>
+        </a>
         </Container>
       )
     }
