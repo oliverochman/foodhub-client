@@ -9,7 +9,8 @@ class Cookbook extends Component {
   state = {
     favoriteRecipes: [],
     message: null,
-    pdfLink: null
+    pdfLink: null,
+    isLoading: null
   }
   componentDidMount() {
     this.renderFavorites()
@@ -24,9 +25,11 @@ class Cookbook extends Component {
 
   async submitPdfRequest() {
     const response = await fetchCookbookPdf()
+    this.setState({ isLoading: true })
     this.setState({
       message: response.message,
-      pdfLink: response.url
+      pdfLink: response.url,
+      isLoading: false
     })
   }
 
@@ -75,7 +78,22 @@ class Cookbook extends Component {
         <Container style={{ fontSize: '1.5rem', margin: '1rem', textAlign: 'center' }}>
           <a href={this.state.pdfLink}><Icon name='food' size='small' />
             Click here to view your new cookbook!
-        </a>
+          </a>
+        </Container>
+      )
+    }
+
+    if(this.state.isLoading) {
+      createPDF = (
+        <Container textAlign='center'>
+          <Button
+            loading
+            name="create-pdf"
+            color='teal'
+            onClick={() => this.submitPdfRequest()}
+          >
+            Generate cookbook
+        </Button>
         </Container>
       )
     }
