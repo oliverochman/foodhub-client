@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { withRouter } from "react-router"
 import { Message, Header, Grid } from "semantic-ui-react"
-
 import "../css/create-recipe.css"
 import { fetchFavorites } from '../modules/requestFavorites'
 

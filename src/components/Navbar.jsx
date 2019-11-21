@@ -48,6 +48,10 @@ class Navbar extends Component {
           </Header>
         </Menu.Item>
       )
+    } else {
+      logIn = (
+        <Menu.Item id= 'nav-login' className='fake-link-hover'/>
+      )
       createRecipe = (
         <Menu.Item id='nav-create' as={NavLink} to='/recipes/create'>
           <Header position='right'>
@@ -112,6 +116,7 @@ class Navbar extends Component {
               </Menu.Item>
               {welcomeMessage}
               {createRecipe}
+              {cookbook}
               {logIn}
               {logOut}
             </Menu.Menu>
