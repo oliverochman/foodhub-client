@@ -35,7 +35,7 @@ describe('Recipes created by user are displayed in the profile', () => {
         cy.get('#nav-profile').click()
       })
     cy.get('#message')
-      .should('contain', 'After you have created a recipe you can always access it from here')
+      .should('contain', 'You do not currently have any recipes')
   })
 
   it('Cannot view profile page unless logged in', () => {
