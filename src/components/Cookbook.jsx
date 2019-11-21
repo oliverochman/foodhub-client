@@ -87,7 +87,7 @@ class Cookbook extends Component {
       createPDF = (
         <Container textAlign='center'>
           <Button basic loading color='teal'>
-            Is Loading
+            Is Loading Right Now
           </Button>
         </Container>
       )
