@@ -68,7 +68,7 @@ class Cookbook extends Component {
             onClick={() => this.submitPdfRequest()}
           >
             Generate cookbook
-        </Button>
+          </Button>
         </Container>
       )
     }
@@ -83,17 +83,12 @@ class Cookbook extends Component {
       )
     }
 
-    if(this.state.isLoading) {
+    if (this.state.isLoading) {
       createPDF = (
         <Container textAlign='center'>
-          <Button
-            loading
-            name="create-pdf"
-            color='teal'
-            onClick={() => this.submitPdfRequest()}
-          >
-            Generate cookbook
-        </Button>
+          <Button basic loading color='teal'>
+            Loading
+          </Button>
         </Container>
       )
     }
