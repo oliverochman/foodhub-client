@@ -1,0 +1,16 @@
+{ 
+  "cookbook": {
+    "cookbook_recipes": [
+      {
+        "id": 1,  
+        "title": "Quiche", 
+        "user_name": "Bob"
+      },
+      {
+        "id": 2,
+        "title": "Chocolate Croissant", 
+        "user_name": "Ingvar"
+      } 
+    ]
+  }
+}
