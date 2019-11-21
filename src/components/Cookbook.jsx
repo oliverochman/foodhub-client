@@ -22,18 +22,18 @@ class Cookbook extends Component {
   }
 
   render() {
-    let renderFavoriteRecipeList
+    let renderFavoriteRecipeList, message, image
     const favouritesData = this.state.favoriteRecipes
-    let message
 
     if (favouritesData.length > 0) {
       renderFavoriteRecipeList = favouritesData.map(recipe => {
+        image = recipe.image ? <Image avatar src={recipe.image} /> : ''
         return (
           <List.Item key={recipe.id}>
-            <Image avatar src={recipe.image} />
+            {image}
             <List.Content style={{ fontSize: '1.2rem' }}>
               <List.Header name="recipe-title">Title: {recipe.title}</List.Header>
-              <List.Description name="recipe-ingredients">Ingredients: {recipe.ingredients}</List.Description>
+              <List.Description name="recipe-creator">Created by: {recipe.user_name}</List.Description>
               <Link id={`recipe-${recipe.id}`} to={`/recipe/${recipe.id}`}><List.Description className="profile-link">View recipe</List.Description></Link>
             </List.Content>
           </List.Item>
