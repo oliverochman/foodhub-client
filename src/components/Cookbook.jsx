@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Header, List, Container, Image, Button, Icon } from "semantic-ui-react"
-import "../css/create-recipe.css"
+import "../css/cookbook.css"
 import { fetchFavorites, fetchCookbookPdf } from '../modules/requestFavorites'
 import { Link } from "react-router-dom"
 import AlertMessage from './AlertMessage'
@@ -95,7 +95,7 @@ class Cookbook extends Component {
 
 
     return (
-      <div className="profile-bg">
+      <div className="cookbook-bg">
         <Container className="profile-container">
           {pdfMessage}
           {pdfLink}

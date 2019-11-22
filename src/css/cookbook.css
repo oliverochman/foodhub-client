@@ -1,31 +1,23 @@
-.ui.card img {
-  width: 100%;
-}
-
-img {
-  width: 100%;
-}
-
-.recipe-card-bg {
-  background: url('../img/AdobeStock_199252786.jpeg') no-repeat center center fixed; 
+.cookbook-bg {
+  background: url('../img/cookbook_bg.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   position: relative; 
   z-index: 1;
-  background-color: rgba(255, 255, 255, 0.5);
-  height: auto;
+  background-color: rgba(255, 255, 255, 0.7);
+  height: 100vh;
 }
 
-.recipe-card-bg:after {
+.cookbook-bg:after {
   position: absolute;
   content:"";
   top:0;
   left:0;
   width:100%;
   height:100%;
-  opacity:0.5;
+  opacity:0.3;
   background-color: #fff;
   z-index: -1;
 }

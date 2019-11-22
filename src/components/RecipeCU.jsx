@@ -22,9 +22,9 @@ class RecipeCU extends Component {
         ingredients.value,
         directions.value,
         image.files[0],
-        this.props.recipe.id,
-        setTimeout(() => { history.push('/')}, 3000)
+        this.props.recipe.id
       )
+      setTimeout(() => { this.props.closeEditForm() }, 3000)
     } else if (this.props.fork) {
       response = await forkRecipe(
         title.value,
@@ -32,15 +32,15 @@ class RecipeCU extends Component {
         directions.value,
         image.files[0],
         this.props.recipe.id,
-        setTimeout(() => { history.push('/')}, 3000)
       )
+      setTimeout(() => { this.props.closeForkForm(response.recipeId)}, 3000)
     } else {
       response = await submitRecipe(
         title.value,
         ingredients.value,
         directions.value,
         image.files[0],
-        setTimeout(() => { history.push('/')}, 3000)
+        setTimeout(() => { history.push('/') }, 3000)
       )
     }
 
@@ -70,15 +70,17 @@ class RecipeCU extends Component {
     let messages
 
     return (
-      <div className="create-wrapper">
-        {messages}
-        <RecipeForm
-          submitRecipeHandler={this.submitRecipeHandler}
-          version={version}
-          recipe={edit || fork ? this.props.recipe : false}
-          message={message}
-          error={error}
-        />
+      <div className="cu-bg">
+        <div className="create-wrapper">
+          {messages}
+          <RecipeForm
+            submitRecipeHandler={this.submitRecipeHandler}
+            version={version}
+            recipe={edit || fork ? this.props.recipe : false}
+            message={message}
+            error={error}
+          />
+        </div>
       </div>
     );
   }

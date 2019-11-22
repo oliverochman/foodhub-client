@@ -1,5 +1,5 @@
 .signup-bg {
-  background: url('https://github.com/miyeaier/react-portfolio/blob/master/Img/AdobeStock_199252786.jpeg?raw=true') no-repeat center center fixed; 
+  background: url('../img/AdobeStock_199252786.jpeg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

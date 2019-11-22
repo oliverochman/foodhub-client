@@ -26,11 +26,11 @@ class UserProfile extends Component {
         image = recipe.image ? <Image avatar src={recipe.image} /> : ''
         return (
           <List.Item key={recipe.id}>
-              {image}
-              <List.Content style={{ fontSize: '1.2rem' }}>
-                <List.Header name="recipe-title">Title: {recipe.title}</List.Header>
-                <Link id={`recipe-${recipe.id}`} to={`/recipe/${recipe.id}`}><List.Description className="profile-link">View recipe</List.Description></Link>
-              </List.Content>
+            {image}
+            <List.Content style={{ fontSize: '1.2rem' }}>
+              <List.Header name="recipe-title">Title: {recipe.title}</List.Header>
+              <Link id={`recipe-${recipe.id}`} to={`/recipe/${recipe.id}`}><List.Description className="profile-link">View recipe</List.Description></Link>
+            </List.Content>
           </List.Item>
         )
       })
@@ -45,9 +45,14 @@ class UserProfile extends Component {
     }
 
     profileGreeting = (
-      <Header as="p" id="profile-greeting" style={{ color: "#4C5966", textAlign: 'center' }}>
-        Hello {this.props.currentUser.attributes.name}, welcome to your profile page
+      <>
+        <Header as="p" style={{ color: "#4C5966", textAlign: 'center' }}>
+          Hello {this.props.currentUser.attributes.name}
+        </Header>
+        <Header as="p" id="profile-greeting" style={{ color: "#4C5966", textAlign: 'center' }}>
+          Here are all of the yummy recipes that you have created so far
       </Header>
+      </>
     )
 
     return (

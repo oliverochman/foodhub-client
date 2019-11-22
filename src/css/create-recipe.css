@@ -1,5 +1,5 @@
-.profile-bg {
-  background: url('https://github.com/miyeaier/react-portfolio/blob/master/Img/AdobeStock_199252786.jpeg?raw=true') no-repeat center center fixed; 
+.cu-bg {
+  background: url('../img/AdobeStock_199252786.jpeg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -10,28 +10,22 @@
   height: 100vh;
 }
 
-.profile-bg:after {
+.cu-bg:after {
   position: absolute;
   content:"";
   top:0;
   left:0;
   width:100%;
   height:100%;
-  opacity:0;
+  opacity:0.8;
   background-color: #fff;
   z-index: -1;
 }
 
-.profile-container {
-  background-color: #fff;
-  padding: 2rem;
-  position: relative;
-  top: 10%;
-  border-radius: 10px;
-  border: 1px solid gainsboro;
+.create-message {
+  margin: 1rem 5rem 1rem 5rem !important;
 }
 
-.profile-link:hover {
-  font-weight: bold;
-  font-size: 1.3rem;
-} 
+.create-wrapper {
+  margin: 1rem 5rem;
+}

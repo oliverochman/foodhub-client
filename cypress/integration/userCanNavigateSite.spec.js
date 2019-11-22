@@ -18,8 +18,7 @@ describe('Navigating the site on a mobile', () => {
 
   it('successfully', () => {
     cy.get('#navbar')
-    cy.get('#sidebar-menu')
-      .click()
+    cy.get('#sidebar-menu').click({ force: true })
     cy.get('#mobile-menu')
       .should('be.visible')
     cy.get('#desktop-navbar')
