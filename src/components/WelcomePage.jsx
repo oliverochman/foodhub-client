@@ -58,9 +58,9 @@ class Welcome extends Component {
             </Responsive>
           </LazyHero>
         </div>
-        <Container style={{ marginTop: '2vh', fontSize: '1.5rem' }}>
+        <Container className="recipe-card-bg" style={{ marginTop: '2vh', fontSize: '1.5rem' }}>
           <Header sub
-            style={{ fontStyle: 'italic', fontWeight: 'bold', marginBottom: '2rem', backgroundColor: '#FCE8CE', width: '100vw', padding: '1rem', borderRadius: '5px', boxShadow: "1px 3px 1px #fcdcce" }} id="view-all-recipes">
+            style={{ fontStyle: 'italic', fontWeight: 'bold', marginBottom: '2rem', backgroundColor: '#f2ede9', padding: '1rem', borderRadius: '5px', boxShadow: "1px 3px 1px #d9d5d1" }} id="view-all-recipes">
             <Icon name="caret down" size="huge" />
             Bring your recipes to the world!
             </Header>

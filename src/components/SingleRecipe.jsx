@@ -110,10 +110,10 @@ class SingleRecipe extends Component {
 
     return (
       <>
-        <div style={{ margin: '2rem' }}>
+        <div>
           {messages}
         </div>
-        <div className="single-card-bg">
+        <div className="single-card-bg" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
           {showSingleRecipe}
         </div>
       </>

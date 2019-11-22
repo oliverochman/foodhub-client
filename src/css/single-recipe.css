@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
-.single-recipe {
-  margin: 2rem 0 !important;
-}
-
 .single-card-bg {
   background: url('../img/AdobeStock_199252786.jpeg') no-repeat center center fixed; 
   -webkit-background-size: cover;
