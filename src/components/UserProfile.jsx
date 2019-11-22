@@ -36,7 +36,7 @@ class UserProfile extends Component {
       })
     }
 
-    if (recipeUserData.length == []) {
+    if (recipeUserData.length === []) {
       message = (
         <Header as="p" id="message" style={{ color: "#4C5966", textAlign: 'center' }}>
           You do not currently have any recipes

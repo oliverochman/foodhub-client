@@ -87,13 +87,13 @@ class SingleRecipe extends Component {
         edit = this.state.renderEditForm ?
           <RecipeCU edit recipe={recipe} />
           :
-          <Button color='teal' name="edit-recipe" onClick={this.renderEditForm}><Icon name='edit' /> Edit Recipe</Button>
+          <Button color='teal' name="edit-recipe" onClick={this.renderEditForm}><Icon name='edit' /> Edit this recipe</Button>
       }
       if (this.props.currentUser.attributes.id !== recipe.user_id && this.props.currentUser.isSignedIn) {
         fork = this.state.renderForkForm ?
           <RecipeCU fork recipe={recipe} />
           :
-          <Button color='teal' name="fork-recipe" onClick={this.renderForkForm}><Icon name='plus' /> Fork Recipe</Button>
+          <Button color='teal' name="fork-recipe" onClick={this.renderForkForm}><Icon name='plus' /> Fork this recipe</Button>
       }
       showSingleRecipe = (
         <RecipeCard
@@ -109,14 +109,14 @@ class SingleRecipe extends Component {
     }
 
     return (
-      <>
+      <div id="test">
         <div>
           {messages}
         </div>
         <div className="single-card-bg" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
           {showSingleRecipe}
         </div>
-      </>
+      </div>
     )
   }
 }

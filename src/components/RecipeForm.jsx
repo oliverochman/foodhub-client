@@ -9,7 +9,7 @@ const RecipeForm = props => {
   switch (props.version) {
     case 'fork':
       buttonText = 'Fork Recipe'
-      header = 'If you want to make some changes to your fork, do it here'
+      header = 'A fork is a copy of another user\'s recipe that you can edit and make into your own. If you want to make some changes to your fork, do it here.'
       subHeader = 'All input fields are needed in order to complete the fork.'
       formId = "fork-recipe-form"
       break;
