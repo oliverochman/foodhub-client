@@ -41,18 +41,8 @@ const RecipeCard = props => {
                 </Card.Header>
               </Link>
               <Card.Content extra>
-              {parent ? (
-                    <Link
-                      id={`recipe-${parent.id}`}
-                      to={`/recipe/${parent.id}`}
-                    >
-                      <p name="parent-data">
-                        <Icon name='food' size='large' />
-                        This recipe was forked from '{parent.title}' by {parent.user_name}
-                      </p>
-                    </Link>
-                  ) : (<p>Created by {recipe.user_name}</p>)}
-                </Card.Content>
+                <p>Created by {recipe.user_name}</p>
+              </Card.Content>
           </Card>
         ) : (
             <Container>
