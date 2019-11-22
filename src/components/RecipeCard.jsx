@@ -13,7 +13,7 @@ const RecipeCard = props => {
   if (props.isSignedIn) {
     addRecipeToFavorites = (
       <Button color="olive" name="save-recipe-to-cookbook" onClick={() => props.setRecipeAsFavorite()}>
-        <Icon name='plus' /> Add this recipe to your favorites
+        <Icon name='plus' /> Add recipe to cookbook
       </Button>
     )
   }

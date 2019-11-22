@@ -43,11 +43,11 @@ const RecipeForm = props => {
   return (
     <>
       {messages}
-      <Segment>
-        <Header as="h1" style={{ textAlign: 'center' }}>
+        <Header as="h1" style={{ textAlign: 'center', marginTop: '2rem' }}>
           {header}
         </Header>
         <Header as="h3" style={{ fontStyle: 'italic', textAlign: 'center' }}>{subHeader}</Header>
+        <Segment>
         <div>
           <Form
             id={formId}

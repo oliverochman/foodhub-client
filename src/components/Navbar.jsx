@@ -58,7 +58,7 @@ class Navbar extends Component {
       userProfile = (
         <Menu.Item id='nav-profile' as={NavLink} to='/profile'>
           <Header position='right'>
-            My Profile
+            My Recipes
           </Header>
         </Menu.Item>
       )
