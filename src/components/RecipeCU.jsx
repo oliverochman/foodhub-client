@@ -22,9 +22,9 @@ class RecipeCU extends Component {
         ingredients.value,
         directions.value,
         image.files[0],
-        this.props.recipe.id,
-        setTimeout(() => { history.push('/')}, 3000)
+        this.props.recipe.id
       )
+      setTimeout(() => { this.props.closeEditForm() }, 3000)
     } else if (this.props.fork) {
       response = await forkRecipe(
         title.value,
@@ -32,8 +32,8 @@ class RecipeCU extends Component {
         directions.value,
         image.files[0],
         this.props.recipe.id,
-        setTimeout(() => { history.push('/')}, 3000)
       )
+      setTimeout(() => { this.props.closeForkForm(response.recipeId)}, 3000)
     } else {
       response = await submitRecipe(
         title.value,

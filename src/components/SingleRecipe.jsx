@@ -20,16 +20,16 @@ class SingleRecipe extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
-      this.fetchRecipe()
+      this.fetchRecipe(this.props.match.params.id)
     }
   }
 
   componentDidMount() {
-    this.fetchRecipe()
+    this.fetchRecipe(this.props.match.params.id)
   }
 
-  fetchRecipe = async () => {
-    let response = await getSingleRecipe(this.props.match.params.id)
+  fetchRecipe = async (recipeId) => {
+    let response = await getSingleRecipe(recipeId)
     if (response.recipe) {
       this.setState({
         recipe: response.recipe
@@ -69,6 +69,20 @@ class SingleRecipe extends Component {
     })
   }
 
+  closeEditForm = () => {
+    this.setState({
+      renderEditForm: false
+    })
+    this.fetchRecipe()
+  }
+
+  closeForkForm = (recipeId) => {
+    this.setState({
+      renderForkForm: false
+    })
+    this.fetchRecipe(recipeId)
+  }
+
   render() {
     let { recipe, message, error } = this.state
     let showSingleRecipe, messages, edit, fork
@@ -85,13 +99,13 @@ class SingleRecipe extends Component {
     if (recipe) {
       if (this.props.currentUser.attributes.id === recipe.user_id) {
         edit = this.state.renderEditForm ?
-          <RecipeCU edit recipe={recipe} />
+          <RecipeCU edit closeEditForm={this.closeEditForm} recipe={recipe} />
           :
           <Button color='teal' name="edit-recipe" onClick={this.renderEditForm}><Icon name='edit' /> Edit this recipe</Button>
       }
       if (this.props.currentUser.attributes.id !== recipe.user_id && this.props.currentUser.isSignedIn) {
         fork = this.state.renderForkForm ?
-          <RecipeCU fork recipe={recipe} />
+          <RecipeCU fork closeForkForm={this.closeForkForm} recipe={recipe} />
           :
           <Button color='teal' name="fork-recipe" onClick={this.renderForkForm}><Icon name='plus' /> Fork this recipe</Button>
       }

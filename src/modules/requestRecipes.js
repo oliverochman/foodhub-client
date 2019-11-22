@@ -112,9 +112,9 @@ const forkRecipe = async (title, ingredients, directions, image, recipeId) => {
         headers: getCurrentCredentials()
       }
     )
-
     return {
-      message: response.data.message,
+      recipeId : response.data.forked_recipe_id,
+      message: response.data.message
     }
   } catch(error) {
     return {
