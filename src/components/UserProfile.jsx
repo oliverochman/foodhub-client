@@ -46,7 +46,7 @@ class UserProfile extends Component {
 
     profileGreeting = (
       <>
-        <Header as="p" id="profile-greeting" style={{ color: "#4C5966", textAlign: 'center' }}>
+        <Header as="p" style={{ color: "#4C5966", textAlign: 'center' }}>
           Hello {this.props.currentUser.attributes.name}
         </Header>
         <Header as="p" id="profile-greeting" style={{ color: "#4C5966", textAlign: 'center' }}>
