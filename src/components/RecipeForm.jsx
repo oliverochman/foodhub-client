@@ -43,7 +43,7 @@ const RecipeForm = props => {
   return (
     <>
       {messages}
-        <Header as="h1" style={{ textAlign: 'center', marginTop: '2rem', paddingTop: '1rem' }}>
+        <Header as="h1" style={{ textAlign: 'center', paddingTop: '2rem', paddingTop: '1rem' }}>
           {header}
         </Header>
         <Header as="h3" style={{ fontStyle: 'italic', textAlign: 'center' }}>{subHeader}</Header>
